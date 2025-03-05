@@ -2421,6 +2421,7 @@ MonoBehaviour:
   ProfileManager: {fileID: 685323701}
   GameplayCameraController: {fileID: 1558908455}
   TowerPlacementManager: {fileID: 109332804}
+  SpellManager: {fileID: 1845977095}
 --- !u!4 &88705488
 Transform:
   m_ObjectHideFlags: 0
@@ -6595,7 +6596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.797302, y: 0}
+  m_AnchoredPosition: {x: -32.797363, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -62136,6 +62137,65 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &1845977092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845977094}
+  - component: {fileID: 1845977095}
+  m_Layer: 0
+  m_Name: Spell Usage Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1845977094
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845977092}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 123.78583, y: 949}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1845977095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845977092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caec5907aec5fc74eac1dfcc0f2a5381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUsingSpell: 0
+  spell1: {fileID: 750702576406683298, guid: 3040cd275362864488767326481bb442, type: 3}
+  spell2: {fileID: 0}
+  spell3: {fileID: 0}
+  spell1Preview: {fileID: 750702576406683298, guid: 5d3520e362ace404092ebeed0f4db375, type: 3}
+  spell2Preview: {fileID: 0}
+  spell3Preview: {fileID: 0}
+  grassTilemap: {fileID: 566898116}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &1847745054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72454,6 +72514,7 @@ SceneRoots:
   - {fileID: 1376900137}
   - {fileID: 1853739783}
   - {fileID: 109332805}
+  - {fileID: 1845977094}
   - {fileID: 222228888}
   - {fileID: 1558908459}
   - {fileID: 720976679}

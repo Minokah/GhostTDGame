@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     public ProfileManager ProfileManager;
     public GameplayCameraController GameplayCameraController;
     public TowerPlacementManager TowerPlacementManager;
+    public SpellManager SpellManager;
 
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
