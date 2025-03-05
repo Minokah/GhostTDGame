@@ -7,8 +7,8 @@ public class SpellManager : MonoBehaviour
 {
     public bool isUsingSpell = false;
 
-    public GameObject spell1, spell2;//, spell3;
-    public GameObject spell1Preview, spell2Preview;//, spell3Preview;
+    public GameObject spell1, spell2, spell3;
+    public GameObject spell1Preview, spell2Preview, spell3Preview;
 
     GameObject spellPrefab;
 
@@ -47,11 +47,11 @@ public class SpellManager : MonoBehaviour
                 spellPrefab = spell2;
                 spellPreviewPrefab = spell2Preview;
             }
-            //else
-            //{
-            //    spellPrefab = spell3;
-            //    spellPreviewPrefab = spell3Preview;
-            //}
+            else
+            {
+                spellPrefab = spell3;
+                spellPreviewPrefab = spell3Preview;
+            }
 
             // If right clicked, cancel placement
             if (Input.GetMouseButtonUp(1))
