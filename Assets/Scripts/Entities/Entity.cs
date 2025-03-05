@@ -27,6 +27,19 @@ public class Entity : MonoBehaviour
         }
     }
 
+    // for spells
+    public void Damage(float damage, BaseSpell attacker)
+    {
+        Debug.LogFormat(this + " hit by " + attacker);
+        health -= damage;
+        // take damage, provided context for attacker
+        if (0 >= health)
+        {
+            Die();
+
+        }
+    }
+
     private void Die()
     {
         // Before destroying the entity, show the speech bubble.

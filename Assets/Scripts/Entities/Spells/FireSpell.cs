@@ -1,13 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceSpell : BaseSpell
+public class FireSpell : BaseSpell
 {
     public List<Enemy> enemyList = new List<Enemy>();
-    public IceEffects iceEffect;
-    private IceEffects currentIceEffect;
+    public FireEffects fireEffect;
+    private FireEffects currentFireEffect;
+
 
     public void Start()
     {
@@ -23,8 +23,8 @@ public class IceSpell : BaseSpell
         {
             if (enemy != null)
             {
-                currentIceEffect = Instantiate(iceEffect);
-                currentIceEffect.Slow(enemy);
+                currentFireEffect = Instantiate(fireEffect);
+                currentFireEffect.Burn(enemy, this);
             }
         }
         Destroy(this.gameObject);

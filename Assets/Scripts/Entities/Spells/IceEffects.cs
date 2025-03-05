@@ -18,9 +18,9 @@ public class IceEffects : MonoBehaviour
                     {
                         enemy.speed = originalSpeed;
                     }
-                    Destroy(this.gameObject);
                 }
             );
         }
+        Destroy(this.gameObject);
     }
 }

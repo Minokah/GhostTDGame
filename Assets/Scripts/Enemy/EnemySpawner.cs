@@ -4,18 +4,11 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;       // The red cylinder prefab
     public Transform[] waypoints;        // Waypoints from start to end
-    private float spawnInterval;     // Time between spawns
-    private int maxSpawnCount;
-    private int spawnCount;
+    public float spawnInterval = 2f;     // Time between spawns
+    public int maxSpawnCount = 5;
+    private int spawnCount = 0;
 
     private float spawnTimer = 0f;
-
-    void Start()
-    {
-        spawnInterval = 2f;
-        maxSpawnCount = 5;
-        spawnCount = 0;
-    }
 
     void Update()
     {
