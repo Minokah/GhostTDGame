@@ -8,7 +8,7 @@ public class Enemy : Entity
     public Transform[] waypoints;
 
     public float speed = 2f;
-    private int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
 
     void Update()
     {

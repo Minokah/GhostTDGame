@@ -1964,8 +1964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Damage
-  name: Damage
+  id: Speed
+  name: Speed
   level: 0
   amount1: 0
   amount2: 0
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   type: spells
   name: Bufu
   description: Temporarily slows enemies within their tracks for 5 seconds in a radius.
-  requireLevel: 1
+  requireLevel: 4
 --- !u!4 &78766367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4356039243816192528, guid: 68184f4b39f979748ba8ac9d98475466, type: 3}
@@ -15617,7 +15617,7 @@ MonoBehaviour:
   type: spells
   name: Agi
   description: Weak fire damage to all enemies in radius.
-  requireLevel: 1
+  requireLevel: 6
 --- !u!4 &559165119
 Transform:
   m_ObjectHideFlags: 0
@@ -27500,6 +27500,94 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70fffb043c18e54da729e45f9697467, type: 3}
+--- !u!1 &671460708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671460709}
+  - component: {fileID: 671460712}
+  - component: {fileID: 671460711}
+  - component: {fileID: 671460710}
+  m_Layer: 0
+  m_Name: Time
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671460709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671460708}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1544726598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &671460710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671460708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Speed
+  name: Speed
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &671460711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671460708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Duration
+  name: Duration
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &671460712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671460708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca35fd1441d9654a96b3f9938bddcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlocked: 0
+  id: Time
+  type: spells
+  name: Jikan
+  description: Slows all enemies
+  requireLevel: 8
 --- !u!1 &675030602
 GameObject:
   m_ObjectHideFlags: 0
@@ -40028,6 +40116,7 @@ MonoBehaviour:
   - {fileID: 452041182}
   spawnInterval: 2
   maxSpawnCount: 5
+  enemyList: []
 --- !u!4 &1034772012
 Transform:
   m_ObjectHideFlags: 0
@@ -40968,6 +41057,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2046896676089933467, guid: 9f7008b8f6e245743b4d0126685adef3, type: 3}
   m_PrefabInstance: {fileID: 59085474}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1084342444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1084342445}
+  - component: {fileID: 1084342448}
+  - component: {fileID: 1084342447}
+  - component: {fileID: 1084342446}
+  m_Layer: 0
+  m_Name: Wind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1084342445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084342444}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1544726598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084342446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084342444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Cost
+  name: Cost
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &1084342447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084342444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Distance
+  name: Distance
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &1084342448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084342444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca35fd1441d9654a96b3f9938bddcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlocked: 0
+  id: Wind
+  type: spells
+  name: Feng
+  description: Pushes enemies back
+  requireLevel: 8
 --- !u!1001 &1088534963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53768,6 +53945,8 @@ Transform:
   - {fileID: 559165119}
   - {fileID: 73820172}
   - {fileID: 1877843147}
+  - {fileID: 1084342445}
+  - {fileID: 671460709}
   m_Father: {fileID: 1376900137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545411799
@@ -63835,7 +64014,7 @@ MonoBehaviour:
   id: Lightning
   type: spells
   name: Zio
-  description: Stun enemies for 5 seconds in a radius via lightning from the heavens.
+  description: Powerful narrow area attack
   requireLevel: 1
 --- !u!1 &1877882546
 GameObject:

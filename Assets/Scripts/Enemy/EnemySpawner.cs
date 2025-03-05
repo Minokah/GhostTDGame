@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 2f;     // Time between spawns
     public int maxSpawnCount = 5;
     private int spawnCount = 0;
+    public List<GameObject> enemyList = new List<GameObject>();
 
     private float spawnTimer = 0f;
 
@@ -25,6 +27,9 @@ public class EnemySpawner : MonoBehaviour
     {
         // Instantiate enemy at the first waypoint
         GameObject newEnemy = Instantiate(enemyPrefab, waypoints[0].position, Quaternion.identity);
+
+        //keep track of enemies
+        enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
 

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5426798332925072332}
-  - component: {fileID: 8942296629586742381}
+  - component: {fileID: -3344040627897237167}
   m_Layer: 0
-  m_Name: FireEffect
+  m_Name: TimeEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,12 +27,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8942296629586742381
+--- !u!114 &-3344040627897237167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 750702576406683298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3650a54153ead4e915d90f9837e76f, type: 3}
+  m_Script: {fileID: 11500000, guid: 24cb1c897d8f83b4aabc8657e45010b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  slowRate: 0.95
+  originalSpeed: 0
