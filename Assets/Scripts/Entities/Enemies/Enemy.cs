@@ -10,7 +10,7 @@ public class Enemy : Entity
     public float speed = 2f;
     public int currentWaypointIndex = 0;
 
-    void Update()
+    protected virtual void Update()
     {
         if (waypoints == null || waypoints.Length == 0) return;
 

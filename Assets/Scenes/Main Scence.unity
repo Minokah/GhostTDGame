@@ -6596,7 +6596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.797363, y: 0}
+  m_AnchoredPosition: {x: -32.797485, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -72536,7 +72536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4617149588379191796, guid: 74c509152f9fd094487d385f37c21bb7, type: 3}
       propertyPath: m_Name
-      value: Enemy_RedCylinder
+      value: Basic_Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 9069947045513975445, guid: 74c509152f9fd094487d385f37c21bb7, type: 3}
       propertyPath: m_LocalPosition.x
