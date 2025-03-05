@@ -6596,7 +6596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.797485, y: 0}
+  m_AnchoredPosition: {x: -32.79767, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -40114,8 +40114,8 @@ MonoBehaviour:
   - {fileID: 776745164}
   - {fileID: 327391879}
   - {fileID: 452041182}
-  spawnInterval: 2
-  maxSpawnCount: 5
+  spawnInterval: 0.5
+  maxSpawnCount: 50
   enemyList: []
 --- !u!4 &1034772012
 Transform:

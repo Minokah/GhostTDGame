@@ -6,6 +6,8 @@ public class MachoEnemy : Enemy
 {
     private List<Entity> enemyList = new List<Entity>();
     public CapsuleCollider healRadius;
+    public HealEffects healEffect;
+    private HealEffects currentHealEffect;
 
     void Start()
     {
@@ -30,7 +32,7 @@ public class MachoEnemy : Enemy
     {
         Heal();
         Debug.Log("Healing running");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
     }
 
     private void Heal()
@@ -39,7 +41,8 @@ public class MachoEnemy : Enemy
         {
             if (enemy != null)
             {
-                enemy.health = enemy.health + 5;
+                currentHealEffect = Instantiate(healEffect);
+                currentHealEffect.Heal(enemy.gameObject.GetComponent<Enemy>());
             }
         }
     }

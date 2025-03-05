@@ -5,8 +5,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;       // The red cylinder prefab
     public Transform[] waypoints;        // Waypoints from start to end
-    public float spawnInterval = 2f;     // Time between spawns
-    public int maxSpawnCount = 5;
+    public float spawnInterval = 0.5f;     // Time between spawns
+    public int maxSpawnCount = 50;
     private int spawnCount = 0;
     public List<GameObject> enemyList = new List<GameObject>();
 
@@ -44,5 +44,14 @@ public class EnemySpawner : MonoBehaviour
     {
         maxSpawnCount = maxSpawnCount - reducedSpawn;
         spawnInterval = spawnInterval * slowerSpawnRate;
+    }
+
+    public void cameraManEffect()
+    {
+        SpawnEnemy();
+        SpawnEnemy();
+        SpawnEnemy();
+        SpawnEnemy();
+        SpawnEnemy();
     }
 }
