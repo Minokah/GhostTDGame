@@ -8,11 +8,12 @@ public class MachoEnemy : Enemy
     public CapsuleCollider healRadius;
     public HealEffects healEffect;
     private HealEffects currentHealEffect;
+    private bool cooldown;
 
     void Start()
     {
+        cooldown = false;
         healRadius = GetComponent<CapsuleCollider>();
-        StartCoroutine(HealingLoop());
     }
     
     protected override void Update()
@@ -26,13 +27,19 @@ public class MachoEnemy : Enemy
                 Color.red,
                 Time.deltaTime);
         }
+        if (false == cooldown)
+        {
+            StartCoroutine(HealingLoop());
+        }
     }
 
     private IEnumerator HealingLoop()
     {
+        cooldown = true;
         Heal();
         Debug.Log("Healing running");
         yield return new WaitForSeconds(5);
+        cooldown = false;
     }
 
     private void Heal()

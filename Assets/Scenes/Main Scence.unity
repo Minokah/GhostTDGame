@@ -6596,7 +6596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.79767, y: 0}
+  m_AnchoredPosition: {x: -32.797607, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -40097,6 +40097,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4617149588379191796, guid: 74c509152f9fd094487d385f37c21bb7, type: 3}
+  toughPrefab: {fileID: 4617149588379191796, guid: 027022e3f79169242b0faade3e1cc95f, type: 3}
+  fastPrefab: {fileID: 4617149588379191796, guid: c77bf78c8fec91c41b2272b16b826362, type: 3}
+  machoPrefab: {fileID: 4617149588379191796, guid: 598d15180f419f042bdfcbced3855220, type: 3}
+  balloonPrefab: {fileID: 4617149588379191796, guid: 4cfc267287efbee4196972ba34723953, type: 3}
+  mixtapePrefab: {fileID: 4617149588379191796, guid: 7f0eda96a71b3674196b497d5103acba, type: 3}
+  cameraPrefab: {fileID: 4617149588379191796, guid: 8b55c25c3e0d6d14ba96400b550aef5f, type: 3}
   waypoints:
   - {fileID: 170970592}
   - {fileID: 496501285}
@@ -40114,9 +40120,10 @@ MonoBehaviour:
   - {fileID: 776745164}
   - {fileID: 327391879}
   - {fileID: 452041182}
-  spawnInterval: 0.5
-  maxSpawnCount: 50
+  spawnInterval: 0.25
+  maxSpawnCount: 5
   enemyList: []
+  level: 0
 --- !u!4 &1034772012
 Transform:
   m_ObjectHideFlags: 0

@@ -9,11 +9,12 @@ public class MixtapeEnemy : Enemy
     public FastEffects fastEffect;
     private FastEffects currentFastEffect;
     public float fastRate = 1.5f;
+    private bool cooldown;
 
     void Start()
     {
+        cooldown = false;
         healRadius = GetComponent<CapsuleCollider>();
-        StartCoroutine(SpeedLoop());
     }
     
     protected override void Update()
@@ -27,13 +28,19 @@ public class MixtapeEnemy : Enemy
                 Color.red,
                 Time.deltaTime);
         }
+        if (false == cooldown)
+        {
+            StartCoroutine(SpeedLoop());
+        }
     }
 
     private IEnumerator SpeedLoop()
     {
+        cooldown = true;
         Slow();
         Debug.Log("Mixtape running");
         yield return new WaitForSeconds(5);
+        cooldown = false;
     }
 
     private void Slow()
