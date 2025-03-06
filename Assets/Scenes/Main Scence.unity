@@ -6596,7 +6596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.797607, y: 0}
+  m_AnchoredPosition: {x: -32.79785, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -62374,6 +62374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsingSpell: 0
+  spellIcon1: {fileID: 1315191078}
+  spellIcon2: {fileID: 1360436250}
+  spellIcon3: {fileID: 1358378949}
   spell1: {fileID: 750702576406683298, guid: 3040cd275362864488767326481bb442, type: 3}
   spell2: {fileID: 750702576406683298, guid: fc02b33dd5c80bc4c8ed640dfafa51cb, type: 3}
   spell3: {fileID: 750702576406683298, guid: fbab3192698a53e4a9a10fcc8aaae79f, type: 3}

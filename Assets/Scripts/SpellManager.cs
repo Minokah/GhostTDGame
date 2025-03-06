@@ -2,11 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using System.Collections;
+using System.Diagnostics;
+using System;
 
 public class SpellManager : MonoBehaviour
 {
     public bool isUsingSpell = false;
 
+    public GameObject spellIcon1, spellIcon2, spellIcon3;
     public GameObject spell1, spell2, spell3;
     public GameObject spell1Preview, spell2Preview, spell3Preview;
 
@@ -23,6 +27,11 @@ public class SpellManager : MonoBehaviour
 
     // Used to diffrentiate the spell
     private int spellSlotId;
+
+    // To Handle the Arcane Tower Bonuses
+    public int coolDownUpgrade = 0;
+    public int freeSpellStacks = 0;
+    public Boolean eurekaUpgrade = false;
 
     UI UI;
 
@@ -90,6 +99,7 @@ public class SpellManager : MonoBehaviour
                 {
                     // Instantiate the actual spell
                     Instantiate(spellPrefab, cellCenter, Quaternion.identity);
+                    StartCoroutine(startCoolDown(spellPrefab.GetComponent<BaseSpell>().spellId));
 
 
                     // If you only want to place one tower per "mode," exit placing mode
@@ -141,5 +151,31 @@ public class SpellManager : MonoBehaviour
         }
 
 
+    }
+
+    private IEnumerator startCoolDown(int spellId)
+    {
+        float waitTime = 15f;
+        // TODO
+        // When progression upgrades are in we need to use spellId to differentiate between wind spell which gets lower cooldown as an upgrade
+
+        if (spellSlotId == 0)
+        {
+            spellIcon1.GetComponent<Button>().interactable = false;
+            yield return new WaitForSeconds(waitTime);
+            spellIcon1.GetComponent<Button>().interactable = true;
+        }
+        else if (spellSlotId == 1)
+        {
+            spellIcon2.GetComponent<Button>().interactable = false;
+            yield return new WaitForSeconds(waitTime);
+            spellIcon2.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            spellIcon3.GetComponent<Button>().interactable = false;
+            yield return new WaitForSeconds(waitTime);
+            spellIcon3.GetComponent<Button>().interactable = true;
+        }
     }
 }
