@@ -38,7 +38,7 @@ public class MachoEnemy : Enemy
         cooldown = true;
         Heal();
         Debug.Log("Healing running");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         cooldown = false;
     }
 

@@ -39,7 +39,7 @@ public class MixtapeEnemy : Enemy
         cooldown = true;
         Slow();
         Debug.Log("Mixtape running");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         cooldown = false;
     }
 

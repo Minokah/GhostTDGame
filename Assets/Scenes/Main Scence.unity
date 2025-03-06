@@ -40120,7 +40120,7 @@ MonoBehaviour:
   - {fileID: 776745164}
   - {fileID: 327391879}
   - {fileID: 452041182}
-  spawnInterval: 0.25
+  spawnInterval: 0.4
   maxSpawnCount: 50
   enemyList: []
   level: 0

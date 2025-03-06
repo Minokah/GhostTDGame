@@ -13,13 +13,15 @@ public class EnemySpawner : MonoBehaviour
     public GameObject mixtapePrefab;       // The mixtape enemy prefab
     public GameObject cameraPrefab;       // The camera enemy prefab
     public Transform[] waypoints;        // Waypoints from start to end
-    public float spawnInterval = 0.25f;     // Time between spawns
+    public float spawnInterval = 0.4f;     // Time between spawns
     public int maxSpawnCount = 50; // number of standard enemies spawned until level is over
     private int spawnCount = 0;
     public List<GameObject> enemyList = new List<GameObject>();
 
     // We will use this to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
     public int level;
+    // when replaying levels players can play harder challange mode to earn more upgrades and exp
+    private int isChallangeMode;
 
     // will increase based on the selected level. In later levels more enemies spawn until a break occurs
     private float breakCounter;
@@ -31,6 +33,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         level = 1;
+        isChallangeMode = 1;
+        maxSpawnCount = 30 + 20 * level * isChallangeMode;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
         breakCounter = spawnsTillPause;
         paused = false;
@@ -41,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
         paused = true;
         yield return new WaitForSeconds(pauseAmount);
         paused = false;
-        Debug.Log("Done Waiting");
+        //Debug.Log("Done Waiting");
     }
 
     void Update()
@@ -56,9 +60,8 @@ public class EnemySpawner : MonoBehaviour
                 spawnTimer = 0f;
                 SpawnEnemy();
                 spawnCount++;
+                spawnRngEnemy(level);
             }
-
-            spawnRngEnemy();
 
             // we give the player some "breaks" between "waves" by pausing spawning for some time
             if (spawnCount == breakCounter)
@@ -67,8 +70,8 @@ public class EnemySpawner : MonoBehaviour
                 {
                     breakCounter = breakCounter + spawnsTillPause;
                 }
-                Debug.Log("Start Waiting");
-                StartCoroutine(PauseSpawning(5 + (5 * level)));
+                //Debug.Log("Start Waiting");
+                StartCoroutine(PauseSpawning(10 + level));
             }
         }
     }
@@ -192,11 +195,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void spawnRngEnemy()
-    {
-        
-    }
-
     public void FunnelEffect(int reducedSpawn, float slowerSpawnRate)
     {
         maxSpawnCount = maxSpawnCount - reducedSpawn;
@@ -210,5 +208,207 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy();
         SpawnEnemy();
         SpawnEnemy();
+    }
+
+    void spawnRngEnemy(int level)
+    {
+        // TODO add challange mode modifers that make the probability of tougher enemies more likely
+        float randomValue = UnityEngine.Random.Range(0f, 1f);
+        if (level == 2)
+        {
+            if (randomValue < 0.85f)
+            {
+
+            }
+            else if (randomValue >= 0.85f)
+            {
+                SpawnToughEnemy();
+            }
+
+        }
+        else if (level == 3)
+        {
+            if (randomValue < 0.75f)
+            {
+
+            }
+            else if (randomValue >= 0.75f)
+            {
+                SpawnToughEnemy();
+            }
+
+        }
+        else if (level == 4)
+        {
+            if (randomValue < 0.65f)
+            {
+
+            }
+            else if (randomValue >= 0.65f && randomValue < 0.8f)
+            {
+                SpawnToughEnemy();
+            }
+            else
+            {
+                SpawnFastEnemy();
+            }
+        }
+        else if (level == 5)
+        {
+            if (randomValue < 0.65f)
+            {
+
+            }
+            else if (randomValue >= 0.65f && randomValue < 0.75f)
+            {
+                SpawnToughEnemy();
+            }
+            else if (randomValue >= 0.75f && randomValue < 0.9f)
+            {
+                SpawnFastEnemy();
+            }
+            else
+            {
+                SpawnMachoEnemy();
+            }
+        }
+        else if (level == 6)
+        {
+            if (randomValue < 0.55f)
+            {
+
+            }
+            else if (randomValue >= 0.55f && randomValue < 0.6f)
+            {
+                SpawnToughEnemy();
+            }
+            else if (randomValue >= 0.7f && randomValue < 0.8f)
+            {
+                SpawnFastEnemy();
+            }
+            else if (randomValue >= 0.8f && randomValue < 0.9f)
+            {
+                SpawnBalloonEnemy();
+            }
+            else
+            {
+                SpawnMachoEnemy();
+            }
+        }
+        else if (level == 7)
+        {
+            if (randomValue < 0.55f)
+            {
+
+            }
+            else if (randomValue >= 0.55f && randomValue < 0.60f)
+            {
+                SpawnToughEnemy();
+            }
+            else if (randomValue >= 0.60f && randomValue < 0.75f)
+            {
+                SpawnFastEnemy();
+            }
+            else if (randomValue >= 0.75f && randomValue < 0.90f)
+            {
+                SpawnBalloonEnemy();
+            }
+            else
+            {
+                SpawnMachoEnemy();
+            }
+        }
+        else if (level == 8)
+        {
+            if (randomValue < 0.55f)
+            {
+
+            }
+            else if (randomValue >= 0.55f && randomValue < 0.65f)
+            {
+                SpawnToughEnemy();
+            }
+            else if (randomValue >= 0.65f && randomValue < 0.7f)
+            {
+                SpawnFastEnemy();
+            }
+            else if (randomValue >= 0.7f && randomValue < 0.85f)
+            {
+                SpawnBalloonEnemy();
+            }
+            else if (randomValue >= 0.85f && randomValue < 0.9f)
+            {
+                SpawnMixtapeEnemy();
+            }
+            else
+            {
+                SpawnMachoEnemy();
+            }
+
+        }
+        else if (level == 9)
+        {
+            if (randomValue < 0.45f)
+            {
+
+            }
+            else if (randomValue >= 0.45f && randomValue < 0.55f)
+            {
+                SpawnToughEnemy();
+            }
+            else if (randomValue >= 0.55f && randomValue < 0.65f)
+            {
+                SpawnFastEnemy();
+            }
+            else if (randomValue >= 0.65f && randomValue < 0.70f)
+            {
+                SpawnBalloonEnemy();
+            }
+            else if (randomValue >= 0.70f && randomValue < 0.80f)
+            {
+                SpawnMixtapeEnemy();
+            }
+            else if (randomValue >= 0.80f && randomValue < 0.90f)
+            {
+                SpawnCameraEnemy();
+            }
+            else
+            {
+                SpawnMachoEnemy();
+            }
+
+        }
+        else if (level == 10)
+        {
+            if (randomValue < 0.35f)
+            {
+
+            }
+            else if (randomValue >= 0.35f && randomValue < 0.40f)
+            {
+                SpawnToughEnemy();
+            }
+            else if (randomValue >= 0.40f && randomValue < 0.45f)
+            {
+                SpawnFastEnemy();
+            }
+            else if (randomValue >= 0.45f && randomValue < 0.5f)
+            {
+                SpawnBalloonEnemy();
+            }
+            else if (randomValue >= 0.5f && randomValue < 0.65f)
+            {
+                SpawnMixtapeEnemy();
+            }
+            else if (randomValue >= 0.65f && randomValue < 0.85f)
+            {
+                SpawnCameraEnemy();
+            }
+            else
+            {
+                SpawnMachoEnemy();
+            }
+
+        }
     }
 }
