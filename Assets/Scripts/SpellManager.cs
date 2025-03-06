@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.Collections;
-using System.Diagnostics;
 using System;
 
 public class SpellManager : MonoBehaviour
@@ -29,14 +28,17 @@ public class SpellManager : MonoBehaviour
     private int spellSlotId;
 
     // To Handle the Arcane Tower Bonuses
-    public int coolDownUpgrade = 0;
-    public int freeSpellStacks = 0;
-    public Boolean eurekaUpgrade = false;
+    private float coolDownUpgrade;
+    private int freeSpellStacks;
+    private Boolean eurekaUpgrade;
 
     UI UI;
 
     void Start()
     {
+        coolDownUpgrade = 0f;
+        freeSpellStacks = 0;
+        eurekaUpgrade = false;
         UI = UI.Get();
     }
 
@@ -99,8 +101,25 @@ public class SpellManager : MonoBehaviour
                 {
                     // Instantiate the actual spell
                     Instantiate(spellPrefab, cellCenter, Quaternion.identity);
-                    StartCoroutine(startCoolDown(spellPrefab.GetComponent<BaseSpell>().spellId));
-
+                    if (freeSpellStacks > 0)
+                    {
+                        freeSpellStacks = freeSpellStacks - 1;
+                    }
+                    else if (eurekaUpgrade == true)
+                    {
+                        float randomValue = UnityEngine.Random.Range(0f, 1f);
+                        if (randomValue >= 0.75f)
+                        {
+                            // do nothing
+                        }
+                        else
+                        {
+                            StartCoroutine(startCoolDown(spellPrefab.GetComponent<BaseSpell>().spellId));
+                        }
+                    }
+                    else { 
+                        StartCoroutine(startCoolDown(spellPrefab.GetComponent<BaseSpell>().spellId)); 
+                    }
 
                     // If you only want to place one tower per "mode," exit placing mode
                     Destroy(currentPreview);
@@ -149,13 +168,11 @@ public class SpellManager : MonoBehaviour
             Destroy(currentPreview);
             currentPreview = null;
         }
-
-
     }
 
     private IEnumerator startCoolDown(int spellId)
     {
-        float waitTime = 15f;
+        float waitTime = 15f - coolDownUpgrade;
         // TODO
         // When progression upgrades are in we need to use spellId to differentiate between wind spell which gets lower cooldown as an upgrade
 
@@ -177,5 +194,12 @@ public class SpellManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             spellIcon3.GetComponent<Button>().interactable = true;
         }
+    }
+
+    public void arcaneTowerEffect(float cooldown, int freeSpells, Boolean eureka)
+    {
+        coolDownUpgrade = cooldown;
+        freeSpellStacks = freeSpells;
+        eurekaUpgrade = eureka;
     }
 }

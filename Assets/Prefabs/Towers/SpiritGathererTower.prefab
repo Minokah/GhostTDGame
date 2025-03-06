@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8877677582485429286}
   - component: {fileID: 6650989363979913760}
   - component: {fileID: 7601932223960240945}
-  - component: {fileID: -8431916790589414869}
+  - component: {fileID: -5564916938281453709}
   m_Layer: 0
   m_Name: SpiritGathererTower
   m_TagString: Untagged
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8431916790589414869
+--- !u!114 &-5564916938281453709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 484781627512263482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b512ae816ab5e2a47b0773889470106a, type: 3}
+  m_Script: {fileID: 11500000, guid: c765e567ea54f334092ac694ddbad808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
@@ -126,4 +126,3 @@ MonoBehaviour:
   health: 0
   speechBubblePrefab: {fileID: 3775669384542656839, guid: 2b72448313a9c0b4ab9c637b4553ba44, type: 3}
   speechBubbleOffset: {x: -3, y: 2, z: 2}
-  spawner: {fileID: 0}

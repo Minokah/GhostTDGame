@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ArcaneTower : Entity
 {
-    // Link to mana when it's added
-    //public GameObject mana;
+    // To Handle the Arcane Tower Bonuses
+    private float coolDownUpgrade;
+    private int freeSpellStacks;
+    private Boolean eurekaUpgrade;
+    private GameObject spellManager;
 
     void Start()
     {
@@ -25,10 +29,16 @@ public class ArcaneTower : Entity
                 //bubbleScript.SetText("Argh!"); // Or any text you wish
             }
         }
+
+        // set these stats
+        coolDownUpgrade = 1.5f;
+        freeSpellStacks = 0;
+        eurekaUpgrade = false;
+        ArcaneEffect();
     }
 
-    // Implement when mana is added
-    // void ManaGain(){
-        
-    //}
+    void ArcaneEffect(){
+        spellManager = GameObject.FindWithTag("Spell Manager");
+        spellManager.GetComponent<SpellManager>().arcaneTowerEffect(coolDownUpgrade, freeSpellStacks, eurekaUpgrade);
+    }
 }
