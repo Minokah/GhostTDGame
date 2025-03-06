@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,32 +19,58 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> enemyList = new List<GameObject>();
 
     // We will use this to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
-    public int level = 0;
+    public int level;
 
-    private int breakcounter = 0;
+    // will increase based on the selected level. In later levels more enemies spawn until a break occurs
+    private float breakCounter;
+    private int spawnsTillPause;
+    private Boolean paused;
 
     private float spawnTimer = 0f;
 
+    void Start()
+    {
+        level = 1;
+        spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
+        breakCounter = spawnsTillPause;
+        paused = false;
+    }
+
+    IEnumerator PauseSpawning(float pauseAmount)
+    {
+        paused = true;
+        yield return new WaitForSeconds(pauseAmount);
+        paused = false;
+        Debug.Log("Done Waiting");
+    }
+
     void Update()
     {
-        // we give the player some "breaks" between "waves" by pausing spawning for some time
-        //if
-
-        spawnTimer += Time.deltaTime;
-        // default enemy spawning
-        if (spawnTimer >= spawnInterval && spawnCount < maxSpawnCount)
+        if (paused == false)
         {
-            spawnTimer = 0f;
-            SpawnEnemy();
-            //SpawnToughEnemy();
-            //SpawnFastEnemy();
-            //SpawnMachoEnemy();
-            //SpawnMixtapeEnemy();
-            //SpawnBalloonEnemy();
-            //SpawnCameraEnemy();
-            spawnCount++;
-        }
+            spawnTimer += Time.deltaTime;
 
+            // default enemy spawning
+            if (paused == false && spawnTimer >= spawnInterval && spawnCount < maxSpawnCount)
+            {
+                spawnTimer = 0f;
+                SpawnEnemy();
+                spawnCount++;
+            }
+
+            spawnRngEnemy();
+
+            // we give the player some "breaks" between "waves" by pausing spawning for some time
+            if (spawnCount == breakCounter)
+            {
+                if (breakCounter <= maxSpawnCount)
+                {
+                    breakCounter = breakCounter + spawnsTillPause;
+                }
+                Debug.Log("Start Waiting");
+                StartCoroutine(PauseSpawning(5 + (5 * level)));
+            }
+        }
     }
 
     void SpawnEnemy()
@@ -163,6 +190,11 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy_class.waypoints = waypoints;
         }
+    }
+
+    void spawnRngEnemy()
+    {
+        
     }
 
     public void FunnelEffect(int reducedSpawn, float slowerSpawnRate)

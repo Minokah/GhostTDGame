@@ -40121,7 +40121,7 @@ MonoBehaviour:
   - {fileID: 327391879}
   - {fileID: 452041182}
   spawnInterval: 0.25
-  maxSpawnCount: 5
+  maxSpawnCount: 50
   enemyList: []
   level: 0
 --- !u!4 &1034772012
