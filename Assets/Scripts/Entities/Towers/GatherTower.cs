@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GatherTower : Entity
 {
-    public StatisticsManager moneyManager;
     Boolean cooldown = false;
     public float pauseTime;
     public int money;

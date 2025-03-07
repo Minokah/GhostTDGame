@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1646341112}
-  towerId: 4
+  towerId: 3
 --- !u!114 &32287028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,21 +2947,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlacingTower: 0
+  boltIcon: {fileID: 1841122598}
+  bombIcon: {fileID: 945618423}
+  sniperIcon: {fileID: 1152232359}
+  bubbleIcon: {fileID: 32287025}
   gateIcon: {fileID: 818834678}
   gathererIcon: {fileID: 485570305}
   arcaneIcon: {fileID: 936895182}
+  boltText: {fileID: 1654625677}
+  bombText: {fileID: 359263763}
+  sniperText: {fileID: 625312498}
+  bubbleText: {fileID: 2073377162}
+  gateText: {fileID: 358149433}
+  gathererText: {fileID: 1991066331}
+  arcaneText: {fileID: 1641287138}
   potentialPrefab0: {fileID: 484781627512263482, guid: 22f56bbd1f63cdf4c9aee8cb87a488b2, type: 3}
   potentialPrefab1: {fileID: 484781627512263482, guid: 9d420b276a2677a4a981d245acefdb25, type: 3}
   potentialPrefab2: {fileID: 484781627512263482, guid: 95ff5b88ab6d30c4cb94f51cc36502af, type: 3}
-  potentialPrefab3: {fileID: 484781627512263482, guid: 5e17020bdd91cbb4aa721ca131288b2b, type: 3}
-  potentialPrefab4: {fileID: 484781627512263482, guid: ff23629a892eab64f96a89fa8409de42, type: 3}
+  potentialPrefab3: {fileID: 484781627512263482, guid: ff23629a892eab64f96a89fa8409de42, type: 3}
+  potentialPrefab4: {fileID: 484781627512263482, guid: 5e17020bdd91cbb4aa721ca131288b2b, type: 3}
   potentialPrefab5: {fileID: 484781627512263482, guid: 61967c49072a40744a4f16c69c9b3dcf, type: 3}
   potentialPrefab6: {fileID: 484781627512263482, guid: 1e0548e5a41400b4984e0dedd7998a6d, type: 3}
   potentialPreviewPrefab0: {fileID: 5178044683713152675, guid: 467d44aae87b52f489fbbf3e45fb878b, type: 3}
   potentialPreviewPrefab1: {fileID: 5178044683713152675, guid: 0774f59f544eeaa47a42ef5877b20e49, type: 3}
   potentialPreviewPrefab2: {fileID: 5178044683713152675, guid: 6dd518774d8e9f14abdd12acdf1ce278, type: 3}
-  potentialPreviewPrefab3: {fileID: 5178044683713152675, guid: 476ebd7c61bdec646996c8fb32430320, type: 3}
-  potentialPreviewPrefab4: {fileID: 5178044683713152675, guid: 3fd5d3e2dece3084e8eb494091fc5037, type: 3}
+  potentialPreviewPrefab3: {fileID: 5178044683713152675, guid: 3fd5d3e2dece3084e8eb494091fc5037, type: 3}
+  potentialPreviewPrefab4: {fileID: 5178044683713152675, guid: 476ebd7c61bdec646996c8fb32430320, type: 3}
   potentialPreviewPrefab5: {fileID: 5178044683713152675, guid: c3d1079436f75d44c8f74b8ec743e620, type: 3}
   potentialPreviewPrefab6: {fileID: 5178044683713152675, guid: e2e2f9b1470567f42a592f432d235a13, type: 3}
   grassTilemap: {fileID: 566898116}
@@ -6597,7 +6608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.797974, y: 0}
+  m_AnchoredPosition: {x: -32.798096, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -10539,7 +10550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 45
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e93ab37d0d678a4e8454e56440f8cdd, type: 2}
   m_sharedMaterial: {fileID: 1984640263150282338, guid: 4e93ab37d0d678a4e8454e56440f8cdd, type: 2}
@@ -24384,9 +24395,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlacingTower: 0
+  boltIcon: {fileID: 0}
+  bombIcon: {fileID: 0}
+  sniperIcon: {fileID: 0}
+  bubbleIcon: {fileID: 0}
   gateIcon: {fileID: 0}
   gathererIcon: {fileID: 0}
   arcaneIcon: {fileID: 0}
+  boltText: {fileID: 0}
+  bombText: {fileID: 0}
+  sniperText: {fileID: 0}
+  bubbleText: {fileID: 0}
+  gateText: {fileID: 0}
+  gathererText: {fileID: 0}
+  arcaneText: {fileID: 0}
   potentialPrefab0: {fileID: 0}
   potentialPrefab1: {fileID: 0}
   potentialPrefab2: {fileID: 0}
@@ -32472,7 +32494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 2105359917}
-  towerId: 3
+  towerId: 4
 --- !u!114 &818834681
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,14 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using TMPro;
+using System;
+using static System.Net.Mime.MediaTypeNames;
 
 public class TowerPlacementManager : MonoBehaviour
 {
     [Header("Placement Settings")]
     public bool isPlacingTower = false;
 
-    [Tooltip("Ensure only one of the gateway, gatherer, and arcane tower can be placed")]
-    public GameObject gateIcon, gathererIcon, arcaneIcon; 
+    [Tooltip("Refer to the buttons used to select towers to build")]
+    public GameObject boltIcon, bombIcon, sniperIcon, bubbleIcon, gateIcon, gathererIcon, arcaneIcon;
+
+    [Tooltip("Refer to the text in the building towers menu")]
+    public TMP_Text boltText, bombText, sniperText, bubbleText, gateText, gathererText, arcaneText;
 
     [Tooltip("All possible real tower prefabs")]
     public GameObject potentialPrefab0, potentialPrefab1, potentialPrefab2, potentialPrefab3, potentialPrefab4, potentialPrefab5, potentialPrefab6;
@@ -41,6 +47,9 @@ public class TowerPlacementManager : MonoBehaviour
     // Used to connect the money mangment object to the money gatherer tower
     public StatisticsManager masterMoneyManager;
 
+    // keeps track if the max 1 spirit gather, gate, and/or arcane tower has been built
+    Boolean gateBuilt = false, gatherBuilt = false, arcaneBuilt = false;
+
     UI UI;
 
     void Start()
@@ -50,6 +59,28 @@ public class TowerPlacementManager : MonoBehaviour
 
     void Update()
     {
+        if (masterMoneyManager != null)
+        {
+            // prevent players from building towers if they lack money
+            updateBoltStatus();
+            updateBombStatus();
+            updateSniperStatus();
+            updateBubbleStatus();
+            // no need to check these towers if players already cannot build(more) of them
+            if (gateBuilt == false)
+            {
+                updateGateStatus();
+            }
+            if (gatherBuilt == false)
+            {
+                updateGatherStatus();
+            }
+            if (arcaneBuilt == false)
+            {
+                updateArcaneStatus();
+            }
+        }
+
         // Only do placement logic if we are currently in "placing" mode
         if (isPlacingTower)
         {
@@ -146,21 +177,45 @@ public class TowerPlacementManager : MonoBehaviour
                     {
                         // Instantiate the actual tower
                         GameObject newTower = Instantiate(towerPrefab, cellCenter, Quaternion.identity);
-
-                        if (towerId == 3)
+                        if (towerId == 0)
                         {
-                            gateIcon.GetComponent<Button>().interactable = false;
+                            masterMoneyManager.addMoney(-15);
+                        }
+                        else if (towerId == 1)
+                        {
+                            masterMoneyManager.addMoney(-20);
                         }
 
-                        if (towerId == 5)
+                        else if (towerId == 2)
                         {
+                            masterMoneyManager.addMoney(-20);
+                        }
+
+                        else if (towerId == 3)
+                        {
+                            masterMoneyManager.addMoney(-25);
+                        }
+
+                        else if (towerId == 4)
+                        {
+                            masterMoneyManager.addMoney(-50);
+                            gateIcon.GetComponent<Button>().interactable = false;
+                            gateBuilt = true;
+                        }
+
+                        else if (towerId == 5)
+                        {
+                            masterMoneyManager.addMoney(-50);
                             newTower.GetComponent<GatherTower>().moneyManager = masterMoneyManager;
                             gathererIcon.GetComponent<Button>().interactable = false;
+                            gatherBuilt = true;
                         }
 
-                        if (towerId == 6)
+                        else if (towerId == 6)
                         {
+                            masterMoneyManager.addMoney(-50);
                             arcaneIcon.GetComponent<Button>().interactable = false;
+                            arcaneBuilt = true;
                         }
 
                         // Mark the cell as occupied
@@ -217,6 +272,104 @@ public class TowerPlacementManager : MonoBehaviour
         {
             Destroy(currentPreview);
             currentPreview = null;
+        }
+    }
+
+    public void updateBoltStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 15)
+        {
+            boltIcon.GetComponent<Button>().interactable = false;
+            boltText.color = Color.red;
+        }
+        else
+        {
+            boltIcon.GetComponent<Button>().interactable = true;
+            boltText.color = Color.white;
+        }
+    }
+
+    public void updateBombStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 20)
+        {
+            bombIcon.GetComponent<Button>().interactable = false;
+            bombText.color = Color.red;
+        }
+        else
+        {
+            bombIcon.GetComponent<Button>().interactable = true;
+            bombText.color = Color.white;
+        }
+    }
+
+    public void updateSniperStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 20)
+        {
+            sniperIcon.GetComponent<Button>().interactable = false;
+            sniperText.color = Color.red;
+        }
+        else
+        {
+            sniperIcon.GetComponent<Button>().interactable = true;
+            sniperText.color = Color.white;
+        }
+    }
+
+    public void updateBubbleStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 25)
+        {
+            bubbleIcon.GetComponent<Button>().interactable = false;
+            bubbleText.color = Color.red;
+        }
+        else
+        {
+            bubbleIcon.GetComponent<Button>().interactable = true;
+            bubbleText.color = Color.white;
+        }
+    }
+
+    public void updateGateStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 50)
+        {
+            gateIcon.GetComponent<Button>().interactable = false;
+            gateText.color = Color.red;
+        }
+        else
+        {
+            gateIcon.GetComponent<Button>().interactable = true;
+            gateText.color = Color.white;
+        }
+    }
+
+    public void updateGatherStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 50)
+        {
+            gathererIcon.GetComponent<Button>().interactable = false;
+            gathererText.color = Color.red;
+        }
+        else
+        {
+            gathererIcon.GetComponent<Button>().interactable = true;
+            gathererText.color = Color.white;
+        }
+    }
+
+    public void updateArcaneStatus()
+    {
+        if (masterMoneyManager.GetMoney() < 50)
+        {
+            arcaneIcon.GetComponent<Button>().interactable = false;
+            arcaneText.color = Color.red;
+        }
+        else
+        {
+            arcaneIcon.GetComponent<Button>().interactable = true;
+            arcaneText.color = Color.white;
         }
     }
 }
