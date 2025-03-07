@@ -9,6 +9,12 @@ public class Entity : MonoBehaviour
     public float attack_cooldown;
     public float health;
 
+    // connection to the money mangment object
+    public StatisticsManager moneyManager;
+
+    // reference id
+    public int entityId;
+
     // Reference to the SpeechBubble prefab. 
     // Assign this in the Inspector.
     public GameObject speechBubblePrefab;
@@ -42,6 +48,9 @@ public class Entity : MonoBehaviour
 
     private void Die()
     {
+        // get money from the kill
+        MoneyOnKill();
+
         // Before destroying the entity, show the speech bubble.
         Debug.Log(speechBubblePrefab);
         //&& Random.value < 0.1f
@@ -80,5 +89,38 @@ public class Entity : MonoBehaviour
 
         weapon_instance = Instantiate(weapon);
         weapon_instance.Init(this, target);
+    }
+
+    protected void MoneyOnKill()
+    {
+        if (entityId == 1)
+        {
+            Debug.Log("Enemy Killed");
+            moneyManager.addMoney(1);
+        }
+        else if (entityId == 2)
+        {
+            moneyManager.addMoney(2);
+        }
+        else if (entityId == 3)
+        {
+            moneyManager.addMoney(4);
+        }
+        else if (entityId == 4)
+        {
+            moneyManager.addMoney(8);
+        }
+        else if (entityId == 5)
+        {
+            moneyManager.addMoney(16);
+        }
+        else if (entityId == 6)
+        {
+            moneyManager.addMoney(32);
+        }
+        else if (entityId == 7)
+        {
+            moneyManager.addMoney(64);
+        }
     }
 }

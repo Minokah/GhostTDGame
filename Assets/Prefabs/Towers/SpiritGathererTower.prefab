@@ -126,3 +126,6 @@ MonoBehaviour:
   health: 0
   speechBubblePrefab: {fileID: 3775669384542656839, guid: 2b72448313a9c0b4ab9c637b4553ba44, type: 3}
   speechBubbleOffset: {x: -3, y: 2, z: 2}
+  moneyManager: {fileID: 0}
+  pauseTime: 15
+  money: 5

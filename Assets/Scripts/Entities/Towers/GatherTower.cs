@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GatherTower : Entity
 {
-    // Link to currency when it's added
-    //public GameObject currency;
+    public StatisticsManager moneyManager;
+    Boolean cooldown = false;
+    public float pauseTime;
+    public int money;
 
     void Start()
     {
+
         Debug.Log(speechBubblePrefab);
         if (speechBubblePrefab != null)
         {
@@ -27,8 +31,19 @@ public class GatherTower : Entity
         }
     }
 
-    // Implement when currency is added
-    // void CurrencyGain(){
-        
-    //}
+    void Update()
+    {
+        if (cooldown == false)
+        {
+            StartCoroutine(GenerateMoney());
+        }
+    }
+
+    IEnumerator GenerateMoney()
+    {
+        cooldown = true;
+        moneyManager.addMoney(money);
+        yield return new WaitForSeconds(pauseTime);
+        cooldown = false;
+    }
 }

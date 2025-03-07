@@ -153,6 +153,8 @@ MonoBehaviour:
   range_collider: {fileID: 0}
   attack_cooldown: 0
   health: 10
+  moneyManager: {fileID: 0}
+  entityId: 3
   speechBubblePrefab: {fileID: 3775669384542656839, guid: b9c54f14f05d49846a6e02d5ae0c6043, type: 3}
   speechBubbleOffset: {x: 0, y: 2, z: 0}
   waypoints: []

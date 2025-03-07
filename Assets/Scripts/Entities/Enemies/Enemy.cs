@@ -46,5 +46,4 @@ public class Enemy : Entity
             transform.Translate(direction.normalized * distanceThisFrame, Space.World);
         }
     }
-
 }

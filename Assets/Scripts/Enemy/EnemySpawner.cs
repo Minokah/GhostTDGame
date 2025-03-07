@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public StatisticsManager masterMoneyManager;
     public GameObject enemyPrefab;       // The red cylinder prefab
     public GameObject toughPrefab;       // The tough enemy prefab
     public GameObject fastPrefab;       // The fast enemy prefab
@@ -18,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private int spawnCount = 0;
     public List<GameObject> enemyList = new List<GameObject>();
 
-    // We will use this to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
+    // TODO: We will use this to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
     public int level;
     // when replaying levels players can play harder challange mode to earn more upgrades and exp
     private int isChallangeMode;
@@ -32,7 +33,6 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        level = 1;
         isChallangeMode = 1;
         maxSpawnCount = 30 + 20 * level * isChallangeMode;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
@@ -85,6 +85,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -102,6 +103,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -119,6 +121,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -136,6 +139,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<MachoEnemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -153,6 +157,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<BalloonEnemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -170,6 +175,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<MixtapeEnemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -187,6 +193,7 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(newEnemy);
 
         Enemy enemy_class = newEnemy.GetComponent<CameraEnemy>();
+        enemy_class.moneyManager = masterMoneyManager;
 
         // Assign waypoints to the mover
         if (enemy_class != null)

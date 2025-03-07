@@ -38,6 +38,9 @@ public class TowerPlacementManager : MonoBehaviour
     // Used to diffrentiate what tower we are placing
     private int towerId;
 
+    // Used to connect the money mangment object to the money gatherer tower
+    public StatisticsManager masterMoneyManager;
+
     UI UI;
 
     void Start()
@@ -142,7 +145,7 @@ public class TowerPlacementManager : MonoBehaviour
                     if (validPlacement)
                     {
                         // Instantiate the actual tower
-                        Instantiate(towerPrefab, cellCenter, Quaternion.identity);
+                        GameObject newTower = Instantiate(towerPrefab, cellCenter, Quaternion.identity);
 
                         if (towerId == 3)
                         {
@@ -151,6 +154,7 @@ public class TowerPlacementManager : MonoBehaviour
 
                         if (towerId == 5)
                         {
+                            newTower.GetComponent<GatherTower>().moneyManager = masterMoneyManager;
                             gathererIcon.GetComponent<Button>().interactable = false;
                         }
 
