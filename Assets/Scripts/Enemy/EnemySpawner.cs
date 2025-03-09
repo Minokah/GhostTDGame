@@ -37,7 +37,14 @@ public class EnemySpawner : MonoBehaviour
         maxSpawnCount = 30 + 20 * level * isChallangeMode;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
         breakCounter = spawnsTillPause;
-        paused = false;
+
+        // Start paused for menus
+        paused = true;
+    }
+
+    public void SetGameState(bool active)
+    {
+        paused = !active;
     }
 
     IEnumerator PauseSpawning(float pauseAmount)

@@ -7,7 +7,7 @@ public class ProgressionMenuEntry : MonoBehaviour
     Game Game;
     UI UI;
     Button button;
-    public GameObject entry;
+    public GameObject entry, previewCamera;
     public TMP_Text name, description, progressText;
     public RectTransform progressBar;
     public RawImage icon;
@@ -23,6 +23,7 @@ public class ProgressionMenuEntry : MonoBehaviour
     // Tell the progression menu to display selected info
     private void Clicked()
     {
+        if (previewCamera != null) previewCamera.SetActive(true);
         UI.ProgressionMenu.ShowInformation(entry);
     }
 

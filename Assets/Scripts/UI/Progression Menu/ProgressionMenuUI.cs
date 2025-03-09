@@ -14,6 +14,7 @@ public class ProgressionMenuUI : MonoBehaviour
     public ProfileSectionUI profile;
     public ProgressionMenuListing listing;
     public ProgressionMenuInfo info;
+    public GameObject camera;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class ProgressionMenuUI : MonoBehaviour
 
     public void ShowInformation(GameObject entry)
     {
+        camera.SetActive(false);
         listing.Hide();
         info.Show(entry);
     }
@@ -32,6 +34,7 @@ public class ProgressionMenuUI : MonoBehaviour
     // Shows the main menu listing
     public void Show()
     {
+        camera.SetActive(true);
         UI.windowActive = true;
         canvas.Show();
         listing.Show();
@@ -40,7 +43,8 @@ public class ProgressionMenuUI : MonoBehaviour
 
     public void Hide()
     {
-        UI.windowActive = false;
+        camera.SetActive(true);
+        UI.Menu.Show();
         canvas.Hide();
     }
 }

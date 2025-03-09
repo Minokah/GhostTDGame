@@ -16,6 +16,7 @@ public class ProfileManager : MonoBehaviour
     void Start()
     {
         Game = Game.Get();
+        Load();
     }
 
     // Load a profile from My Documents/My Games/GhostTDGame

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using TMPro;
 
@@ -10,12 +9,6 @@ public class StatisticsManager : MonoBehaviour
     public Dictionary<string, int> session;
     public int level;
     public TMP_Text displayedMoney;
-
-    void Start()
-    {
-        ResetState();
-        addMoney(20 + 15 * level);
-    }
 
     // Reset statistics to the default state for profile loads
     public void ResetState()
@@ -30,7 +23,7 @@ public class StatisticsManager : MonoBehaviour
 
         session = new Dictionary<string, int>()
         {
-            { "money", 0 }
+            { "money", 35 }
         };
     }
 

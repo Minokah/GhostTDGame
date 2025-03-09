@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public GameplayCameraController GameplayCameraController;
     public TowerPlacementManager TowerPlacementManager;
     public SpellManager SpellManager;
+    public EnemySpawner EnemySpawner;
 
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();

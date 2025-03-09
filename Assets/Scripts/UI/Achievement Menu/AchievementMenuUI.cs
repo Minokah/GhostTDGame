@@ -36,7 +36,7 @@ public class AchievementMenuUI : MonoBehaviour
 
     public void Hide()
     {
-        UI.windowActive = false;
+        UI.Menu.Show();
         canvas.Hide();
     }
 }

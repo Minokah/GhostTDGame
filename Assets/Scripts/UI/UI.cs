@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
+    public MenuUI Menu;
     public NotificationUI NotificationUI;
     public AchievementMenuUI AchievementMenu;
     public ProgressionMenuUI ProgressionMenu;
@@ -12,7 +13,7 @@ public class UI : MonoBehaviour
     public CastbarUI Castbar;
     public StatsHoverUI StatsHover;
 
-    public bool windowActive = false;
+    public bool windowActive = true;
 
     public static UI Get() {
         return GameObject.FindGameObjectWithTag("UI").GetComponent<UI>();

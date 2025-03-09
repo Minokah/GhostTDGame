@@ -10,6 +10,7 @@ public class GameplayCameraController : MonoBehaviour
     public GameObject pivotObject;
 
     public float pivotMoveRate = 10;
+    public bool enabled = true;
     public bool overhead = true;
     float pivotY;
 
@@ -23,7 +24,7 @@ public class GameplayCameraController : MonoBehaviour
     void Update()
     {
         // overhead cam? we don't care
-        if (overhead) return;
+        if (enabled || overhead) return;
 
         // if holding shift, pan horizontally faster
         if (Input.GetKey(KeyCode.LeftShift)) pivotMoveRate = 30;
@@ -51,6 +52,19 @@ public class GameplayCameraController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             pivotCamera.m_YAxis.m_MaxSpeed = 0;
         }
+    }
+
+    public void EnableCams()
+    {
+        enabled = true;
+        SetOverhead(overhead);
+    }
+
+    public void DisableCams()
+    {
+        enabled = false;
+        overheadCamera.gameObject.SetActive(false);
+        pivotCamera.gameObject.SetActive(false);
     }
 
     public void SetOverhead(bool state) {
