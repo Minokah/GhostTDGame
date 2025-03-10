@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuUI : MonoBehaviour
 {
+    public GameObject camera;
     public Button quit, progression, play, achievements;
     CanvasVisible canvas;
     UI UI;
@@ -23,6 +24,7 @@ public class MenuUI : MonoBehaviour
 
     public void Show()
     {
+        camera.SetActive(true);
         canvas.Show();
     }
 
@@ -37,6 +39,7 @@ public class MenuUI : MonoBehaviour
         UI.windowActive = false;
         Game.EnemySpawner.SetGameState(true);
         Game.GameplayCameraController.EnableCams();
+        camera.SetActive(true);
     }
 
     public void ShowProgression()

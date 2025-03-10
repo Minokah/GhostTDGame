@@ -5,6 +5,7 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     public MenuUI Menu;
+    public EndScreenUI EndScreen;
     public NotificationUI NotificationUI;
     public AchievementMenuUI AchievementMenu;
     public ProgressionMenuUI ProgressionMenu;

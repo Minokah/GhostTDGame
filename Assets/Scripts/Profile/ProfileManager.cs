@@ -22,9 +22,7 @@ public class ProfileManager : MonoBehaviour
     // Load a profile from My Documents/My Games/GhostTDGame
     public void Load()
     {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\GhostTDGame";
-        // Create "My Games" folder if it doesn't exist (standard folder for.. a lot of games)
-        if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+        string path = Application.persistentDataPath;
 
         // If the profile.json doesn't exist, make a new one and save it
         if (!File.Exists(path + "\\profile.json"))
@@ -189,17 +187,13 @@ public class ProfileManager : MonoBehaviour
 
         // Statistics are stored as strings, but they are initially integers, convert them
         Dictionary<string, string> convertedStats = new Dictionary<string, string>();
-        
         foreach (string stat in Game.StatisticsManager.statistics.Keys)
         {
             convertedStats.Add(stat, Game.StatisticsManager.statistics[stat].ToString());
         }
         save.Add("statistics", convertedStats);
 
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\My Games\\GhostTDGame";
-
-        // Create "My Games" folder if it doesn't exist (standard folder for.. a lot of games)
-        if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+        string path = Application.persistentDataPath;
 
         StreamWriter writer = new StreamWriter(path + "\\profile.json");
         writer.Write(JsonConvert.SerializeObject(save));
