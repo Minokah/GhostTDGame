@@ -5,7 +5,6 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Profiling;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class ProfileManager : MonoBehaviour
 {
@@ -101,6 +100,8 @@ public class ProfileManager : MonoBehaviour
         Game.StatisticsManager.statistics = newStatistics;
 
         loaded = true;
+
+        // To do: load and save spells into and from spell manager
     }
 
     private void LoadProgressionEntries(string type, List<Dictionary<string, object>> container)

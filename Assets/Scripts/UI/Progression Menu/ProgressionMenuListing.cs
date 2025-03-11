@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ProgressionMenuListing : MonoBehaviour
 {
@@ -66,5 +68,29 @@ public class ProgressionMenuListing : MonoBehaviour
         towerCanvas.Hide();
         spellCanvas.Show();
         RefreshContainer(spellContainer);
+    }
+
+    public void StopSpellChange()
+    {
+        spellContainer.GetComponent<ProgressionMenuSpellSelect>().StopChanging();
+    }
+
+    public void ChangeSpell(GameObject entry)
+    {
+        spellContainer.GetComponent<ProgressionMenuSpellSelect>().ChangeSpell(entry);
+    }
+    
+    public void UpdateSpellChangeText()
+    {
+        foreach (Transform item in spellContainer.transform)
+        {
+            ProgressionMenuEntry entry = item.GetComponent<ProgressionMenuEntry>();
+            if (entry != null) entry.SetChanging();
+        }
+    }
+
+    public bool IsSpellSelecting()
+    {
+        return spellContainer.GetComponent<ProgressionMenuSpellSelect>().changeState;
     }
 }

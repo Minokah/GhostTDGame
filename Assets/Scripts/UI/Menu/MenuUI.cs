@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class MenuUI : MonoBehaviour
 {
     public GameObject camera;
-    public Button quit, progression, play, achievements;
+    public Button quit, progression, play, achievements, credits;
+    public CanvasVisible creditsPanel;
     CanvasVisible canvas;
     UI UI;
     Game Game;
+
+    bool showingCredits = false;
 
     void Start()
     {
@@ -20,6 +23,7 @@ public class MenuUI : MonoBehaviour
         progression.onClick.AddListener(ShowProgression);
         achievements.onClick.AddListener(ShowAchievements);
         play.onClick.AddListener(PlayGame);
+        credits.onClick.AddListener(ToggleCredits);
     }
 
     public void Show()
@@ -37,6 +41,7 @@ public class MenuUI : MonoBehaviour
     {
         Hide();
         UI.windowActive = false;
+        UI.Spellbar.Refresh();
         Game.EnemySpawner.SetGameState(true);
         Game.GameplayCameraController.EnableCams();
         camera.SetActive(true);
@@ -52,6 +57,13 @@ public class MenuUI : MonoBehaviour
     {
         canvas.Hide();
         UI.AchievementMenu.Show();
+    }
+
+    public void ToggleCredits()
+    {
+        showingCredits = !showingCredits;
+        if (!showingCredits) creditsPanel.Hide();
+        else creditsPanel.Show();
     }
 
     public void QuitGame()

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class SpellbarUI : MonoBehaviour
 {
-    public GameObject spell1, spell2, spell3;
     public Button spell1Button, spell2Button, spell3Button;
     UI UI;
     Game Game;
@@ -48,21 +48,21 @@ public class SpellbarUI : MonoBehaviour
     // Or clicking on them will also pull up the castbar
     private void Spell1Click()
     {
-        UI.Castbar.Set(spell1, CastbarUI.Type.Cast);
+        UI.Castbar.Set(Game.SpellManager.spell1, CastbarUI.Type.Cast);
         UI.Castbar.Show();
         Game.SpellManager.Place(0);
     }
 
     private void Spell2Click()
     {
-        UI.Castbar.Set(spell2, CastbarUI.Type.Cast);
+        UI.Castbar.Set(Game.SpellManager.spell2, CastbarUI.Type.Cast);
         UI.Castbar.Show();
         Game.SpellManager.Place(1);
     }
 
     private void Spell3Click()
     {
-        UI.Castbar.Set(spell3, CastbarUI.Type.Cast);
+        UI.Castbar.Set(Game.SpellManager.spell3, CastbarUI.Type.Cast);
         UI.Castbar.Show();
         Game.SpellManager.Place(2);
     }
@@ -75,5 +75,16 @@ public class SpellbarUI : MonoBehaviour
     public void Hide()
     {
         canvas.Hide(0.05f);
+    }
+
+    // Refresh the icons on the HUD
+    public void Refresh()
+    {
+        spell1Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell1.GetComponent<ProgressionEntry>().id);
+        spell1Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell1;
+        spell2Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell2.GetComponent<ProgressionEntry>().id);
+        spell2Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell2;
+        spell3Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell3.GetComponent<ProgressionEntry>().id);
+        spell3Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell3;
     }
 }

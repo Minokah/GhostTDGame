@@ -20,11 +20,18 @@ public class ProgressionMenuEntry : MonoBehaviour
         button.onClick.AddListener(Clicked);
     }
 
-    // Tell the progression menu to display selected info
+    // Tell the progression menu to display selected info, unless we are changing spells. Then do that instead.
     private void Clicked()
     {
-        if (previewCamera != null) previewCamera.SetActive(true);
-        UI.ProgressionMenu.ShowInformation(entry);
+        if (UI.ProgressionMenu.listing.IsSpellSelecting())
+        {
+            UI.ProgressionMenu.listing.ChangeSpell(entry);
+        }
+        else
+        {
+            if (previewCamera != null) previewCamera.SetActive(true);
+            UI.ProgressionMenu.ShowInformation(entry);
+        }
     }
 
     // Refresh this entry's info
@@ -53,5 +60,16 @@ public class ProgressionMenuEntry : MonoBehaviour
         int level = Game.ProgressionManager.GetPlayerLevel();
         if (level >= entry.requireLevel) level = entry.requireLevel;
         progressBar.sizeDelta = new Vector2(418f * ((float)level / (float)entry.requireLevel), progressBar.sizeDelta.y);
+    }
+
+    // Change the text for spells.
+    public void SetChanging()
+    {
+        ProgressionEntry entry = this.entry.GetComponent<ProgressionEntry>();
+        // Level met?
+        if (Game.ProgressionManager.GetPlayerLevel() >= entry.requireLevel)
+        {
+            progressText.text = "Select To Change";
+        }
     }
 }

@@ -10,8 +10,11 @@ public class SpellManager : MonoBehaviour
     public bool isUsingSpell = false;
 
     public GameObject spellIcon1, spellIcon2, spellIcon3;
+    public GameObject vfxContainer;
     public GameObject spell1, spell2, spell3;
-    public GameObject spell1Preview, spell2Preview, spell3Preview;
+
+    // Map progression entries to VFX
+    Dictionary<GameObject, SpellVFX> vfxMapping = new Dictionary<GameObject, SpellVFX>();
 
     GameObject spellPrefab;
 
@@ -40,6 +43,13 @@ public class SpellManager : MonoBehaviour
         freeSpellStacks = 0;
         eurekaUpgrade = false;
         UI = UI.Get();
+        
+        // Map Progression entity to VFX Object
+        foreach (Transform t in vfxContainer.transform)
+        {
+            SpellVFX vfx = t.GetComponent<SpellVFX>();
+            vfxMapping[vfx.entity] = vfx;
+        }
     }
 
     void Update()
@@ -50,18 +60,18 @@ public class SpellManager : MonoBehaviour
             // detect which spell slot was clicked
             if (spellSlotId == 0)
             {
-                spellPrefab = spell1;
-                spellPreviewPrefab = spell1Preview;
+                spellPrefab = vfxMapping[spell1].effect;
+                spellPreviewPrefab = vfxMapping[spell1].preview;
             }
             else if (spellSlotId == 1)
             {
-                spellPrefab = spell2;
-                spellPreviewPrefab = spell2Preview;
+                spellPrefab = vfxMapping[spell2].effect;
+                spellPreviewPrefab = vfxMapping[spell2].preview;
             }
             else
             {
-                spellPrefab = spell3;
-                spellPreviewPrefab = spell3Preview;
+                spellPrefab = vfxMapping[spell3].effect;
+                spellPreviewPrefab = vfxMapping[spell3].preview;
             }
 
             // If right clicked, cancel placement

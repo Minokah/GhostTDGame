@@ -43,6 +43,9 @@ public class ProgressionMenuUI : MonoBehaviour
 
     public void Hide()
     {
+        // If the user is selecting a spell, go back to the default mode
+        UI.ProgressionMenu.listing.StopSpellChange();
+
         camera.SetActive(true);
         UI.Menu.Show();
         canvas.Hide();
