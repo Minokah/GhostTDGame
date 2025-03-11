@@ -24,7 +24,7 @@ public class GameplayCameraController : MonoBehaviour
     void Update()
     {
         // overhead cam? we don't care
-        if (enabled || overhead) return;
+        if (!enabled || overhead) return;
 
         // if holding shift, pan horizontally faster
         if (Input.GetKey(KeyCode.LeftShift)) pivotMoveRate = 30;
