@@ -7196,7 +7196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.79834, y: 0}
+  m_AnchoredPosition: {x: -32.79883, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -30176,6 +30176,8 @@ GameObject:
   - component: {fileID: 652845369}
   - component: {fileID: 652845368}
   - component: {fileID: 652845367}
+  - component: {fileID: 652845373}
+  - component: {fileID: 652845372}
   m_Layer: 0
   m_Name: Spirit Cannon
   m_TagString: Untagged
@@ -30282,6 +30284,42 @@ MonoBehaviour:
   name: Spirit Cannon Tower
   description: Lobs spirit shells at enemies dealing area-of-effect damage.
   requireLevel: 5
+--- !u!114 &652845372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652845365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Fast
+  name: Fast
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &652845373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652845365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Napalm
+  name: Napalm
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!4 &653605481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2046896676089933467, guid: 9f7008b8f6e245743b4d0126685adef3, type: 3}

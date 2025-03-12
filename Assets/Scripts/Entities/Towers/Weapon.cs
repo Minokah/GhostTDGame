@@ -40,14 +40,15 @@ public class Weapon : MonoBehaviour
                 transform.Translate(Vector3.forward * Time.deltaTime * 90.0f);
             }
 
-            if (Vector3.Distance(transform.position,
-                                 target.gameObject.transform.position)
-                < 0.1f)
+            if (Vector3.Distance(transform.position,target.gameObject.transform.position)< 0.1f)
             {
-                float stunChance = UnityEngine.Random.Range(0f, 1f);
-                if (stunChance >= 0.95f)
+                if (special2 == true)
                 {
-                    StartCoroutine(Stun(target.GetComponent<Enemy>()));
+                    float stunChance = UnityEngine.Random.Range(0f, 1f);
+                    if (stunChance >= 0.95f)
+                    {
+                        StartCoroutine(Stun(target.GetComponent<Enemy>()));
+                    }
                 }
                 target.Damage(damage * (1 + extraDamage), source, this);
                 Destroy(this.gameObject);

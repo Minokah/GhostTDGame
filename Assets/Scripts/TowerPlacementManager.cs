@@ -209,7 +209,6 @@ public class TowerPlacementManager : MonoBehaviour
                                 {
                                     newTower.GetComponent<Tower>().setSpecialTwo();
                                 }
-
                             }
                         }
                         else if (towerId == 1)
@@ -226,6 +225,15 @@ public class TowerPlacementManager : MonoBehaviour
                                 if (upgrade.id == "Range")
                                 {
                                     newTower.GetComponent<Tower>().setAttackRange(upgrade.returnUpgradeStat());
+                                }
+
+                                if (upgrade.id == "Napalm" & upgrade.level == 1)
+                                {
+                                    newTower.GetComponent<Tower>().setSpecialOne();
+                                }
+                                if (upgrade.id == "Fast" & upgrade.level == 1)
+                                {
+                                    newTower.GetComponent<Tower>().setSpecialTwo();
                                 }
                             }
                         }

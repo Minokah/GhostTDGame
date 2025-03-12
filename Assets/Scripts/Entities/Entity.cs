@@ -50,6 +50,17 @@ public class Entity : MonoBehaviour
         }
     }
 
+    // For misc effects
+    public void Damage(float damage)
+    {
+        health -= damage;
+        // take damage, provided context for attacker
+        if (0 >= health)
+        {
+            Die();
+        }
+    }
+
     private void Die()
     {
         // get money from the kill

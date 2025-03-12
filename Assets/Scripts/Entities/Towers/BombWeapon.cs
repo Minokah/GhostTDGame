@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,17 @@ public class BombWeapon : Weapon
 {
     Vector3 projectileTarget;
     private List<Entity> enemyList = new List<Entity>();
-    SphereCollider bombRadius;
+    public SphereCollider bombRadius;
+    // for napalm upgrade
+    public NapalmEffect napalm;
 
     public override void Init(Entity source_init, Entity target_init)
     {
-        base.Init(source_init, target_init);
+        source = source_init;
+        target = target_init;
+        transform.position = source_init.gameObject.transform.position;
+        transform.LookAt(target.gameObject.transform.position,Vector3.back);
         projectileTarget = target_init.gameObject.transform.position;
-        bombRadius = GetComponent<SphereCollider>();
     }
 
     protected override void Update()
@@ -27,11 +32,23 @@ public class BombWeapon : Weapon
         }
 
         transform.LookAt(projectileTarget,Vector3.back);
-        
-        transform.Translate(Vector3.forward * Time.deltaTime * 30.0f);
-        
+
+        if (special2 == false)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 20.0f);
+        }
+        else
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 60.0f);
+        }
+            
         if (Vector3.Distance(transform.position, projectileTarget) < 0.1f)
         {
+            if (special1 == true)
+            {
+                Instantiate(napalm, transform.position, Quaternion.identity);
+            }
+
             foreach (Entity enemy in enemyList)
             {
                 if (enemy != null)
