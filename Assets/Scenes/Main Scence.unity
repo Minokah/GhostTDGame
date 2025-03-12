@@ -7196,7 +7196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.798462, y: 0}
+  m_AnchoredPosition: {x: -32.79834, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -17922,9 +17922,9 @@ MonoBehaviour:
   id: Damage
   name: Damage
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &559165117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17940,9 +17940,9 @@ MonoBehaviour:
   id: Radius
   name: Radius
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.25
+  amount2: 0.5
+  amount3: 0.75
 --- !u!114 &559165118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45400,7 +45400,7 @@ MonoBehaviour:
   - {fileID: 776745164}
   - {fileID: 327391879}
   - {fileID: 452041182}
-  spawnInterval: 0.5
+  spawnInterval: 0.4
   maxSpawnCount: 50
   enemyList: []
   level: 1
@@ -72636,6 +72636,11 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  fireProgression: {fileID: 559165115}
+  iceProgression: {fileID: 73820171}
+  lightningProgression: {fileID: 1877843146}
+  windProgression: {fileID: 1084342444}
+  timeProgression: {fileID: 671460708}
 --- !u!1 &1847311187
 GameObject:
   m_ObjectHideFlags: 0

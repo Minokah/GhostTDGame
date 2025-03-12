@@ -28,7 +28,7 @@ public class StatisticsManager : MonoBehaviour
 
         session = new Dictionary<string, int>()
         {
-            { "money", 150 } //RESET BACK TO 35 FOR DEFAULT STARTING MONEY
+            { "money", 35 }
         };
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 528973212581282259}
   - component: {fileID: 4215933337678972327}
   - component: {fileID: 2354803929027459117}
+  - component: {fileID: -5419545360829698509}
   m_Layer: 0
   m_Name: FireSpellPreview
   m_TagString: Untagged
@@ -105,3 +106,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5419545360829698509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750702576406683298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404e6a0c991ba7243a00440db91ea0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellId: 0

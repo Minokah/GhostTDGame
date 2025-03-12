@@ -188,6 +188,7 @@ public class TowerPlacementManager : MonoBehaviour
                         if (towerId == 0)
                         {
                             masterMoneyManager.addMoney(-15);
+
                             boltUpgrades = boltProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in boltUpgrades)
                             {
@@ -204,6 +205,7 @@ public class TowerPlacementManager : MonoBehaviour
                         else if (towerId == 1)
                         {
                             masterMoneyManager.addMoney(-20);
+
                             bombUpgrades = bombProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in bombUpgrades)
                             {
@@ -221,6 +223,7 @@ public class TowerPlacementManager : MonoBehaviour
                         else if (towerId == 2)
                         {
                             masterMoneyManager.addMoney(-20);
+
                             sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in sniperUpgrades)
                             {
@@ -238,6 +241,7 @@ public class TowerPlacementManager : MonoBehaviour
                         else if (towerId == 3)
                         {
                             masterMoneyManager.addMoney(-25);
+
                             bubbleUpgrades = bubbleProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in bubbleUpgrades)
                             {

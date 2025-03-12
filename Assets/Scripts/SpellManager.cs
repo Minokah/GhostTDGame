@@ -35,6 +35,14 @@ public class SpellManager : MonoBehaviour
     private int freeSpellStacks;
     private Boolean eurekaUpgrade;
 
+    // get all the upgrades for spells that we might have to apply
+    public GameObject fireProgression, iceProgression, lightningProgression, windProgression, timeProgression;
+    private ProgressionUpgrade[] fireUpgrades;
+    private ProgressionUpgrade[] iceUpgrades;
+    private ProgressionUpgrade[] lightningUpgrades;
+    private ProgressionUpgrade[] windUpgrades;
+    private ProgressionUpgrade[] timeUpgrades;
+
     UI UI;
 
     void Start()
@@ -101,6 +109,18 @@ public class SpellManager : MonoBehaviour
                 if (currentPreview == null)
                 {
                     currentPreview = Instantiate(spellPreviewPrefab);
+                    // apply any range upgrades to the preview as well
+                    if (currentPreview.GetComponent<BaseSpell>().spellId == 0)
+                    {
+                        fireUpgrades = fireProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in fireUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                currentPreview.GetComponent<BaseSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
                 }
 
                 // Move the preview to follow the mouse (snapped to cell center)
@@ -110,7 +130,24 @@ public class SpellManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     // Instantiate the actual spell
-                    Instantiate(spellPrefab, cellCenter, Quaternion.identity);
+                    GameObject newSpell = Instantiate(spellPrefab, cellCenter, Quaternion.identity);
+
+                    if (newSpell.GetComponent<BaseSpell>().spellId == 0)
+                    {
+                        fireUpgrades = fireProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in fireUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                newSpell.GetComponent<FireSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                            if (upgrade.id == "Damage")
+                            {
+                                newSpell.GetComponent<FireSpell>().setHigherDamage(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+
                     if (freeSpellStacks > 0)
                     {
                         freeSpellStacks = freeSpellStacks - 1;
@@ -124,11 +161,11 @@ public class SpellManager : MonoBehaviour
                         }
                         else
                         {
-                            StartCoroutine(startCoolDown(spellPrefab.GetComponent<BaseSpell>().spellId));
+                            StartCoroutine(startCoolDown(spellSlotId));
                         }
                     }
                     else { 
-                        StartCoroutine(startCoolDown(spellPrefab.GetComponent<BaseSpell>().spellId)); 
+                        StartCoroutine(startCoolDown(spellSlotId)); 
                     }
 
                     // If you only want to place one tower per "mode," exit placing mode

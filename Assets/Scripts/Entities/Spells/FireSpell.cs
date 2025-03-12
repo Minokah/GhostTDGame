@@ -7,7 +7,7 @@ public class FireSpell : BaseSpell
     public List<Enemy> enemyList = new List<Enemy>();
     public FireEffects fireEffect;
     private FireEffects currentFireEffect;
-
+    private float higherDamage = 0f;
 
     public void Start()
     {
@@ -24,6 +24,7 @@ public class FireSpell : BaseSpell
             if (enemy != null)
             {
                 currentFireEffect = Instantiate(fireEffect);
+                currentFireEffect.damageModifier = higherDamage;
                 currentFireEffect.Burn(enemy, this);
             }
         }
@@ -44,5 +45,10 @@ public class FireSpell : BaseSpell
         {
             enemyList.Remove(enemy.gameObject.GetComponent<Enemy>());
         }
+    }
+
+    public void setHigherDamage(float modifier)
+    {
+        higherDamage = higherDamage + modifier;
     }
 }

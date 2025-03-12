@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b578640b590725498ceb3396565188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellId: 0
+  spellId: 1
   enemyList: []
   iceEffect: {fileID: -3417380186538689065, guid: 1ab6ef88acf2dd74ea4f218cef4bea39, type: 3}
+  slowRate: 0.75

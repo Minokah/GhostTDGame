@@ -118,6 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fd6974606201e42a75377a4b7c21e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellId: 2
+  spellId: 0
   enemyList: []
   fireEffect: {fileID: 8942296629586742381, guid: 3216270a8cc6d9047acc915a8b8144be, type: 3}
