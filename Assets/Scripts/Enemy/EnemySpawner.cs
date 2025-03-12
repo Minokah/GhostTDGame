@@ -31,6 +31,10 @@ public class EnemySpawner : MonoBehaviour
 
     private float spawnTimer = 0f;
 
+    // for the gateway tower to extend breaks between hordes
+    private float breakTime = 1f;
+
+
     void Start()
     {
         isChallangeMode = 1;
@@ -78,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
                     breakCounter = breakCounter + spawnsTillPause;
                 }
                 //Debug.Log("Start Waiting");
-                StartCoroutine(PauseSpawning(10 + level));
+                StartCoroutine(PauseSpawning((5 + level) * breakTime));
             }
         }
     }
@@ -209,10 +213,14 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void FunnelEffect(int reducedSpawn, float slowerSpawnRate)
+    public void reduceSpawnEffect(int reducedSpawn)
     {
         maxSpawnCount = maxSpawnCount - reducedSpawn;
-        spawnInterval = spawnInterval * slowerSpawnRate;
+    }
+
+    public void longerBreakEffect(float slowerSpawnRate)
+    {
+        breakTime = breakTime + slowerSpawnRate;
     }
 
     public void cameraManEffect()

@@ -71,4 +71,14 @@ public class BubbleTower : Entity
             attacker.speed = attacker.speed / slow_rate;
         }
     }
+
+    public void setEffectRange(float modifierValue)
+    {
+        tower_range = tower_range * (1 + modifierValue);
+    }
+
+    public void setSlowRate(float modifierValue)
+    {
+        slow_rate = slow_rate * (1 - modifierValue);
+    }
 }

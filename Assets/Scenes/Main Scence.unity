@@ -7196,7 +7196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.79834, y: 0}
+  m_AnchoredPosition: {x: -32.798462, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217184755
@@ -9773,9 +9773,9 @@ MonoBehaviour:
   id: Damage
   name: Damage
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &294639380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9791,9 +9791,9 @@ MonoBehaviour:
   id: FireRate
   name: Fire Rate
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &294639381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16427,9 +16427,9 @@ MonoBehaviour:
   id: GainAmount
   name: Gain Amount
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 2
+  amount2: 4
+  amount3: 6
 --- !u!114 &502975208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16445,9 +16445,9 @@ MonoBehaviour:
   id: GainRate
   name: Gain Rate
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 1
+  amount2: 3
+  amount3: 5
 --- !u!114 &502975209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30210,12 +30210,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Radius
-  name: Radius
+  id: Range
+  name: Range
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &652845368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30228,12 +30228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: FireRate
-  name: Fire Rate
+  id: Damage
+  name: Damage
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &652845369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66569,12 +66569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Radius
-  name: Radius
+  id: Range
+  name: Range
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &1646341115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66590,9 +66590,9 @@ MonoBehaviour:
   id: SlowRate
   name: Slow Rate
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &1646341116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82880,9 +82880,9 @@ MonoBehaviour:
   id: SpawnDelay
   name: Spawn Delay
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.25
+  amount2: 0.5
+  amount3: 0.75
 --- !u!114 &2105359920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82898,9 +82898,9 @@ MonoBehaviour:
   id: SpawnRate
   name: Spawn Rate
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 1
+  amount2: 2
+  amount3: 3
 --- !u!114 &2105359921
 MonoBehaviour:
   m_ObjectHideFlags: 0

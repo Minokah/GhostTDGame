@@ -62,12 +62,6 @@ public class TowerPlacementManager : MonoBehaviour
 
     void Start()
     {
-        //bombUpgrades = bombProgression.GetComponents<ProgressionUpgrade>();
-        //sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
-        //bubbleUpgrades = bubbleProgression.GetComponents<ProgressionUpgrade>();
-        //gateUpgrades = gateProgression.GetComponents<ProgressionUpgrade>();
-        //gathererUpgrades = gathererProgression.GetComponents<ProgressionUpgrade>();
-        //arcaneUpgrades = arcaneProgression.GetComponents<ProgressionUpgrade>();
         UI = UI.Get();
     }
 
@@ -197,10 +191,10 @@ public class TowerPlacementManager : MonoBehaviour
                             boltUpgrades = boltProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in boltUpgrades)
                             {
-                                //if (upgrade.id == "Damage")
-                                //{
-                                //    newTower.GetComponent<Weapon>().damage = newTower.GetComponent<Weapon>().damage * (1 + upgrade.returnUpgradeStat());
-                                //}
+                                if (upgrade.id == "Damage")
+                                {
+                                    newTower.GetComponent<Tower>().setHigherDamage(upgrade.returnUpgradeStat());
+                                }
                                 if (upgrade.id == "FireRate")
                                 {
                                     newTower.GetComponent<Tower>().setAttackSpeed(upgrade.returnUpgradeStat());
@@ -210,16 +204,52 @@ public class TowerPlacementManager : MonoBehaviour
                         else if (towerId == 1)
                         {
                             masterMoneyManager.addMoney(-20);
+                            bombUpgrades = bombProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in bombUpgrades)
+                            {
+                                if (upgrade.id == "Damage")
+                                {
+                                    newTower.GetComponent<Tower>().setHigherDamage(upgrade.returnUpgradeStat());
+                                }
+                                if (upgrade.id == "Range")
+                                {
+                                    newTower.GetComponent<Tower>().setAttackRange(upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
 
                         else if (towerId == 2)
                         {
                             masterMoneyManager.addMoney(-20);
+                            sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in sniperUpgrades)
+                            {
+                                if (upgrade.id == "Damage")
+                                {
+                                    newTower.GetComponent<Tower>().setHigherDamage(upgrade.returnUpgradeStat());
+                                }
+                                if (upgrade.id == "FireRate")
+                                {
+                                    newTower.GetComponent<Tower>().setAttackSpeed(upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
 
                         else if (towerId == 3)
                         {
                             masterMoneyManager.addMoney(-25);
+                            bubbleUpgrades = bubbleProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in bubbleUpgrades)
+                            {
+                                if (upgrade.id == "SlowRate")
+                                {
+                                    newTower.GetComponent<BubbleTower>().setSlowRate(upgrade.returnUpgradeStat());
+                                }
+                                if (upgrade.id == "Range")
+                                {
+                                    newTower.GetComponent<BubbleTower>().setEffectRange(upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
 
                         else if (towerId == 4)
@@ -227,6 +257,19 @@ public class TowerPlacementManager : MonoBehaviour
                             masterMoneyManager.addMoney(-50);
                             gateIcon.GetComponent<Button>().interactable = false;
                             gateBuilt = true;
+
+                            gateUpgrades = gateProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in gateUpgrades)
+                            {
+                                if (upgrade.id == "SpawnRate")
+                                {
+                                    newTower.GetComponent<GateTower>().reduceSpawn((int)upgrade.returnUpgradeStat());
+                                }
+                                if (upgrade.id == "SpawnDelay")
+                                {
+                                    newTower.GetComponent<GateTower>().increaseBreaks(upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
 
                         else if (towerId == 5)
@@ -235,6 +278,19 @@ public class TowerPlacementManager : MonoBehaviour
                             newTower.GetComponent<GatherTower>().moneyManager = masterMoneyManager;
                             gathererIcon.GetComponent<Button>().interactable = false;
                             gatherBuilt = true;
+
+                            gathererUpgrades = gathererProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in gathererUpgrades)
+                            {
+                                if (upgrade.id == "GainAmount")
+                                {
+                                    newTower.GetComponent<GatherTower>().moreMoneyGeneration((int)upgrade.returnUpgradeStat());
+                                }
+                                if (upgrade.id == "GainRate")
+                                {
+                                    newTower.GetComponent<GatherTower>().fasterMoneyGeneration(upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
 
                         else if (towerId == 6)

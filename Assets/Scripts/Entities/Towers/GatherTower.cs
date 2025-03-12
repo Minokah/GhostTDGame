@@ -45,4 +45,14 @@ public class GatherTower : Entity
         yield return new WaitForSeconds(pauseTime);
         cooldown = false;
     }
+
+    public void moreMoneyGeneration(int moneyAmount)
+    {
+        money = money + moneyAmount;
+    }
+
+    public void fasterMoneyGeneration(float generationTime)
+    {
+        pauseTime = pauseTime - generationTime;
+    }
 }
