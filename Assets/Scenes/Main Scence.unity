@@ -3264,6 +3264,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   masterMoneyManager: {fileID: 462730740}
+  boltProgression: {fileID: 810355774}
+  bombProgression: {fileID: 652845365}
+  sniperProgression: {fileID: 294639377}
+  bubbleProgression: {fileID: 1646341112}
+  gateProgression: {fileID: 2105359917}
+  gathererProgression: {fileID: 502975205}
+  arcaneProgression: {fileID: 2044331911}
 --- !u!224 &109332805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26749,6 +26756,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   masterMoneyManager: {fileID: 0}
+  boltProgression: {fileID: 0}
+  bombProgression: {fileID: 0}
+  sniperProgression: {fileID: 0}
+  bubbleProgression: {fileID: 0}
+  gateProgression: {fileID: 0}
+  gathererProgression: {fileID: 0}
+  arcaneProgression: {fileID: 0}
 --- !u!4 &567516763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4356039243816192528, guid: 68184f4b39f979748ba8ac9d98475466, type: 3}
@@ -36523,10 +36537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Damage
   name: Damage
-  level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  level: 3
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &810355777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36541,10 +36555,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: FireRate
   name: Fire Rate
-  level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  level: 3
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &810355778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74184,8 +74198,8 @@ Transform:
   - {fileID: 810355775}
   - {fileID: 652845366}
   - {fileID: 294639378}
-  - {fileID: 2105359918}
   - {fileID: 1646341113}
+  - {fileID: 2105359918}
   - {fileID: 502975206}
   - {fileID: 2044331912}
   m_Father: {fileID: 1376900137}

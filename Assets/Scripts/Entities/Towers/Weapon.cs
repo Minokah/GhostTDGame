@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class Weapon : MonoBehaviour
     protected Entity source;
     protected Entity target;
     public float damage;
+    public float extraDamage;
+    public Boolean special1;
+    public Boolean special2;
     public virtual void Init(Entity source_init, Entity target_init)
     {
         source = source_init;
@@ -34,7 +38,7 @@ public class Weapon : MonoBehaviour
                                  target.gameObject.transform.position)
                 < 0.1f)
             {
-                target.Damage(damage, source, this);
+                target.Damage(damage * extraDamage, source, this);
                 Destroy(this.gameObject);
             }
         }

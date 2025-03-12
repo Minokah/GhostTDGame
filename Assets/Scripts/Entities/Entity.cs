@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class Entity : MonoBehaviour
     // An offset to position the bubble (e.g., above the entity)
     public Vector3 speechBubbleOffset = new Vector3(0, 2f, 0);
 
+    public float higherDamage = 1f;
+    public Boolean specialUpgrade1 = false;
+    public Boolean specialUpgrade2 = false;
+
 
     public void Damage(float damage, Entity attacker, Weapon damager)
     {
@@ -42,7 +47,6 @@ public class Entity : MonoBehaviour
         if (0 >= health)
         {
             Die();
-
         }
     }
 
@@ -89,6 +93,9 @@ public class Entity : MonoBehaviour
 
         weapon_instance = Instantiate(weapon);
         weapon_instance.Init(this, target);
+        weapon_instance.extraDamage = higherDamage;
+        weapon_instance.special1 = specialUpgrade1;
+        weapon_instance.special2 = specialUpgrade2;
     }
 
     protected void MoneyOnKill()

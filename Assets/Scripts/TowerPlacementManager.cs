@@ -4,7 +4,6 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using TMPro;
 using System;
-using static System.Net.Mime.MediaTypeNames;
 
 public class TowerPlacementManager : MonoBehaviour
 {
@@ -50,10 +49,25 @@ public class TowerPlacementManager : MonoBehaviour
     // keeps track if the max 1 spirit gather, gate, and/or arcane tower has been built
     Boolean gateBuilt = false, gatherBuilt = false, arcaneBuilt = false;
 
+    // get all the upgrades for towers that we might have to apply
+    public GameObject boltProgression, bombProgression, sniperProgression, bubbleProgression, gateProgression, gathererProgression, arcaneProgression;
+    private ProgressionUpgrade[] boltUpgrades;
+    private ProgressionUpgrade[] bombUpgrades;
+    private ProgressionUpgrade[] sniperUpgrades;
+    private ProgressionUpgrade[] bubbleUpgrades;
+    private ProgressionUpgrade[] gateUpgrades;
+    private ProgressionUpgrade[] gathererUpgrades;
+    private ProgressionUpgrade[] arcaneUpgrades;
     UI UI;
 
     void Start()
     {
+        //bombUpgrades = bombProgression.GetComponents<ProgressionUpgrade>();
+        //sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
+        //bubbleUpgrades = bubbleProgression.GetComponents<ProgressionUpgrade>();
+        //gateUpgrades = gateProgression.GetComponents<ProgressionUpgrade>();
+        //gathererUpgrades = gathererProgression.GetComponents<ProgressionUpgrade>();
+        //arcaneUpgrades = arcaneProgression.GetComponents<ProgressionUpgrade>();
         UI = UI.Get();
     }
 
@@ -180,6 +194,18 @@ public class TowerPlacementManager : MonoBehaviour
                         if (towerId == 0)
                         {
                             masterMoneyManager.addMoney(-15);
+                            boltUpgrades = boltProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in boltUpgrades)
+                            {
+                                //if (upgrade.id == "Damage")
+                                //{
+                                //    newTower.GetComponent<Weapon>().damage = newTower.GetComponent<Weapon>().damage * (1 + upgrade.returnUpgradeStat());
+                                //}
+                                if (upgrade.id == "FireRate")
+                                {
+                                    newTower.GetComponent<Tower>().setAttackSpeed(upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
                         else if (towerId == 1)
                         {

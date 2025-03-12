@@ -6,7 +6,6 @@ public class Tower : Entity
 {
 
     public float tower_range;
-
     public enum TargPref {
                             First,
                             Last
@@ -105,5 +104,21 @@ public class Tower : Entity
             // byebye, come again!
             targets.Remove(attacker);
         }
+    }
+
+    public void setAttackSpeed(float modifierValue)
+    {
+        attack_cooldown = attack_cooldown * (1 + modifierValue);
+    }
+
+    public void setAttackRange(float modifierValue)
+    {
+        attack_cooldown = attack_cooldown * (1 + modifierValue);
+    }
+
+    public void setHigherDamage(float modifierValue)
+    {
+        // this will be used in instantiated weapon
+        higherDamage = higherDamage + modifierValue;
     }
 }
