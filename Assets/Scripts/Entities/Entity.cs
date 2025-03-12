@@ -130,4 +130,13 @@ public class Entity : MonoBehaviour
             moneyManager.addMoney(64);
         }
     }
+
+    public void setSpecialOne()
+    {
+        specialUpgrade1 = true;
+    }
+    public void setSpecialTwo()
+    {
+        specialUpgrade2 = true;
+    }
 }

@@ -9,8 +9,8 @@ public class Weapon : MonoBehaviour
     protected Entity target;
     public float damage;
     public float extraDamage;
-    public Boolean special1;
-    public Boolean special2;
+    public Boolean special1 = false;
+    public Boolean special2 = false;
     public virtual void Init(Entity source_init, Entity target_init)
     {
         source = source_init;
@@ -31,16 +31,44 @@ public class Weapon : MonoBehaviour
         {
             transform.LookAt(target.gameObject.transform.position,
              Vector3.back);
-
-            transform.Translate(Vector3.forward * Time.deltaTime * 30.0f);
+            if (special1 == false)
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * 30.0f);
+            }
+            else
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * 90.0f);
+            }
 
             if (Vector3.Distance(transform.position,
                                  target.gameObject.transform.position)
                 < 0.1f)
             {
-                target.Damage(damage * (1+extraDamage), source, this);
+                float stunChance = UnityEngine.Random.Range(0f, 1f);
+                if (stunChance >= 0.95f)
+                {
+                    StartCoroutine(Stun(target.GetComponent<Enemy>()));
+                }
+                target.Damage(damage * (1 + extraDamage), source, this);
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    IEnumerator Stun(Enemy enemy)
+    {
+        if (enemy != null)
+        {
+            //float originalSpeed = enemy.speed;
+            enemy.speed = enemy.speed * 0.5f;
+            //WaitUtility.Wait(5, () => {
+            //    if (enemy != null)
+            //    {
+            //        enemy.speed = originalSpeed;
+            //    }
+            //}
+            //);
+        }
+        yield return new WaitForSeconds(0);
     }
 }

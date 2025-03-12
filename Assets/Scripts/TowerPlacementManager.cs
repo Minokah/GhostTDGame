@@ -200,6 +200,16 @@ public class TowerPlacementManager : MonoBehaviour
                                 {
                                     newTower.GetComponent<Tower>().setAttackSpeed(upgrade.returnUpgradeStat());
                                 }
+
+                                if (upgrade.id == "Fast" & upgrade.level == 1)
+                                {
+                                    newTower.GetComponent<Tower>().setSpecialOne();
+                                }
+                                if (upgrade.id == "Stun" & upgrade.level == 1)
+                                {
+                                    newTower.GetComponent<Tower>().setSpecialTwo();
+                                }
+
                             }
                         }
                         else if (towerId == 1)

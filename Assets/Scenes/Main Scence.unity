@@ -36501,6 +36501,8 @@ GameObject:
   - component: {fileID: 810355778}
   - component: {fileID: 810355777}
   - component: {fileID: 810355776}
+  - component: {fileID: 810355782}
+  - component: {fileID: 810355781}
   m_Layer: 0
   m_Name: Spirit Bolt
   m_TagString: Untagged
@@ -36607,6 +36609,42 @@ MonoBehaviour:
   name: Spirit Bolt Tower
   description: Fires homing bolts at enemies.
   requireLevel: 1
+--- !u!114 &810355781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810355774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Stun
+  name: Stun Bolts
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &810355782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810355774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Fast
+  name: Fast Bolts
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!1001 &810827305
 PrefabInstance:
   m_ObjectHideFlags: 0
