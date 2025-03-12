@@ -5,7 +5,7 @@ using UnityEngine;
 public class NapalmEffect : MonoBehaviour
 {
     public List<Enemy> enemyList = new List<Enemy>();
-    public float damage = 0.001f;
+    public float damage = 0.0005f;
 
     public void Start()
     {
@@ -41,7 +41,7 @@ public class NapalmEffect : MonoBehaviour
 
     IEnumerator stopNapalm()
     {
-        WaitUtility.Wait(5, () => {
+        WaitUtility.Wait(2, () => {
             Destroy(this.gameObject);
         }
         );

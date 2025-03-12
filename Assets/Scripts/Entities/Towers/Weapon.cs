@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
                 if (special2 == true)
                 {
                     float stunChance = UnityEngine.Random.Range(0f, 1f);
-                    if (stunChance >= 0.95f)
+                    if (stunChance >= 0.9f)
                     {
                         StartCoroutine(Stun(target.GetComponent<Enemy>()));
                     }
