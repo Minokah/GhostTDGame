@@ -224,9 +224,9 @@ public class TowerPlacementManager : MonoBehaviour
                             sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in sniperUpgrades)
                             {
-                                if (upgrade.id == "Damage")
+                                if (upgrade.id == "Range")
                                 {
-                                    newTower.GetComponent<Tower>().setHigherDamage(upgrade.returnUpgradeStat());
+                                    newTower.GetComponent<Tower>().setAttackRange(upgrade.returnUpgradeStat());
                                 }
                                 if (upgrade.id == "FireRate")
                                 {
@@ -257,6 +257,8 @@ public class TowerPlacementManager : MonoBehaviour
                             masterMoneyManager.addMoney(-50);
                             gateIcon.GetComponent<Button>().interactable = false;
                             gateBuilt = true;
+                            newTower.GetComponent<GateTower>().reduceSpawn(1);
+                            newTower.GetComponent<GateTower>().increaseBreaks(0.25f);
 
                             gateUpgrades = gateProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in gateUpgrades)
@@ -298,6 +300,22 @@ public class TowerPlacementManager : MonoBehaviour
                             masterMoneyManager.addMoney(-50);
                             arcaneIcon.GetComponent<Button>().interactable = false;
                             arcaneBuilt = true;
+                            newTower.GetComponent<ArcaneTower>().cooldownEffect(1.5f);
+                            newTower.GetComponent<ArcaneTower>().freeEffect(0);
+                            newTower.GetComponent<ArcaneTower>().eurekaEffect(false);
+
+                            arcaneUpgrades = arcaneProgression.GetComponents<ProgressionUpgrade>();
+                            foreach (ProgressionUpgrade upgrade in arcaneUpgrades)
+                            {
+                                if (upgrade.id == "RegenRate")
+                                {
+                                    newTower.GetComponent<ArcaneTower>().cooldownEffect(upgrade.returnUpgradeStat());
+                                }
+                                if (upgrade.id == "StartingSpells")
+                                {
+                                    newTower.GetComponent<ArcaneTower>().freeEffect((int)upgrade.returnUpgradeStat());
+                                }
+                            }
                         }
 
                         // Mark the cell as occupied

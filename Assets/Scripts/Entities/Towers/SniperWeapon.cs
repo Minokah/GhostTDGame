@@ -13,7 +13,7 @@ public class SniperWeapon : Weapon
         }
         else
         {
-            target.Damage(damage, source, this);
+            target.Damage(damage * (1 + extraDamage), source, this);
             Destroy(this.gameObject);
         }
     }

@@ -6,9 +6,6 @@ using UnityEngine;
 public class ArcaneTower : Entity
 {
     // To Handle the Arcane Tower Bonuses
-    private float coolDownUpgrade = 1.5f;
-    private int freeSpellStacks = 0;
-    private Boolean eurekaUpgrade = false;
     private GameObject spellManager;
 
     void Start()
@@ -29,11 +26,20 @@ public class ArcaneTower : Entity
                 //bubbleScript.SetText("Argh!"); // Or any text you wish
             }
         }
-        spellManager = GameObject.FindWithTag("Spell Manager");
-        ArcaneEffect();
     }
 
-    void ArcaneEffect(){
-        spellManager.GetComponent<SpellManager>().arcaneTowerEffect(coolDownUpgrade, freeSpellStacks, eurekaUpgrade);
+    public void cooldownEffect(float fasterCooldown){
+        spellManager = GameObject.FindWithTag("Spell Manager");
+        spellManager.GetComponent<SpellManager>().arcaneTowerCooldownEffect(fasterCooldown);
+    }
+    public void freeEffect(int moreFree)
+    {
+        spellManager = GameObject.FindWithTag("Spell Manager");
+        spellManager.GetComponent<SpellManager>().arcaneTowerFreeEffect(moreFree);
+    }
+    public void eurekaEffect(Boolean eurekaOn)
+    {
+        spellManager = GameObject.FindWithTag("Spell Manager");
+        spellManager.GetComponent<SpellManager>().arcaneTowerEurekaEffect(eurekaOn);
     }
 }

@@ -108,7 +108,7 @@ public class Tower : Entity
 
     public void setAttackSpeed(float modifierValue)
     {
-        attack_cooldown = attack_cooldown * (1 + modifierValue);
+        attack_cooldown = attack_cooldown * (1 - modifierValue);
     }
 
     public void setAttackRange(float modifierValue)

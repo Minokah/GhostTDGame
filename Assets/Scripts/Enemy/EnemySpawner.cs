@@ -81,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     breakCounter = breakCounter + spawnsTillPause;
                 }
-                //Debug.Log("Start Waiting");
+                //Debug.Log("Wait Time: " + (5 + level) * breakTime);
                 StartCoroutine(PauseSpawning((5 + level) * breakTime));
             }
         }

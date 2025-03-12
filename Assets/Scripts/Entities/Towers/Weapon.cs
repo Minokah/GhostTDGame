@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
                                  target.gameObject.transform.position)
                 < 0.1f)
             {
-                target.Damage(damage * extraDamage, source, this);
+                target.Damage(damage * (1+extraDamage), source, this);
                 Destroy(this.gameObject);
             }
         }

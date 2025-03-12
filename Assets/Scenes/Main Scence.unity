@@ -9770,8 +9770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Damage
-  name: Damage
+  id: Range
+  name: Range
   level: 0
   amount1: 0.2
   amount2: 0.4
@@ -45400,7 +45400,7 @@ MonoBehaviour:
   - {fileID: 776745164}
   - {fileID: 327391879}
   - {fileID: 452041182}
-  spawnInterval: 0.4
+  spawnInterval: 0.5
   maxSpawnCount: 50
   enemyList: []
   level: 1
@@ -80672,9 +80672,9 @@ MonoBehaviour:
   id: StartingSpells
   name: Extra Starting Spells
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 1
+  amount2: 2
+  amount3: 3
 --- !u!114 &2044331914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80690,9 +80690,9 @@ MonoBehaviour:
   id: RegenRate
   name: Regen Rate
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 1.5
+  amount2: 3
+  amount3: 4.5
 --- !u!114 &2044331915
 MonoBehaviour:
   m_ObjectHideFlags: 0

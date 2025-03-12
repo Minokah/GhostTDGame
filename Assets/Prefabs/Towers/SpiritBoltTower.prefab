@@ -122,11 +122,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 909484002724788323, guid: 329e621494d005540b90b321ba4ea48f, type: 3}
   range_collider: {fileID: 7601932223960240945}
-  attack_cooldown: 0.5
+  attack_cooldown: 1
   health: 0
   moneyManager: {fileID: 0}
   entityId: 0
   speechBubblePrefab: {fileID: 3775669384542656839, guid: 2b72448313a9c0b4ab9c637b4553ba44, type: 3}
   speechBubbleOffset: {x: -3, y: 2, z: 2}
+  higherDamage: 0
+  specialUpgrade1: 0
+  specialUpgrade2: 0
   tower_range: 10
   targ_affinity: 0

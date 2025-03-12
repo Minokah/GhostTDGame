@@ -36,7 +36,7 @@ public class BombWeapon : Weapon
             {
                 if (enemy != null)
                 {
-                    enemy.Damage(damage, source, this);
+                    enemy.Damage(damage * (1 + extraDamage), source, this);
                 }
             }
             Destroy(this.gameObject);

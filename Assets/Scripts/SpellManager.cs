@@ -206,10 +206,18 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    public void arcaneTowerEffect(float cooldown, int freeSpells, Boolean eureka)
+    public void arcaneTowerCooldownEffect(float cooldown)
     {
-        coolDownUpgrade = cooldown;
-        freeSpellStacks = freeSpells;
+        coolDownUpgrade = coolDownUpgrade + cooldown;
+    }
+
+    public void arcaneTowerFreeEffect(int freeSpells)
+    {
+        freeSpellStacks = freeSpellStacks + freeSpells;
+    }
+
+    public void arcaneTowerEurekaEffect(Boolean eureka)
+    {
         eurekaUpgrade = eureka;
     }
 }

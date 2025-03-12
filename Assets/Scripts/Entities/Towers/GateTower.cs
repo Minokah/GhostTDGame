@@ -26,18 +26,17 @@ public class GateTower : Entity
                 //bubbleScript.SetText("Argh!"); // Or any text you wish
             }
         }
-        spawner = GameObject.FindWithTag("Enemy Spawner");
-        spawner.GetComponent<EnemySpawner>().reduceSpawnEffect(1);
-        spawner.GetComponent<EnemySpawner>().longerBreakEffect(0.25f);
     }
 
     public void reduceSpawn(int reduceSpawnAmount)
     {
+        spawner = GameObject.FindWithTag("Enemy Spawner");
         spawner.GetComponent<EnemySpawner>().reduceSpawnEffect(reduceSpawnAmount);
     }
 
     public void increaseBreaks(float longerBreakAmount)
     {
+        spawner = GameObject.FindWithTag("Enemy Spawner");
         spawner.GetComponent<EnemySpawner>().longerBreakEffect(longerBreakAmount);
     }
 }
