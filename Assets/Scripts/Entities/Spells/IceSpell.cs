@@ -46,4 +46,9 @@ public class IceSpell : BaseSpell
             enemyList.Remove(enemy.gameObject.GetComponent<Enemy>());
         }
     }
+
+    public void setMoreSlow(float modifier)
+    {
+        slowRate = slowRate * (1f - modifier);
+    }
 }

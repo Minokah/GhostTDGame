@@ -6,14 +6,17 @@ public class TimeEffects : MonoBehaviour
 {
     public float slowRate = 0.95f;
     public float originalSpeed;
+    public int duration = 5;
+    public float moreSlow = 0f;
+    public int moreDuration = 0;
 
     public void Slow(Enemy enemy)
     {
         if (enemy != null)
         {
             originalSpeed = enemy.speed;
-            enemy.speed = enemy.speed * slowRate;
-            WaitUtility.Wait(5, () => {
+            enemy.speed = enemy.speed * (slowRate * (1f - moreSlow));
+            WaitUtility.Wait((duration + moreDuration), () => {
                     if (enemy != null)
                     {
                         enemy.speed = originalSpeed;

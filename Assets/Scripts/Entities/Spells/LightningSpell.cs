@@ -7,7 +7,7 @@ public class LightningSpell : BaseSpell
     public List<Enemy> enemyList = new List<Enemy>();
     public LightningEffects lightningEffect;
     private LightningEffects currentLightningEffect;
-
+    private float higherDamage = 0f;
 
     public void Start()
     {
@@ -24,6 +24,7 @@ public class LightningSpell : BaseSpell
             if (enemy != null)
             {
                 currentLightningEffect = Instantiate(lightningEffect);
+                currentLightningEffect.damageModifier = higherDamage;
                 currentLightningEffect.Bolt(enemy, this);
             }
         }
@@ -44,5 +45,10 @@ public class LightningSpell : BaseSpell
         {
             enemyList.Remove(enemy.gameObject.GetComponent<Enemy>());
         }
+    }
+
+    public void setHigherDamage(float modifier)
+    {
+        higherDamage = higherDamage + modifier;
     }
 }

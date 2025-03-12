@@ -2250,9 +2250,9 @@ MonoBehaviour:
   id: Speed
   name: Speed
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &73820174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2268,9 +2268,9 @@ MonoBehaviour:
   id: Radius
   name: Radius
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.25
+  amount2: 0.5
+  amount3: 0.75
 --- !u!114 &73820175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31008,9 +31008,9 @@ MonoBehaviour:
   id: Speed
   name: Speed
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &671460711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31026,9 +31026,9 @@ MonoBehaviour:
   id: Duration
   name: Duration
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 1
+  amount2: 2
+  amount3: 3
 --- !u!114 &671460712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46583,12 +46583,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f5d750f3409294188f78b215fd1481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Cost
-  name: Cost
+  id: Radius
+  name: Radius
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.25
+  amount2: 0.5
+  amount3: 0.75
 --- !u!114 &1084342447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46604,9 +46604,9 @@ MonoBehaviour:
   id: Distance
   name: Distance
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 1
+  amount2: 2
+  amount3: 3
 --- !u!114 &1084342448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74929,9 +74929,9 @@ MonoBehaviour:
   id: Damage
   name: Damage
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.2
+  amount2: 0.4
+  amount3: 0.6
 --- !u!114 &1877843149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74947,9 +74947,9 @@ MonoBehaviour:
   id: Radius
   name: Radius
   level: 0
-  amount1: 0
-  amount2: 0
-  amount3: 0
+  amount1: 0.25
+  amount2: 0.5
+  amount3: 0.75
 --- !u!114 &1877843150
 MonoBehaviour:
   m_ObjectHideFlags: 0

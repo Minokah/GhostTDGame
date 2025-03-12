@@ -121,6 +121,39 @@ public class SpellManager : MonoBehaviour
                             }
                         }
                     }
+                    else if (currentPreview.GetComponent<BaseSpell>().spellId == 1)
+                    {
+                        iceUpgrades = iceProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in iceUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                currentPreview.GetComponent<BaseSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    else if (currentPreview.GetComponent<BaseSpell>().spellId == 2)
+                    {
+                        lightningUpgrades = lightningProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in lightningUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                currentPreview.GetComponent<BaseSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    else if (currentPreview.GetComponent<BaseSpell>().spellId == 3)
+                    {
+                        windUpgrades = windProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in windUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                currentPreview.GetComponent<BaseSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
                 }
 
                 // Move the preview to follow the mouse (snapped to cell center)
@@ -147,6 +180,66 @@ public class SpellManager : MonoBehaviour
                             }
                         }
                     }
+                    else if (newSpell.GetComponent<BaseSpell>().spellId == 1)
+                    {
+                        iceUpgrades = iceProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in iceUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                newSpell.GetComponent<IceSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                            if (upgrade.id == "Speed")
+                            {
+                                newSpell.GetComponent<IceSpell>().setMoreSlow(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    else if (newSpell.GetComponent<BaseSpell>().spellId == 2)
+                    {
+                        lightningUpgrades = lightningProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in lightningUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                newSpell.GetComponent<LightningSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                            if (upgrade.id == "Damage")
+                            {
+                                newSpell.GetComponent<LightningSpell>().setHigherDamage(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    else if (newSpell.GetComponent<BaseSpell>().spellId == 3)
+                    {
+                        windUpgrades = windProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in windUpgrades)
+                        {
+                            if (upgrade.id == "Radius")
+                            {
+                                newSpell.GetComponent<WindSpell>().setHigherRadius(upgrade.returnUpgradeStat());
+                            }
+                            if (upgrade.id == "Distance")
+                            {
+                                newSpell.GetComponent<WindSpell>().setHigherKnockback((int)upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    else if (newSpell.GetComponent<BaseSpell>().spellId == 4)
+                    {
+                        timeUpgrades = timeProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in timeUpgrades)
+                        {
+                            if (upgrade.id == "Speed")
+                            {
+                                newSpell.GetComponent<TimeSpell>().setMoreSlow(upgrade.returnUpgradeStat());
+                            }
+                            if (upgrade.id == "Duration")
+                            {
+                                newSpell.GetComponent<TimeSpell>().setHigherDuration((int)upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
 
                     if (freeSpellStacks > 0)
                     {
@@ -164,8 +257,9 @@ public class SpellManager : MonoBehaviour
                             StartCoroutine(startCoolDown(spellSlotId));
                         }
                     }
-                    else { 
-                        StartCoroutine(startCoolDown(spellSlotId)); 
+                    else
+                    {
+                        StartCoroutine(startCoolDown(spellSlotId));
                     }
 
                     // If you only want to place one tower per "mode," exit placing mode

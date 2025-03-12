@@ -8,6 +8,7 @@ public class WindSpell : BaseSpell
     public List<Enemy> enemyList = new List<Enemy>();
     public WindEffects windEffect;
     private WindEffects currentWindEffect;
+    private int moreKnockback = 0;
 
     public void Start()
     {
@@ -24,6 +25,7 @@ public class WindSpell : BaseSpell
             if (enemy != null)
             {
                 currentWindEffect = Instantiate(windEffect);
+                currentWindEffect.extraAmount = moreKnockback;
                 currentWindEffect.Push(enemy);
             }
         }
@@ -44,5 +46,10 @@ public class WindSpell : BaseSpell
         {
             enemyList.Remove(enemy.gameObject.GetComponent<Enemy>());
         }
+    }
+
+    public void setHigherKnockback(int modifier)
+    {
+        moreKnockback = moreKnockback + modifier;
     }
 }
