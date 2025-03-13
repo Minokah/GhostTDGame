@@ -13,6 +13,9 @@ public class Game : MonoBehaviour
     public SpellManager SpellManager;
     public EnemySpawner EnemySpawner;
 
+    public bool paused = false;
+    public bool playing = false;
+
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
     }

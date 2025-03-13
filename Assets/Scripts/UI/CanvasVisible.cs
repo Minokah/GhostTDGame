@@ -20,8 +20,9 @@ public class CanvasVisible : MonoBehaviour
         }
     }
 
-    public void Show()
+    public void Show(float amount = 0f)
     {
+        if (amount > 0f) canvas.alpha = amount;
         visible = true;
         canvas.interactable = true;
         canvas.blocksRaycasts = true;
