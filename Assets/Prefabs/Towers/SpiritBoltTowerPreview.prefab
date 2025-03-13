@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7981416551308055797}
   - component: {fileID: 3757991349312006959}
   - component: {fileID: 5119412556627721968}
+  - component: {fileID: -2941182987598445831}
   m_Layer: 0
   m_Name: SpiritBoltTowerPreview
   m_TagString: Untagged
@@ -107,3 +108,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-2941182987598445831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178044683713152675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6383ff6516b92bf4a9f08e64f7c8309b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_range: 10
+  range_visual: {fileID: 2414239603554733554, guid: 521d9f89034d5d04893d04062c99cd10, type: 3}
+  local_range: {fileID: 0}

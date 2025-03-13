@@ -133,3 +133,4 @@ MonoBehaviour:
   specialUpgrade2: 0
   tower_range: 10
   targ_affinity: 0
+  range_visual: {fileID: 2414239603554733554, guid: 521d9f89034d5d04893d04062c99cd10, type: 3}
