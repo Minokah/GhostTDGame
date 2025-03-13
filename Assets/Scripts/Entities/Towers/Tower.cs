@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,9 @@ public class Tower : Entity
     private float target_strength;
     private bool attack_cooling;
 
+    public GameObject range_visual;
+    private GameObject local_range;
+    private Boolean rangeEnabled = false;
 
     IEnumerator WaitAndAttack(float time)
     {
@@ -41,6 +45,9 @@ public class Tower : Entity
 
         if (null != range_collider) {
             range_collider.radius = tower_range;
+            local_range = Instantiate(range_visual, transform.position, Quaternion.identity);
+            local_range.transform.localScale = local_range.transform.localScale + new Vector3(2* tower_range, 0.01f, 2 * tower_range);
+            local_range.SetActive(false);
         }
 
         Debug.Log(speechBubblePrefab);
@@ -103,6 +110,20 @@ public class Tower : Entity
         if (null != (attacker = other.GetComponent<Enemy>())) {
             // byebye, come again!
             targets.Remove(attacker);
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (rangeEnabled == false)
+        {
+            rangeEnabled = true;
+            local_range.SetActive(true);
+        }
+        else
+        {
+            rangeEnabled = false;
+            local_range.SetActive(false);
         }
     }
 

@@ -156,6 +156,41 @@ public class TowerPlacementManager : MonoBehaviour
                 if (currentPreview == null)
                 {
                     currentPreview = Instantiate(towerPreviewPrefab);
+
+                    // for certain toweres we want the range preview to be accurate and reflect any range upgrades
+                    if (towerId == 1)
+                    {
+                        bombUpgrades = bombProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in bombUpgrades)
+                        {
+                            if (upgrade.id == "Range")
+                            {
+                                currentPreview.GetComponent<TowerPreview>().setRange(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    if (towerId == 2)
+                    {
+                        sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in sniperUpgrades)
+                        {
+                            if (upgrade.id == "Range")
+                            {
+                                currentPreview.GetComponent<TowerPreview>().setRange(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
+                    if (towerId == 3)
+                    {
+                        bubbleUpgrades = bubbleProgression.GetComponents<ProgressionUpgrade>();
+                        foreach (ProgressionUpgrade upgrade in bubbleUpgrades)
+                        {
+                            if (upgrade.id == "Range")
+                            {
+                                currentPreview.GetComponent<TowerPreview>().setRange(upgrade.returnUpgradeStat());
+                            }
+                        }
+                    }
                 }
 
                 // Move the preview to follow the mouse (snapped to cell center)
@@ -176,6 +211,15 @@ public class TowerPlacementManager : MonoBehaviour
                 if (previewRenderer != null)
                 {
                     previewRenderer.material.color = validPlacement ? Color.green : Color.red;
+                    // also make range indicator red if tower has one
+                    if (towerId == 0 || towerId == 1 || towerId == 2 || towerId == 3)
+                    {
+                        if (currentPreview.GetComponent<TowerPreview>().local_range != null)
+                        {
+                            Renderer previewRangeRenderer = currentPreview.GetComponent<TowerPreview>().local_range.GetComponent<Renderer>();
+                            previewRangeRenderer.material.color = validPlacement ? new Color(0f, 158f, 8f, .3f) : new Color(255f, 0f, 0f, .3f);
+                        }
+                    }
                 }
 
                 // If user left-clicks, attempt to place the real tower
@@ -389,8 +433,7 @@ public class TowerPlacementManager : MonoBehaviour
                         occupiedCells.Add(cellPos);
 
                         // If you only want to place one tower per "mode," exit placing mode
-                        Destroy(currentPreview);
-                        currentPreview = null;
+                        handlePreviewDeletion();
                         isPlacingTower = false;
                         UI.Castbar.Hide();
                     }
@@ -415,8 +458,7 @@ public class TowerPlacementManager : MonoBehaviour
             // If we are NOT placing a tower, make sure no preview object remains
             if (currentPreview != null)
             {
-                Destroy(currentPreview);
-                currentPreview = null;
+                handlePreviewDeletion();
             }
         }
     }
@@ -437,9 +479,18 @@ public class TowerPlacementManager : MonoBehaviour
         // If turning off, destroy any existing preview
         if (!isPlacingTower && currentPreview != null)
         {
-            Destroy(currentPreview);
-            currentPreview = null;
+            handlePreviewDeletion();
         }
+    }
+
+    public void handlePreviewDeletion()
+    {
+        if (towerId == 0 || towerId == 1 || towerId == 2 || towerId == 3)
+        {
+            Destroy(currentPreview.GetComponent<TowerPreview>().local_range);
+        }
+        Destroy(currentPreview);
+        currentPreview = null;
     }
 
     public void updateBoltStatus()

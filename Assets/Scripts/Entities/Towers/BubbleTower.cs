@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class BubbleTower : Entity
     public float tower_range;
     public float slow_rate = 0.5f;
     private List<Enemy> targets;
+    public GameObject range_visual;
+    private GameObject local_range;
+    private Boolean rangeEnabled = false;
 
     void Start()
     {
@@ -16,6 +20,9 @@ public class BubbleTower : Entity
         if (null != range_collider)
         {
             range_collider.radius = tower_range;
+            local_range = Instantiate(range_visual, transform.position, Quaternion.identity);
+            local_range.transform.localScale = local_range.transform.localScale + new Vector3(2 * tower_range, 0.01f, 2 * tower_range);
+            local_range.SetActive(false);
         }
 
         Debug.Log(speechBubblePrefab);
@@ -86,6 +93,20 @@ public class BubbleTower : Entity
             // byebye, come again!
             targets.Remove(attacker);
             attacker.speed = attacker.speed / slow_rate;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (rangeEnabled == false)
+        {
+            rangeEnabled = true;
+            local_range.SetActive(true);
+        }
+        else
+        {
+            rangeEnabled = false;
+            local_range.SetActive(false);
         }
     }
 

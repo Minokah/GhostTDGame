@@ -128,5 +128,9 @@ MonoBehaviour:
   entityId: 0
   speechBubblePrefab: {fileID: 3775669384542656839, guid: 2b72448313a9c0b4ab9c637b4553ba44, type: 3}
   speechBubbleOffset: {x: -3, y: 2, z: 2}
+  higherDamage: 1
+  specialUpgrade1: 0
+  specialUpgrade2: 0
   tower_range: 10
   targ_affinity: 0
+  range_visual: {fileID: 2414239603554733554, guid: 521d9f89034d5d04893d04062c99cd10, type: 3}
