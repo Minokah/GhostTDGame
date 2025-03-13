@@ -33,6 +33,8 @@ public class EnemySpawner : MonoBehaviour
 
     // for the gateway tower to extend breaks between hordes
     private float breakTime = 1f;
+    // for special gateway ability
+    private Boolean lessSpecialEnemies = false;
 
 
     void Start()
@@ -71,7 +73,18 @@ public class EnemySpawner : MonoBehaviour
                 spawnTimer = 0f;
                 SpawnEnemy();
                 spawnCount++;
-                spawnRngEnemy(level);
+                if (lessSpecialEnemies == false)
+                {
+                    spawnRngEnemy(level);
+                }
+                else
+                {
+                    float randomValue = UnityEngine.Random.Range(0f, 1f);
+                    if (randomValue >= 0.25f)
+                    {
+                        spawnRngEnemy(level);
+                    }
+                }
             }
 
             // we give the player some "breaks" between "waves" by pausing spawning for some time
@@ -221,6 +234,11 @@ public class EnemySpawner : MonoBehaviour
     public void longerBreakEffect(float slowerSpawnRate)
     {
         breakTime = breakTime + slowerSpawnRate;
+    }
+
+    public void setLessSpecialEnemies()
+    {
+        lessSpecialEnemies = true;
     }
 
     public void cameraManEffect()

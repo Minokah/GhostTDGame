@@ -16428,6 +16428,8 @@ GameObject:
   - component: {fileID: 502975209}
   - component: {fileID: 502975208}
   - component: {fileID: 502975207}
+  - component: {fileID: 502975213}
+  - component: {fileID: 502975212}
   m_Layer: 0
   m_Name: Spirit Gatherer
   m_TagString: Untagged
@@ -16534,6 +16536,42 @@ MonoBehaviour:
   name: Spirit Gatherer
   description: Passively Accumulates Money Over Time
   requireLevel: 10
+--- !u!114 &502975212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502975205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: GoodTrades
+  name: Good Trades
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &502975213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502975205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: RiskyTrades
+  name: Risky Trades
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!4 &503698004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2949410635598727661, guid: f0f8d15f681809841b6e3ab9c6463cc2, type: 3}
@@ -66649,6 +66687,8 @@ GameObject:
   - component: {fileID: 1646341116}
   - component: {fileID: 1646341115}
   - component: {fileID: 1646341114}
+  - component: {fileID: 1646341120}
+  - component: {fileID: 1646341119}
   m_Layer: 0
   m_Name: Spirit Bubble
   m_TagString: Untagged
@@ -66755,6 +66795,42 @@ MonoBehaviour:
   name: Spirit Bubble Tower
   description: Creates a bubble that slows down enemies within it
   requireLevel: 3
+--- !u!114 &1646341119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646341112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Drain
+  name: Draining Zone
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &1646341120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646341112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Stun
+  name: Zone of Entropy
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!1001 &1648673255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80754,6 +80830,8 @@ GameObject:
   - component: {fileID: 2044331915}
   - component: {fileID: 2044331914}
   - component: {fileID: 2044331913}
+  - component: {fileID: 2044331919}
+  - component: {fileID: 2044331918}
   m_Layer: 0
   m_Name: Spirit Arcane
   m_TagString: Untagged
@@ -80860,6 +80938,42 @@ MonoBehaviour:
   name: SpiritArcane
   description: Passively Assits in Spell Regeneraiton
   requireLevel: 15
+--- !u!114 &2044331918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044331911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Skilled
+  name: Skilled
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &2044331919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044331911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Eureka
+  name: Eureka
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!4 &2046112419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2046896676089933467, guid: 9f7008b8f6e245743b4d0126685adef3, type: 3}
@@ -82962,6 +83076,8 @@ GameObject:
   - component: {fileID: 2105359921}
   - component: {fileID: 2105359920}
   - component: {fileID: 2105359919}
+  - component: {fileID: 2105359925}
+  - component: {fileID: 2105359924}
   m_Layer: 0
   m_Name: Spirit Gate
   m_TagString: Untagged
@@ -83068,6 +83184,42 @@ MonoBehaviour:
   name: Spirit Gate
   description: Reduces enemy spawn rate and amount of enemies spawned
   requireLevel: 8
+--- !u!114 &2105359924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105359917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: SpecialPatrol
+  name: Special Patrol
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &2105359925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105359917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: GeneralPatrol
+  name: General Patrol
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!1 &2107543870
 GameObject:
   m_ObjectHideFlags: 0

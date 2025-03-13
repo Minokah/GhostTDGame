@@ -48,6 +48,16 @@ public class BubbleTower : Entity
                             Color.red,
                             Time.deltaTime);
         }
+        if (specialUpgrade2 == true)
+        {
+            foreach (Enemy enemy in targets)
+            {
+                if (enemy != null)
+                {
+                    enemy.Damage(0.025f);
+                }
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)

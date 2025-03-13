@@ -8,6 +8,7 @@ public class GatherTower : Entity
     Boolean cooldown = false;
     public float pauseTime;
     public int money;
+    Boolean riskyTrades = false;
 
     void Start()
     {
@@ -41,7 +42,22 @@ public class GatherTower : Entity
     IEnumerator GenerateMoney()
     {
         cooldown = true;
-        moneyManager.addMoney(money);
+        if (riskyTrades == false)
+        {
+            moneyManager.addMoney(money);
+        }
+        else
+        {
+            float randomValue = UnityEngine.Random.Range(0f, 1f);
+            if (randomValue >= 0.5f)
+            {
+                moneyManager.addMoney(money + 5);
+            }
+            else
+            {
+                //do nothing
+            }
+        }
         yield return new WaitForSeconds(pauseTime);
         cooldown = false;
     }
@@ -54,5 +70,10 @@ public class GatherTower : Entity
     public void fasterMoneyGeneration(float generationTime)
     {
         pauseTime = pauseTime - generationTime;
+    }
+
+    public void setRiskyTrades()
+    {
+        riskyTrades = true;
     }
 }

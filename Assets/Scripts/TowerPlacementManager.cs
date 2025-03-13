@@ -280,6 +280,15 @@ public class TowerPlacementManager : MonoBehaviour
                                 {
                                     newTower.GetComponent<BubbleTower>().setEffectRange(upgrade.returnUpgradeStat());
                                 }
+
+                                if (upgrade.id == "Stun" & upgrade.level == 1)
+                                {
+                                    newTower.GetComponent<BubbleTower>().setSpecialOne();
+                                }
+                                if (upgrade.id == "Drain" & upgrade.level == 1)
+                                {
+                                    newTower.GetComponent<BubbleTower>().setSpecialTwo();
+                                }
                             }
                         }
 
@@ -302,6 +311,15 @@ public class TowerPlacementManager : MonoBehaviour
                                 {
                                     newTower.GetComponent<GateTower>().increaseBreaks(upgrade.returnUpgradeStat());
                                 }
+
+                                if (upgrade.id == "GeneralPatrol")
+                                {
+                                    newTower.GetComponent<GateTower>().generalPatrol();
+                                }
+                                if (upgrade.id == "SpecialPatrol")
+                                {
+                                    newTower.GetComponent<GateTower>().specialPatrol();
+                                }
                             }
                         }
 
@@ -322,6 +340,15 @@ public class TowerPlacementManager : MonoBehaviour
                                 if (upgrade.id == "GainRate")
                                 {
                                     newTower.GetComponent<GatherTower>().fasterMoneyGeneration(upgrade.returnUpgradeStat());
+                                }
+
+                                if (upgrade.id == "RiskyTrades")
+                                {
+                                    newTower.GetComponent<GatherTower>().setRiskyTrades();
+                                }
+                                if (upgrade.id == "GoodTrades")
+                                {
+                                    newTower.GetComponent<GatherTower>().moreMoneyGeneration(2);
                                 }
                             }
                         }
@@ -345,6 +372,15 @@ public class TowerPlacementManager : MonoBehaviour
                                 if (upgrade.id == "StartingSpells")
                                 {
                                     newTower.GetComponent<ArcaneTower>().freeEffect((int)upgrade.returnUpgradeStat());
+                                }
+
+                                if (upgrade.id == "Eureka")
+                                {
+                                    newTower.GetComponent<ArcaneTower>().eurekaEffect(true);
+                                }
+                                if (upgrade.id == "Skilled")
+                                {
+                                    newTower.GetComponent<ArcaneTower>().freeEffect(3);
                                 }
                             }
                         }
