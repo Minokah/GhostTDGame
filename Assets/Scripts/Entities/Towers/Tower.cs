@@ -18,7 +18,6 @@ public class Tower : Entity
 
     public GameObject range_visual;
     private GameObject local_range;
-    private Boolean rangeEnabled = false;
 
     IEnumerator WaitAndAttack(float time)
     {
@@ -83,6 +82,15 @@ public class Tower : Entity
         if (0 != targets.Count && false == attack_cooling) {
             StartCoroutine(WaitAndAttack(attack_cooldown));
         }
+
+        if(Input.GetKey(KeyCode.C))
+        {
+            local_range.SetActive(true);
+        }
+        else
+        {
+            local_range.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -110,20 +118,6 @@ public class Tower : Entity
         if (null != (attacker = other.GetComponent<Enemy>())) {
             // byebye, come again!
             targets.Remove(attacker);
-        }
-    }
-
-    void OnMouseDown()
-    {
-        if (rangeEnabled == false)
-        {
-            rangeEnabled = true;
-            local_range.SetActive(true);
-        }
-        else
-        {
-            rangeEnabled = false;
-            local_range.SetActive(false);
         }
     }
 
