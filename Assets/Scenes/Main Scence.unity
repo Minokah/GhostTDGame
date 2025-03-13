@@ -2213,6 +2213,8 @@ GameObject:
   - component: {fileID: 73820175}
   - component: {fileID: 73820174}
   - component: {fileID: 73820173}
+  - component: {fileID: 73820177}
+  - component: {fileID: 73820176}
   m_Layer: 0
   m_Name: Ice
   m_TagString: Untagged
@@ -2289,6 +2291,42 @@ MonoBehaviour:
   name: Bufu
   description: Temporarily slows enemies within their tracks for 5 seconds in a radius.
   requireLevel: 4
+--- !u!114 &73820176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73820171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Chill
+  name: Chilled Earth
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &73820177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73820171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Freeze
+  name: Freezing Tempertures
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!4 &78766367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4356039243816192528, guid: 68184f4b39f979748ba8ac9d98475466, type: 3}
@@ -17976,6 +18014,8 @@ GameObject:
   - component: {fileID: 559165118}
   - component: {fileID: 559165117}
   - component: {fileID: 559165116}
+  - component: {fileID: 559165121}
+  - component: {fileID: 559165120}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -18052,6 +18092,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1544726598}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559165120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559165115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Inferno
+  name: Inferno
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &559165121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559165115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Napalm
+  name: Napalm Coating
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!4 &559208917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3715422860718370134, guid: 5c172e5236a45bd48b3bd87ceb80036e, type: 3}
@@ -31085,6 +31161,8 @@ GameObject:
   - component: {fileID: 671460712}
   - component: {fileID: 671460711}
   - component: {fileID: 671460710}
+  - component: {fileID: 671460714}
+  - component: {fileID: 671460713}
   m_Layer: 0
   m_Name: Time
   m_TagString: Untagged
@@ -31161,6 +31239,42 @@ MonoBehaviour:
   name: Jikan
   description: Slows all enemies
   requireLevel: 8
+--- !u!114 &671460713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671460708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Freeze
+  name: Frozen In Time
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &671460714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671460708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Rewind
+  name: Rewind Time
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!1 &675030602
 GameObject:
   m_ObjectHideFlags: 0
@@ -46701,6 +46815,8 @@ GameObject:
   - component: {fileID: 1084342448}
   - component: {fileID: 1084342447}
   - component: {fileID: 1084342446}
+  - component: {fileID: 1084342450}
+  - component: {fileID: 1084342449}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -46777,6 +46893,42 @@ MonoBehaviour:
   name: Feng
   description: Pushes enemies back
   requireLevel: 8
+--- !u!114 &1084342449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084342444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: BackToSender
+  name: Back To Sender
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &1084342450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084342444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Hurricane
+  name: Hurricane
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!1001 &1088534963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75082,6 +75234,8 @@ GameObject:
   - component: {fileID: 1877843150}
   - component: {fileID: 1877843149}
   - component: {fileID: 1877843148}
+  - component: {fileID: 1877843152}
+  - component: {fileID: 1877843151}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Untagged
@@ -75158,6 +75312,42 @@ MonoBehaviour:
   name: Zio
   description: Powerful narrow area attack
   requireLevel: 1
+--- !u!114 &1877843151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877843146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Charged
+  name: Super Charging
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
+--- !u!114 &1877843152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877843146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a124272fef316f47829e07552fd8a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Storm
+  name: Lightning Storm
+  level: 0
+  amount1: 0
+  amount2: 0
+  amount3: 0
 --- !u!1 &1877882546
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,8 @@ public class SpellManager : MonoBehaviour
     private ProgressionUpgrade[] windUpgrades;
     private ProgressionUpgrade[] timeUpgrades;
 
+    Boolean chargeUpgrade = false;
+
     UI UI;
 
     void Start()
@@ -178,6 +180,15 @@ public class SpellManager : MonoBehaviour
                             {
                                 newSpell.GetComponent<FireSpell>().setHigherDamage(upgrade.returnUpgradeStat());
                             }
+
+                            if (upgrade.id == "Napalm")
+                            {
+                                newSpell.GetComponent<FireSpell>().setNapalm();
+                            }
+                            if (upgrade.id == "Inferno")
+                            {
+                                newSpell.GetComponent<FireSpell>().setHigherRadius(0.5f);
+                            }
                         }
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 1)
@@ -192,6 +203,15 @@ public class SpellManager : MonoBehaviour
                             if (upgrade.id == "Speed")
                             {
                                 newSpell.GetComponent<IceSpell>().setMoreSlow(upgrade.returnUpgradeStat());
+                            }
+
+                            if (upgrade.id == "Freeze")
+                            {
+                                newSpell.GetComponent<IceSpell>().setFreeze();
+                            }
+                            if (upgrade.id == "Chill")
+                            {
+                                newSpell.GetComponent<IceSpell>().setChill();
                             }
                         }
                     }
@@ -208,6 +228,15 @@ public class SpellManager : MonoBehaviour
                             {
                                 newSpell.GetComponent<LightningSpell>().setHigherDamage(upgrade.returnUpgradeStat());
                             }
+
+                            if (upgrade.id == "Storm")
+                            {
+                                newSpell.GetComponent<LightningSpell>().setStorm();
+                            }
+                            if (upgrade.id == "Charged")
+                            {
+                                chargeUpgrade = true;
+                            }
                         }
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 3)
@@ -223,6 +252,15 @@ public class SpellManager : MonoBehaviour
                             {
                                 newSpell.GetComponent<WindSpell>().setHigherKnockback((int)upgrade.returnUpgradeStat());
                             }
+
+                            if (upgrade.id == "Hurricane")
+                            {
+                                newSpell.GetComponent<WindSpell>().setHigherRadius(0.5f);
+                            }
+                            if (upgrade.id == "BackToSender")
+                            {
+                                newSpell.GetComponent<WindSpell>().setKickBack();
+                            }
                         }
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 4)
@@ -237,6 +275,15 @@ public class SpellManager : MonoBehaviour
                             if (upgrade.id == "Duration")
                             {
                                 newSpell.GetComponent<TimeSpell>().setHigherDuration((int)upgrade.returnUpgradeStat());
+                            }
+
+                            if (upgrade.id == "Rewind")
+                            {
+                                newSpell.GetComponent<TimeSpell>().setRewind();
+                            }
+                            if (upgrade.id == "Freeze")
+                            {
+                                newSpell.GetComponent<TimeSpell>().setFreeze();
                             }
                         }
                     }
@@ -254,12 +301,12 @@ public class SpellManager : MonoBehaviour
                         }
                         else
                         {
-                            StartCoroutine(startCoolDown(spellSlotId));
+                            StartCoroutine(startCoolDown(spellSlotId, newSpell.GetComponent<BaseSpell>().spellId));
                         }
                     }
                     else
                     {
-                        StartCoroutine(startCoolDown(spellSlotId));
+                        StartCoroutine(startCoolDown(spellSlotId, newSpell.GetComponent<BaseSpell>().spellId));
                     }
 
                     // If you only want to place one tower per "mode," exit placing mode
@@ -311,19 +358,21 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    private IEnumerator startCoolDown(int spellId)
+    private IEnumerator startCoolDown(int slotId, int spellId)
     {
         float waitTime = 15f - coolDownUpgrade;
-        // TODO
-        // When progression upgrades are in we need to use spellId to differentiate between wind spell which gets lower cooldown as an upgrade
+        if (chargeUpgrade == true & spellId == 2)
+        {
+            waitTime = waitTime - 4.5f;
+        }
 
-        if (spellSlotId == 0)
+        if (slotId == 0)
         {
             spellIcon1.GetComponent<Button>().interactable = false;
             yield return new WaitForSeconds(waitTime);
             spellIcon1.GetComponent<Button>().interactable = true;
         }
-        else if (spellSlotId == 1)
+        else if (slotId == 1)
         {
             spellIcon2.GetComponent<Button>().interactable = false;
             yield return new WaitForSeconds(waitTime);

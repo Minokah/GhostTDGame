@@ -10,6 +10,11 @@ public class IceSpell : BaseSpell
     private IceEffects currentIceEffect;
     public float slowRate = 0.75f;
 
+    // for special upgrades
+    Boolean chillEnabled = false;
+    public ChillEffect chill;
+    Boolean freezeEnabled = false;
+
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -20,12 +25,17 @@ public class IceSpell : BaseSpell
 
     public override void CastEffect()
     {
+        if (chillEnabled == true)
+        {
+            Instantiate(chill, transform.position, Quaternion.identity);
+        }
+
         foreach (Enemy enemy in enemyList)
         {
             if (enemy != null)
             {
                 currentIceEffect = Instantiate(iceEffect);
-                currentIceEffect.Slow(enemy, slowRate);
+                currentIceEffect.Slow(enemy, slowRate, freezeEnabled);
             }
         }
         Destroy(this.gameObject);
@@ -50,5 +60,15 @@ public class IceSpell : BaseSpell
     public void setMoreSlow(float modifier)
     {
         slowRate = slowRate * (1f - modifier);
+    }
+
+    public void setChill()
+    {
+        chillEnabled = true;
+    }
+
+    public void setFreeze()
+    {
+        freezeEnabled = true;
     }
 }

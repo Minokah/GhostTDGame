@@ -12,6 +12,9 @@ public class TimeSpell : BaseSpell
     private float slowModifer = 0f;
     private int timeModifier = 0;
 
+    Boolean rewindEnabled = false;
+    Boolean freezeEnabled = false;
+
     public void Start()
     {
         enemySpawner = GameObject.FindWithTag("Enemy Spawner");
@@ -28,10 +31,21 @@ public class TimeSpell : BaseSpell
         {
             if (enemy != null)
             {
+                if (rewindEnabled == true)
+                {
+                    if ((enemy.gameObject.GetComponent<Enemy>().currentWaypointIndex - 1) >= 0)
+                    {
+                        enemy.gameObject.GetComponent<Enemy>().currentWaypointIndex = enemy.gameObject.GetComponent<Enemy>().currentWaypointIndex - 1;
+                    }
+                    else
+                    {
+                        enemy.gameObject.GetComponent<Enemy>().currentWaypointIndex = 0;
+                    }
+                }
                 currentTimeEffect = Instantiate(timeEffect);
                 currentTimeEffect.moreSlow = slowModifer;
                 currentTimeEffect.moreDuration = timeModifier;
-                currentTimeEffect.Slow(enemy.gameObject.GetComponent<Enemy>());
+                currentTimeEffect.Slow(enemy.gameObject.GetComponent<Enemy>(), freezeEnabled);
             }
         }
         Destroy(this.gameObject);
@@ -45,5 +59,15 @@ public class TimeSpell : BaseSpell
     public void setHigherDuration(int modifier)
     {
         timeModifier = timeModifier + modifier;
+    }
+
+    public void setRewind()
+    {
+        rewindEnabled = true;
+    }
+
+    public void setFreeze()
+    {
+        freezeEnabled = true;
     }
 }

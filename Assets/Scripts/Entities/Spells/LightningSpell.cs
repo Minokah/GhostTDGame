@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,13 @@ public class LightningSpell : BaseSpell
     private LightningEffects currentLightningEffect;
     private float higherDamage = 0f;
 
+    Boolean stormEnabled = false;
+    public List<GameObject> allEnemyList;
+
     public void Start()
     {
+        GameObject enemySpawner = GameObject.FindWithTag("Enemy Spawner");
+        allEnemyList = enemySpawner.GetComponent<EnemySpawner>().enemyList;
         WaitUtility.Wait(0.1f, () => {
                 CastEffect();
             }
@@ -28,6 +34,17 @@ public class LightningSpell : BaseSpell
                 currentLightningEffect.Bolt(enemy, this);
             }
         }
+        if (stormEnabled == true)
+        {
+            Enemy lastEnemy = enemyList[enemyList.Count-1];
+            if (lastEnemy != null)
+            {
+                currentLightningEffect = Instantiate(lightningEffect);
+                currentLightningEffect.damageModifier = higherDamage;
+                currentLightningEffect.Bolt(lastEnemy, this);
+            }
+        }
+
         Destroy(this.gameObject);
     }
 
@@ -50,5 +67,10 @@ public class LightningSpell : BaseSpell
     public void setHigherDamage(float modifier)
     {
         higherDamage = higherDamage + modifier;
+    }
+
+    public void setStorm()
+    {
+        stormEnabled = true;
     }
 }

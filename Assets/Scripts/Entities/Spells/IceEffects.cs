@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,21 @@ public class IceEffects : MonoBehaviour
 {
     public float originalSpeed;
 
-    public void Slow(Enemy enemy, float slowRate)
+    public void Slow(Enemy enemy, float slowRate, Boolean freezeEnabled)
     {
+        if (enemy != null & freezeEnabled == true)
+        {
+            originalSpeed = enemy.speed;
+            enemy.speed = 0;
+            WaitUtility.Wait(2, () => {
+                if (enemy != null)
+                {
+                    enemy.speed = originalSpeed;
+                }
+            }
+            );
+        }
+
         if (enemy != null)
         {
             originalSpeed = enemy.speed;

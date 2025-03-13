@@ -10,6 +10,8 @@ public class WindSpell : BaseSpell
     private WindEffects currentWindEffect;
     private int moreKnockback = 0;
 
+    Boolean kickbackEnabled = false;
+
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -26,7 +28,7 @@ public class WindSpell : BaseSpell
             {
                 currentWindEffect = Instantiate(windEffect);
                 currentWindEffect.extraAmount = moreKnockback;
-                currentWindEffect.Push(enemy);
+                currentWindEffect.Push(enemy, kickbackEnabled);
             }
         }
         Destroy(this.gameObject);
@@ -51,5 +53,10 @@ public class WindSpell : BaseSpell
     public void setHigherKnockback(int modifier)
     {
         moreKnockback = moreKnockback + modifier;
+    }
+
+    public void setKickBack()
+    {
+        kickbackEnabled = true;
     }
 }

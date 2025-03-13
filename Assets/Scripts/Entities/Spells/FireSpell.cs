@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class FireSpell : BaseSpell
     private FireEffects currentFireEffect;
     private float higherDamage = 0f;
 
+    // for napalm upgrade
+    Boolean napalmEnabled = false;
+    public NapalmEffect napalm;
+
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -19,6 +24,10 @@ public class FireSpell : BaseSpell
 
     public override void CastEffect()
     {
+        if (napalmEnabled == true)
+        {
+            Instantiate(napalm, transform.position, Quaternion.identity);
+        }
         foreach (Enemy enemy in enemyList)
         {
             if (enemy != null)
@@ -50,5 +59,10 @@ public class FireSpell : BaseSpell
     public void setHigherDamage(float modifier)
     {
         higherDamage = higherDamage + modifier;
+    }
+
+    public void setNapalm()
+    {
+        napalmEnabled = true;
     }
 }
