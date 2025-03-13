@@ -66,7 +66,14 @@ public class BubbleTower : Entity
         if (null != (attacker = other.GetComponent<Enemy>()))
         {
             targets.Add(attacker);
+            float originalSpeed = attacker.speed;
             attacker.speed = attacker.speed * slow_rate;
+
+            if (specialUpgrade1 == true)
+            {
+                attacker.speed = 0;
+                StartCoroutine(stopFreeze(attacker, originalSpeed));
+            }
         }
         return;
     }
@@ -90,5 +97,17 @@ public class BubbleTower : Entity
     public void setSlowRate(float modifierValue)
     {
         slow_rate = slow_rate * (1 - modifierValue);
+    }
+
+    IEnumerator stopFreeze(Enemy enemy, float originalSpeed)
+    {
+        WaitUtility.Wait(1, () => {
+            if (enemy != null)
+            {
+                enemy.speed = originalSpeed * slow_rate;
+            }
+        }
+        );
+        yield return new WaitForSeconds(0);
     }
 }

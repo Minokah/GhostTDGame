@@ -5,7 +5,7 @@ using UnityEngine;
 public class NapalmEffect : MonoBehaviour
 {
     public List<Enemy> enemyList = new List<Enemy>();
-    public float damage = 0.0005f;
+    public float damage = 0.025f;
 
     public void Start()
     {
