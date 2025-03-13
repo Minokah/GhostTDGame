@@ -11,12 +11,9 @@ public class LightningSpell : BaseSpell
     private float higherDamage = 0f;
 
     Boolean stormEnabled = false;
-    public List<GameObject> allEnemyList;
 
     public void Start()
     {
-        GameObject enemySpawner = GameObject.FindWithTag("Enemy Spawner");
-        allEnemyList = enemySpawner.GetComponent<EnemySpawner>().enemyList;
         WaitUtility.Wait(0.1f, () => {
                 CastEffect();
             }
@@ -25,23 +22,17 @@ public class LightningSpell : BaseSpell
 
     public override void CastEffect()
     {
-        foreach (Enemy enemy in enemyList)
+        float randomValue = UnityEngine.Random.Range(0f, 1f);
+        if (stormEnabled == false || randomValue >= 0.20f)
         {
-            if (enemy != null)
+            foreach (Enemy enemy in enemyList)
             {
-                currentLightningEffect = Instantiate(lightningEffect);
-                currentLightningEffect.damageModifier = higherDamage;
-                currentLightningEffect.Bolt(enemy, this);
-            }
-        }
-        if (stormEnabled == true)
-        {
-            Enemy lastEnemy = enemyList[enemyList.Count-1];
-            if (lastEnemy != null)
-            {
-                currentLightningEffect = Instantiate(lightningEffect);
-                currentLightningEffect.damageModifier = higherDamage;
-                currentLightningEffect.Bolt(lastEnemy, this);
+                if (enemy != null)
+                {
+                    currentLightningEffect = Instantiate(lightningEffect);
+                    currentLightningEffect.damageModifier = higherDamage;
+                    currentLightningEffect.Bolt(enemy, this);
+                }
             }
         }
 

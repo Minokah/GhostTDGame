@@ -18,22 +18,22 @@ public class TimeEffects : MonoBehaviour
         {
             originalSpeed = enemy.speed;
             enemy.speed = 0;
-            WaitUtility.Wait(1, () => {
+            WaitUtility.Wait(2, () => {
                 if (enemy != null)
                 {
-                    enemy.speed = originalSpeed;
+                    enemy.speed = enemy.speed + originalSpeed;
                 }
             }
             );
         }
-        if (enemy != null)
+        else if (enemy != null)
         {
             originalSpeed = enemy.speed;
             enemy.speed = enemy.speed * (slowRate * (1f - moreSlow));
             WaitUtility.Wait((duration + moreDuration), () => {
                     if (enemy != null)
                     {
-                        enemy.speed = originalSpeed;
+                        enemy.speed = enemy.speed / (slowRate * (1f - moreSlow));
                     }
                 }
             );

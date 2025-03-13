@@ -14,7 +14,7 @@ public class FastEffects : MonoBehaviour
             WaitUtility.Wait(5, () => {
                 if (enemy != null)
                 {
-                    enemy.speed = originalSpeed;
+                    enemy.speed = enemy.speed / fastRate;
                 }
             }
             );

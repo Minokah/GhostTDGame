@@ -43,7 +43,7 @@ public class SpellManager : MonoBehaviour
     private ProgressionUpgrade[] windUpgrades;
     private ProgressionUpgrade[] timeUpgrades;
 
-    Boolean chargeUpgrade = false;
+    Boolean chargeUpgrade1 = false, chargeUpgrade2 = false;
 
     UI UI;
 
@@ -181,11 +181,11 @@ public class SpellManager : MonoBehaviour
                                 newSpell.GetComponent<FireSpell>().setHigherDamage(upgrade.returnUpgradeStat());
                             }
 
-                            if (upgrade.id == "Napalm")
+                            if (upgrade.id == "Napalm" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<FireSpell>().setNapalm();
                             }
-                            if (upgrade.id == "Inferno")
+                            if (upgrade.id == "Inferno" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<FireSpell>().setHigherRadius(0.5f);
                             }
@@ -205,11 +205,11 @@ public class SpellManager : MonoBehaviour
                                 newSpell.GetComponent<IceSpell>().setMoreSlow(upgrade.returnUpgradeStat());
                             }
 
-                            if (upgrade.id == "Freeze")
+                            if (upgrade.id == "Freeze" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<IceSpell>().setFreeze();
                             }
-                            if (upgrade.id == "Chill")
+                            if (upgrade.id == "Chill" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<IceSpell>().setChill();
                             }
@@ -229,13 +229,14 @@ public class SpellManager : MonoBehaviour
                                 newSpell.GetComponent<LightningSpell>().setHigherDamage(upgrade.returnUpgradeStat());
                             }
 
-                            if (upgrade.id == "Storm")
+                            if (upgrade.id == "Storm" & upgrade.level == 1)
                             {
+                                chargeUpgrade2 = true;
                                 newSpell.GetComponent<LightningSpell>().setStorm();
                             }
-                            if (upgrade.id == "Charged")
+                            if (upgrade.id == "Charged" & upgrade.level == 1)
                             {
-                                chargeUpgrade = true;
+                                chargeUpgrade1 = true;
                             }
                         }
                     }
@@ -253,11 +254,11 @@ public class SpellManager : MonoBehaviour
                                 newSpell.GetComponent<WindSpell>().setHigherKnockback((int)upgrade.returnUpgradeStat());
                             }
 
-                            if (upgrade.id == "Hurricane")
+                            if (upgrade.id == "Hurricane" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<WindSpell>().setHigherRadius(0.5f);
                             }
-                            if (upgrade.id == "BackToSender")
+                            if (upgrade.id == "BackToSender" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<WindSpell>().setKickBack();
                             }
@@ -277,11 +278,11 @@ public class SpellManager : MonoBehaviour
                                 newSpell.GetComponent<TimeSpell>().setHigherDuration((int)upgrade.returnUpgradeStat());
                             }
 
-                            if (upgrade.id == "Rewind")
+                            if (upgrade.id == "Rewind" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<TimeSpell>().setRewind();
                             }
-                            if (upgrade.id == "Freeze")
+                            if (upgrade.id == "Freeze" & upgrade.level == 1)
                             {
                                 newSpell.GetComponent<TimeSpell>().setFreeze();
                             }
@@ -361,9 +362,13 @@ public class SpellManager : MonoBehaviour
     private IEnumerator startCoolDown(int slotId, int spellId)
     {
         float waitTime = 15f - coolDownUpgrade;
-        if (chargeUpgrade == true & spellId == 2)
+        if (chargeUpgrade1 == true & spellId == 2)
         {
-            waitTime = waitTime - 4.5f;
+            waitTime = waitTime - 3f;
+        }
+        else if (chargeUpgrade2 == true & spellId == 2)
+        {
+            waitTime = waitTime - 6f;
         }
 
         if (slotId == 0)

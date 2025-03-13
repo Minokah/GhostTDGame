@@ -16,7 +16,7 @@ public class ChillEffect : MonoBehaviour
     {
         foreach (Enemy enemy in enemyList)
         {
-            if (enemy != null)
+            if (enemy != null & enemy.chilledFlag == false)
             {
                 StartCoroutine(applyChill(enemy));
             }
@@ -52,12 +52,14 @@ public class ChillEffect : MonoBehaviour
     {
         if (target != null)
         {
+            target.chilledFlag = true;
             float originalSpeed = target.speed;
             target.speed = target.speed * 0.75f;
-            WaitUtility.Wait(2, () => {
+            WaitUtility.Wait(5, () => {
                 if (target != null)
                 {
-                    target.speed = originalSpeed;
+                    target.speed = target.speed / 0.75f;
+                    target.chilledFlag = false;
                 }
             }
             );

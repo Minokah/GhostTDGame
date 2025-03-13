@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class Enemy : Entity
 
     public float speed = 2f;
     public int currentWaypointIndex = 0;
+
+    // to stop enemies from being completly frozen by repedeted freezing effects
+    public Boolean chilledFlag = false;
 
     protected virtual void Update()
     {

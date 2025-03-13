@@ -13,23 +13,22 @@ public class IceEffects : MonoBehaviour
         {
             originalSpeed = enemy.speed;
             enemy.speed = 0;
-            WaitUtility.Wait(2, () => {
+            WaitUtility.Wait(5, () => {
                 if (enemy != null)
                 {
-                    enemy.speed = originalSpeed;
+                    enemy.speed = enemy.speed + originalSpeed;
                 }
             }
             );
         }
-
-        if (enemy != null)
+        else if (enemy != null)
         {
             originalSpeed = enemy.speed;
             enemy.speed = enemy.speed * slowRate;
             WaitUtility.Wait(5, () => {
                     if (enemy != null)
                     {
-                        enemy.speed = originalSpeed;
+                        enemy.speed = enemy.speed / slowRate;
                     }
                 }
             );

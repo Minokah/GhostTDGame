@@ -312,11 +312,11 @@ public class TowerPlacementManager : MonoBehaviour
                                     newTower.GetComponent<GateTower>().increaseBreaks(upgrade.returnUpgradeStat());
                                 }
 
-                                if (upgrade.id == "GeneralPatrol")
+                                if (upgrade.id == "GeneralPatrol" & upgrade.level == 1)
                                 {
                                     newTower.GetComponent<GateTower>().generalPatrol();
                                 }
-                                if (upgrade.id == "SpecialPatrol")
+                                if (upgrade.id == "SpecialPatrol" & upgrade.level == 1)
                                 {
                                     newTower.GetComponent<GateTower>().specialPatrol();
                                 }
@@ -342,11 +342,11 @@ public class TowerPlacementManager : MonoBehaviour
                                     newTower.GetComponent<GatherTower>().fasterMoneyGeneration(upgrade.returnUpgradeStat());
                                 }
 
-                                if (upgrade.id == "RiskyTrades")
+                                if (upgrade.id == "RiskyTrades" & upgrade.level == 1)
                                 {
                                     newTower.GetComponent<GatherTower>().setRiskyTrades();
                                 }
-                                if (upgrade.id == "GoodTrades")
+                                if (upgrade.id == "GoodTrades" & upgrade.level == 1)
                                 {
                                     newTower.GetComponent<GatherTower>().moreMoneyGeneration(2);
                                 }
@@ -374,11 +374,11 @@ public class TowerPlacementManager : MonoBehaviour
                                     newTower.GetComponent<ArcaneTower>().freeEffect((int)upgrade.returnUpgradeStat());
                                 }
 
-                                if (upgrade.id == "Eureka")
+                                if (upgrade.id == "Eureka" & upgrade.level == 1)
                                 {
                                     newTower.GetComponent<ArcaneTower>().eurekaEffect(true);
                                 }
-                                if (upgrade.id == "Skilled")
+                                if (upgrade.id == "Skilled" & upgrade.level == 1)
                                 {
                                     newTower.GetComponent<ArcaneTower>().freeEffect(3);
                                 }

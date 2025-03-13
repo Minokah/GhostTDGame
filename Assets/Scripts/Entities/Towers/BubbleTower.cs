@@ -104,7 +104,7 @@ public class BubbleTower : Entity
         WaitUtility.Wait(1, () => {
             if (enemy != null)
             {
-                enemy.speed = originalSpeed * slow_rate;
+                enemy.speed = enemy.speed + originalSpeed;
             }
         }
         );
