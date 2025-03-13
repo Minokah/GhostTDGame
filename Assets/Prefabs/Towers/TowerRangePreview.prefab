@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6763501979159077295}
   - component: {fileID: 4489955430937982686}
   m_Layer: 0
-  m_Name: TowerRange
+  m_Name: TowerRangePreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

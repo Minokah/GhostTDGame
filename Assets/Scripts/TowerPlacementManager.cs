@@ -228,7 +228,7 @@ public class TowerPlacementManager : MonoBehaviour
                     if (validPlacement)
                     {
                         // Instantiate the actual tower
-                        GameObject newTower = Instantiate(towerPrefab, cellCenter, Quaternion.identity);
+                        GameObject newTower = Instantiate(towerPrefab, cellCenter + new Vector3(0f, 1f, 0f), Quaternion.identity);
                         if (towerId == 0)
                         {
                             masterMoneyManager.addMoney(-15);

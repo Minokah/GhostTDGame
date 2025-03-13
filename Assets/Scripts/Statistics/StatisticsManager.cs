@@ -28,7 +28,7 @@ public class StatisticsManager : MonoBehaviour
 
         session = new Dictionary<string, int>()
         {
-            { "money", 350 }
+            { "money", 35 }
         };
     }
 
