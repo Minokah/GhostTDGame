@@ -44,4 +44,19 @@ public class Enemy : Entity
             transform.Translate(direction.normalized * distanceThisFrame, Space.World);
         }
     }
+
+    public virtual void EnemySpawnDialogue()
+    {
+
+    }
+
+    public void EnemySpawnDialogueFast()
+    {
+
+    }
+
+    public void EnemySpawnDialogueTough()
+    {
+
+    }
 }
