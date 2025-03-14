@@ -19,6 +19,6 @@ public class BaseSpell : MonoBehaviour
         SphereCollider sphereCollider = GetComponent<SphereCollider>();
         float radius = sphereCollider.radius;
         float newScale = radius * higherRadius * 12;
-        transform.localScale = new Vector3(newScale, newScale, newScale);
+        transform.localScale = new Vector3(newScale, 0.01f, newScale);
     }
 }
