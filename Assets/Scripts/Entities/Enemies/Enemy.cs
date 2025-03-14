@@ -23,12 +23,6 @@ public class Enemy : Entity
         Vector3 direction = targetWaypoint.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        //Debug.Log("target position" + targetWaypoint.position);
-        //Debug.Log("transform position" + transform.position);
-        //Debug.Log("Speed" + speed);
-        //Debug.Log("Distance" + distanceThisFrame);
-        //Debug.Log("Magnitude" + direction.magnitude);
-
         // If close enough to waypoint, move to next
         if (direction.magnitude <= distanceThisFrame)
         {

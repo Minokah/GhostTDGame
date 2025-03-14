@@ -11,7 +11,6 @@ public class BubbleTower : Entity
     private List<Enemy> targets;
     public GameObject range_visual;
     private GameObject local_range;
-    private Boolean rangeEnabled = false;
 
     void Start()
     {
@@ -65,6 +64,15 @@ public class BubbleTower : Entity
                 }
             }
         }
+
+        if (Input.GetKey(KeyCode.C))
+        {
+            local_range.SetActive(true);
+        }
+        else
+        {
+            local_range.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -93,20 +101,6 @@ public class BubbleTower : Entity
             // byebye, come again!
             targets.Remove(attacker);
             attacker.speed = attacker.speed / slow_rate;
-        }
-    }
-
-    void OnMouseDown()
-    {
-        if (rangeEnabled == false)
-        {
-            rangeEnabled = true;
-            local_range.SetActive(true);
-        }
-        else
-        {
-            rangeEnabled = false;
-            local_range.SetActive(false);
         }
     }
 

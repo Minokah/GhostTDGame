@@ -62,7 +62,19 @@ public class Tower : Entity
             SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
             if (bubbleScript != null)
             {
-                //bubbleScript.SetText("Argh!"); // Or any text you wish
+                float randomValue = UnityEngine.Random.Range(0f, 1f);
+                if (randomValue >= 0.66f)
+                {
+                    bubbleScript.SetText("Rotten Humans!");
+                }
+                else if (randomValue >= 0.33f)
+                {
+                    bubbleScript.SetText("Ready to Fight!");
+                }
+                else
+                {
+                    bubbleScript.SetText("Time to Kick some Butt!");
+                }
             }
         }
 
