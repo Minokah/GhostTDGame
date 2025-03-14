@@ -63,7 +63,7 @@ public class Tower : Entity
                 float randomValue = UnityEngine.Random.Range(0f, 1f);
                 if (randomValue >= 0.66f)
                 {
-                    bubbleScript.SetText("Lets take care of these humans!");
+                    bubbleScript.SetText("Lets fight these humans!");
                 }
                 else if (randomValue >= 0.33f)
                 {
@@ -71,7 +71,7 @@ public class Tower : Entity
                 }
                 else
                 {
-                    bubbleScript.SetText("We'll handle these tresspassers!");
+                    bubbleScript.SetText("We'll handle them!");
                 }
             }
         }
