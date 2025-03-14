@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5426798332925072332}
   - component: {fileID: -3344040627897237167}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TimeEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowRate: 0.95
   originalSpeed: 0
+  duration: 5
+  moreSlow: 0
+  moreDuration: 0

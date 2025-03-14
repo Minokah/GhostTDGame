@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8200174461190859823}
   - component: {fileID: 6763501979159077295}
   - component: {fileID: 4489955430937982686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TowerRangePreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5426798332925072332}
   - component: {fileID: -3417380186538689065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IceEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e4575e476698e488c61e56b4340e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowRate: 0.75
   originalSpeed: 12

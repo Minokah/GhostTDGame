@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6650989363979913760}
   - component: {fileID: 7601932223960240945}
   - component: {fileID: -8431916790589414869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpiritGateTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

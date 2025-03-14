@@ -21,20 +21,57 @@ public class Tower : Entity
 
     IEnumerator WaitAndAttack(float time)
     {
-        attack_cooling = true;
-        //Debug.LogFormat("tower attacked!");
 
-        // check if target has died
-        // and remove from list if necessary
-        if (null != targets[0]) {
-            Attack(targets[0]);
-        } else {
-            targets.RemoveAt(0);
+        // If this is true then it means there is something blocking line of sight between tower and enemy
+        // we only attack the first enemy who can be spotted. If we cannot attack anybody then we exit the routine early
+        Boolean canAttack = false;
+        int finalTargetNumber = 0;
+        for (int x = 0; x < targets.Count; x++)
+        {
+            //RaycastHit hit;
+            //if (Physics.Linecast(transform.position, targets[x].GetComponent<Transform>().position, out hit, ~(1 << 6)))
+            //{
+            //    // Get the collider that was hit
+            //    Collider hitCollider = hit.collider;
+            //
+            //    // If you want to get the GameObject, you can do so like this:
+            //    GameObject hitObject = hit.collider.gameObject;
+            //
+            //    // Output the name of the object hit
+            //    Debug.Log("Hit object: " + hitObject.name);
+            //}
+            if (null != targets[x] && Physics.Linecast(transform.position, targets[x].GetComponent<Transform>().position, ~(1 << 6)) == false)
+            {
+                Debug.Log("target aquired: " + x);
+                finalTargetNumber = x;
+                canAttack = true;
+                break;
+            }
         }
+        if (canAttack == false)
+        {
+            yield return new WaitForSeconds(0);
+        }
+        else
+        {
+            attack_cooling = true;
+            //Debug.LogFormat("tower attacked!");
 
-        // wait and then allow next attack to start
-        yield return new WaitForSeconds(time);
-        attack_cooling = false;
+            // check if target has died
+            // and remove from list if necessary
+            if (null != targets[finalTargetNumber])
+            {
+                Attack(targets[finalTargetNumber]);
+            }
+            else
+            {
+                targets.RemoveAt(finalTargetNumber);
+            }
+
+            // wait and then allow next attack to start
+            yield return new WaitForSeconds(time);
+            attack_cooling = false;
+        }
     }
 
     void Start()

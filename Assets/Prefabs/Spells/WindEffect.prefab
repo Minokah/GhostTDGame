@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5426798332925072332}
   - component: {fileID: 1237920445818036546}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WindEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushAmount: 1
+  extraAmount: 0

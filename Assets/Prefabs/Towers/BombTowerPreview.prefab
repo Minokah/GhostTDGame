@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3757991349312006959}
   - component: {fileID: 5119412556627721968}
   - component: {fileID: -237053016467340746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BombTowerPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}

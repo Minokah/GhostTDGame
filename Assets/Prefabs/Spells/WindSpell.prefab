@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4215933337678972327}
   - component: {fileID: 2354803929027459117}
   - component: {fileID: -4916654560568004680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WindSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

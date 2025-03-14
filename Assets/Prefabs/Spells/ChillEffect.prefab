@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3970337985303175677}
   - component: {fileID: -6459344534118425453}
   - component: {fileID: 6439384804385948160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChillEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

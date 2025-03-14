@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6650989363979913760}
   - component: {fileID: 7601932223960240945}
   - component: {fileID: -5132495595030626206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpiritArcaneTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,5 +124,10 @@ MonoBehaviour:
   range_collider: {fileID: 0}
   attack_cooldown: 0
   health: 0
+  moneyManager: {fileID: 0}
+  entityId: 0
   speechBubblePrefab: {fileID: 3775669384542656839, guid: 2b72448313a9c0b4ab9c637b4553ba44, type: 3}
   speechBubbleOffset: {x: -3, y: 2, z: 2}
+  higherDamage: 0
+  specialUpgrade1: 0
+  specialUpgrade2: 0

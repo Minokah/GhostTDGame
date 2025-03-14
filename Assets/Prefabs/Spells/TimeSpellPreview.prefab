@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5426798332925072332}
   - component: {fileID: -3079121586411063267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TimeSpellPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
