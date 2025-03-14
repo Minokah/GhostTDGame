@@ -56,7 +56,7 @@ public class Tower : Entity
             Vector3 spawnPosition = transform.position + speechBubbleOffset;
             // Instantiate the speech bubble at that position
             GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
-            Debug.Log("Bubble instantiated");
+            //Debug.Log("Bubble instantiated");
             // Optionally, if your SpeechBubble prefab has a script that allows setting text,
             // get that component and set the desired text.
             SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();

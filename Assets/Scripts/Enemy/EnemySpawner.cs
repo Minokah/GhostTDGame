@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
     private float breakCounter;
     private int spawnsTillPause;
     private Boolean paused;
+    private Boolean initialBreak = false;
 
     private float spawnTimer = 0f;
 
@@ -65,6 +67,16 @@ public class EnemySpawner : MonoBehaviour
     {
         if (paused == false)
         {
+            // give the player some time to build defenses
+            if (initialBreak == false)
+            {
+                paused = true;
+                initialBreak = true;
+                WaitUtility.Wait(10 + level, () => {
+                    paused = false;
+                }
+                );
+            }
             spawnTimer += Time.deltaTime;
 
             // default enemy spawning
@@ -97,6 +109,19 @@ public class EnemySpawner : MonoBehaviour
                 //Debug.Log("Wait Time: " + (5 + level) * breakTime);
                 StartCoroutine(PauseSpawning((5 + level) * breakTime));
             }
+            // no need to run this loop anymore after all enemies that can spawn have been spawned
+            if (spawnCount == maxSpawnCount)
+            {
+                paused = true;
+            }
+        }
+        //start checking that all enemies have been killed after all enemies have been spawned
+        else if (spawnCount >= maxSpawnCount)
+        {
+            //if ()
+            //{
+                //bool allNull = myList.All(item => item == null);
+            //}
         }
     }
 

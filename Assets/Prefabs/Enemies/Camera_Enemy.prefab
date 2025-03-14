@@ -172,6 +172,10 @@ MonoBehaviour:
   entityId: 7
   speechBubblePrefab: {fileID: 3775669384542656839, guid: b9c54f14f05d49846a6e02d5ae0c6043, type: 3}
   speechBubbleOffset: {x: 0, y: 2, z: 0}
+  higherDamage: 1
+  specialUpgrade1: 0
+  specialUpgrade2: 0
   waypoints: []
-  speed: 8
+  speed: 7
   currentWaypointIndex: 0
+  chilledFlag: 0

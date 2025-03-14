@@ -4164,7 +4164,7 @@ Transform:
   m_GameObject: {fileID: 124660146}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.646585, y: 1.201889, z: 39.72229}
+  m_LocalPosition: {x: -11.646585, y: 0, z: 39.72229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30915,7 +30915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1367976876614614976, guid: 8f14c5b7fcf07ce42b5ba8b0b499785a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1367976876614614976, guid: 8f14c5b7fcf07ce42b5ba8b0b499785a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33583,7 +33583,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Where Ghosts Internal Dialogue Will Be
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72628a8937e5c41b18b8aa732d223c34, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -33608,8 +33608,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33647,7 +33647,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &722154897
@@ -66917,7 +66917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076211562714842744, guid: 43e4286bdf6baa44f939108dff5828b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9076211562714842744, guid: 43e4286bdf6baa44f939108dff5828b5, type: 3}
       propertyPath: m_LocalPosition.z
