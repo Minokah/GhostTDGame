@@ -135,6 +135,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogue();
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -153,6 +154,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogueTough();
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -171,6 +173,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<Enemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogueFast();
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -189,6 +192,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<MachoEnemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogue();
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -207,6 +211,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<BalloonEnemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogue();
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -225,6 +230,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<MixtapeEnemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogue();
 
         // Assign waypoints to the mover
         if (enemy_class != null)
@@ -243,6 +249,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy enemy_class = newEnemy.GetComponent<CameraEnemy>();
         enemy_class.moneyManager = masterMoneyManager;
+        enemy_class.EnemySpawnDialogue();
 
         // Assign waypoints to the mover
         if (enemy_class != null)

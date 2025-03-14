@@ -52,6 +52,7 @@ public class ChillEffect : MonoBehaviour
     {
         if (target != null)
         {
+            target.EnemyIceDialogue();
             target.chilledFlag = true;
             float originalSpeed = target.speed;
             target.speed = target.speed * 0.75f;

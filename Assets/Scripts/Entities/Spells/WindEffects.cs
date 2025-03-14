@@ -14,6 +14,7 @@ public class WindEffects : MonoBehaviour
         {
             if (enemy.currentWaypointIndex >= (int)(enemy.waypoints.Length * 3 / 4))
             {
+                enemy.EnemyWindDialogue();
                 enemy.Damage(8f);
             }
         }
@@ -22,10 +23,12 @@ public class WindEffects : MonoBehaviour
         {
             if (enemy.currentWaypointIndex - (pushAmount + extraAmount) >= 0)
             {
+                enemy.EnemyWindDialogue();
                 enemy.currentWaypointIndex = enemy.currentWaypointIndex - (pushAmount + extraAmount);
             }
             else
             {
+                enemy.EnemyWindDialogue();
                 enemy.currentWaypointIndex = 0;
             }
         }

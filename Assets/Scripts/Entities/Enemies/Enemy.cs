@@ -47,16 +47,159 @@ public class Enemy : Entity
 
     public virtual void EnemySpawnDialogue()
     {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
 
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                // as tons of basic enemies can spawn we noramlly do not want to spawn too many text bubbles
+                float randomValue = UnityEngine.Random.Range(0f, 1f);
+                if (randomValue >= 0.7f)
+                {
+                    bubbleScript.SetText("Lookie There! A Free House!");
+                }
+                else if (randomValue >= 0.8f)
+                {
+                    bubbleScript.SetText("Wow, so much green space to litter!");
+                }
+                else if (randomValue >= 0.9f)
+                {
+                    bubbleScript.SetText("Oohhh! I want to cut down a tree!");
+                }
+            }
+        }
     }
 
     public void EnemySpawnDialogueFast()
     {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
 
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                bubbleScript.SetText("SPEED SPEED SPEED!!!!");
+            }
+        }
     }
 
     public void EnemySpawnDialogueTough()
     {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
 
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                bubbleScript.SetText("Do you even lift BROOO!?");
+            }
+        }
+    }
+
+    public void EnemyStunRoundDialogue()
+    {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                bubbleScript.SetText("OOF! That knocked the wind out of me!");
+            }
+        }
+    }
+
+    public void EnemyFireDialogue()
+    {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                float randomValue = UnityEngine.Random.Range(0f, 1f);
+                if (randomValue >= 0.7f)
+                {
+                    bubbleScript.SetText("FIRE! HOT HOT HOT!");
+                }
+            }
+        }
+    }
+
+    public void EnemyIceDialogue()
+    {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                float randomValue = UnityEngine.Random.Range(0f, 1f);
+                if (randomValue >= 0.7f)
+                {
+                    bubbleScript.SetText("So... Cold!");
+                }
+            }
+        }
+    }
+
+    public void EnemyWindDialogue()
+    {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                float randomValue = UnityEngine.Random.Range(0f, 1f);
+                if (randomValue >= 0.7f)
+                {
+                    bubbleScript.SetText("Wha?! Im Flying?!");
+                }
+            }
+        }
     }
 }

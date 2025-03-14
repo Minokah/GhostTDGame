@@ -33,11 +33,11 @@ public class Weapon : MonoBehaviour
              Vector3.back);
             if (special1 == false)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * 30.0f);
+                transform.Translate(Vector3.forward * Time.deltaTime * 15.0f);
             }
             else
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * 90.0f);
+                transform.Translate(Vector3.forward * Time.deltaTime * 75.0f);
             }
 
             if (Vector3.Distance(transform.position,target.gameObject.transform.position)< 0.1f)
@@ -60,15 +60,8 @@ public class Weapon : MonoBehaviour
     {
         if (enemy != null)
         {
-            //float originalSpeed = enemy.speed;
             enemy.speed = enemy.speed * 0.5f;
-            //WaitUtility.Wait(5, () => {
-            //    if (enemy != null)
-            //    {
-            //        enemy.speed = originalSpeed;
-            //    }
-            //}
-            //);
+            enemy.EnemyStunRoundDialogue();
         }
         yield return new WaitForSeconds(0);
     }

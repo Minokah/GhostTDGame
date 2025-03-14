@@ -18,6 +18,7 @@ public class NapalmEffect : MonoBehaviour
         {
             if (enemy != null)
             {
+                enemy.EnemyFireDialogue();
                 enemy.Damage(damage);
             }
         }

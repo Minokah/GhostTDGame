@@ -11,6 +11,7 @@ public class IceEffects : MonoBehaviour
     {
         if (enemy != null & freezeEnabled == true)
         {
+            enemy.EnemyIceDialogue();
             originalSpeed = enemy.speed;
             enemy.speed = 0;
             WaitUtility.Wait(5, () => {
@@ -23,6 +24,7 @@ public class IceEffects : MonoBehaviour
         }
         else if (enemy != null)
         {
+            enemy.EnemyIceDialogue();
             originalSpeed = enemy.speed;
             enemy.speed = enemy.speed * slowRate;
             WaitUtility.Wait(5, () => {

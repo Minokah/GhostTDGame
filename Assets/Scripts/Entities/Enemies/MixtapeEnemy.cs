@@ -37,14 +37,30 @@ public class MixtapeEnemy : Enemy
     private IEnumerator SpeedLoop()
     {
         cooldown = true;
-        Slow();
+        Fast();
         Debug.Log("Mixtape running");
         yield return new WaitForSeconds(10);
         cooldown = false;
     }
 
-    private void Slow()
+    private void Fast()
     {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                bubbleScript.SetText("Hiking is easier, when you play some tunes!");
+            }
+        }
+
         foreach (Entity enemy in enemyList)
         {
             if (enemy != null)
@@ -68,6 +84,25 @@ public class MixtapeEnemy : Enemy
         if (enemy.gameObject.tag == "Enemy")
         {
             enemyList.Remove(enemy.gameObject.GetComponent<Enemy>());
+        }
+    }
+
+    public override void EnemySpawnDialogue()
+    {
+        if (speechBubblePrefab != null)
+        {
+            // Calculate the spawn position with the offset
+            Vector3 spawnPosition = transform.position + speechBubbleOffset;
+            // Instantiate the speech bubble at that position
+            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+            // get that component and set the desired text.
+            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+            if (bubbleScript != null)
+            {
+                bubbleScript.SetText("Groovy Baby! Groovy!");
+            }
         }
     }
 }

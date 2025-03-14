@@ -11,6 +11,7 @@ public class FireEffects : MonoBehaviour
     {
         if (enemy != null)
         {
+            enemy.EnemyFireDialogue();
             enemy.Damage(damage * (1f + damageModifier), spell);
         }
         Destroy(this.gameObject);
