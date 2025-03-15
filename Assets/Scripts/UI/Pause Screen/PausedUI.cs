@@ -11,11 +11,13 @@ public class PausedUI : MonoBehaviour
     public Button resume, quit, yes, no;
     CanvasVisible canvas;
     Game Game;
+	UI UI;
 
     // Start is called before the first frame update
     void Start()
     {
         Game = Game.Get();
+		UI = UI.Get();
         canvas = GetComponent<CanvasVisible>();
         resume.onClick.AddListener(Resume);
         quit.onClick.AddListener(ShowConfirm);
@@ -70,6 +72,16 @@ public class PausedUI : MonoBehaviour
     private void Quit()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Main Scence");
+		// Will use new reset scripts
+        //SceneManager.LoadScene("Main Scence");
+		Game.playing = false;
+		Game.EnemySpawner.SetGameState(false);
+		Game.resetGameState();
+		Game.GameplayCameraController.DisableCams();
+		
+        UI.Menu.Show();
+        Hide();
+		UI.BuildMenu.Hide();
+		UI.Spellbar.Hide();
     }
 }

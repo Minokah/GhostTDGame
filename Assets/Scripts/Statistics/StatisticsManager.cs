@@ -28,16 +28,18 @@ public class StatisticsManager : MonoBehaviour
 
         session = new Dictionary<string, int>()
         {
-            { "money", 35 }
+            { "money", 45 }
         };
+		displayedMoney.text = GetMoney().ToString();
     }
 	
 	public void ResetLevelMoney()
     {
         session = new Dictionary<string, int>()
         {
-            { "money", 35 }
+            { "money", 45 }
         };
+		displayedMoney.text = GetMoney().ToString();
     }
 
     public void addMoney(int moneyAmount)

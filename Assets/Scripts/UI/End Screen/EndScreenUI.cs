@@ -40,13 +40,18 @@ public class EndScreenUI : MonoBehaviour
     }
 
     private void Replay() {
-        
+        Hide();
+		UI.BuildMenu.Hide();
+		UI.Spellbar.Hide();
+		// once level selection UI is finalized, add methods to select the same level again
     }
 
     private void Menu() {
         Game.GameplayCameraController.DisableCams();
         UI.Menu.Show();
         Hide();
+		UI.BuildMenu.Hide();
+		UI.Spellbar.Hide();
     }
 
     public void Show() {

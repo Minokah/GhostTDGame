@@ -35,6 +35,8 @@ public class EnemySpawner : MonoBehaviour
     private Boolean paused = true;
 
     private float spawnTimer = 0f;
+	
+	public GoodGameOver victoryObject;
 
     // for the gateway tower to extend breaks between hordes
     private float breakTime = 1f;
@@ -119,10 +121,10 @@ public class EnemySpawner : MonoBehaviour
         //start checking that all enemies have been killed after all enemies have been spawned
         else if (spawnCount >= maxSpawnCount)
         {
-            //if ()
-            //{
-                //bool allNull = myList.All(item => item == null);
-            //}
+            bool allNull = enemyList.All(item => item == null);
+			if (allNull == true){
+				victoryObject.WonLevel();
+			}	
         }
     }
 
@@ -290,6 +292,9 @@ public class EnemySpawner : MonoBehaviour
 		breakTime = 1f;
 		lessSpecialEnemies = false;	
 		spawnCount = 0;
+		
+		paused = true;
+		initialBreak = false;
 		
 		foreach (GameObject enemy in enemyList){
 			if (enemy != null){
