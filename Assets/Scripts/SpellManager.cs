@@ -31,9 +31,9 @@ public class SpellManager : MonoBehaviour
     private int spellSlotId;
 
     // To Handle the Arcane Tower Bonuses
-    private float coolDownUpgrade;
-    private int freeSpellStacks;
-    private Boolean eurekaUpgrade;
+    private float coolDownUpgrade = 0f;
+    private int freeSpellStacks = 0;
+    private Boolean eurekaUpgrade = false;
 
     // get all the upgrades for spells that we might have to apply
     public GameObject fireProgression, iceProgression, lightningProgression, windProgression, timeProgression;
@@ -49,9 +49,6 @@ public class SpellManager : MonoBehaviour
 
     void Start()
     {
-        coolDownUpgrade = 0f;
-        freeSpellStacks = 0;
-        eurekaUpgrade = false;
         UI = UI.Get();
         
         // Map Progression entity to VFX Object
@@ -404,5 +401,27 @@ public class SpellManager : MonoBehaviour
     public void arcaneTowerEurekaEffect(Boolean eureka)
     {
         eurekaUpgrade = eureka;
+    }
+	
+	public void resetSpellManager()
+    {
+        StopAllCoroutines();
+		
+		spellIcon1.GetComponent<Button>().interactable = true;
+		spellIcon2.GetComponent<Button>().interactable = true;
+		spellIcon3.GetComponent<Button>().interactable = true;
+		
+		coolDownUpgrade = 0f;
+		freeSpellStacks = 0;
+		eurekaUpgrade = false;
+		
+		isUsingSpell = false;
+        UI.Castbar.Hide();
+		
+		if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+            currentPreview = null;
+        }
     }
 }

@@ -282,6 +282,23 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy();
         SpawnEnemy();
     }
+	
+	public void resetEnemySpawner(){
+		StopAllCoroutines();
+		
+		spawnTimer = 0f;
+		breakTime = 1f;
+		lessSpecialEnemies = false;	
+		spawnCount = 0;
+		
+		foreach (GameObject enemy in enemyList){
+			if (enemy != null){
+				Destroy(enemy);
+			}	
+		}
+		
+		enemyList.Clear();
+	}	
 
     void spawnRngEnemy(int level)
     {

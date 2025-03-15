@@ -31,6 +31,14 @@ public class StatisticsManager : MonoBehaviour
             { "money", 35 }
         };
     }
+	
+	public void ResetLevelMoney()
+    {
+        session = new Dictionary<string, int>()
+        {
+            { "money", 35 }
+        };
+    }
 
     public void addMoney(int moneyAmount)
     {

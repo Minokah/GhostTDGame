@@ -19,4 +19,11 @@ public class Game : MonoBehaviour
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
     }
+	
+	public void resetGameState(){
+		StatisticsManager.ResetLevelMoney();
+		SpellManager.resetSpellManager();
+		TowerPlacementManager.resetTowerPlacementManager();
+		EnemySpawner.resetEnemySpawner();
+	}	
 }

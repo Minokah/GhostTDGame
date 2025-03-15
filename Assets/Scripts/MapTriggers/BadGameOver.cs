@@ -17,10 +17,12 @@ public class BadGameOver : MonoBehaviour
     {
         if (collisionObject.gameObject.tag == "Enemy")
         {
-			Debug.Log("Enemy Triggered This");
+			//Debug.Log("Enemy Triggered This");
 			Game.playing = false;
+			Game.EnemySpawner.SetGameState(false);
 			UI.EndScreen.Show();
             UI.EndScreen.SetState(false, "This is a test text from Henry");
+			Game.resetGameState();
         }
     }
 }

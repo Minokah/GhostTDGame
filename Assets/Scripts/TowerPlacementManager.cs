@@ -48,6 +48,9 @@ public class TowerPlacementManager : MonoBehaviour
 
     // keeps track if the max 1 spirit gather, gate, and/or arcane tower has been built
     Boolean gateBuilt = false, gatherBuilt = false, arcaneBuilt = false;
+	
+	// keeps track of all towers in the game; primarily so we can delete all of them after the game is over
+	public List<GameObject> towerList = new List<GameObject>();
 
     // get all the upgrades for towers that we might have to apply
     public GameObject boltProgression, bombProgression, sniperProgression, bubbleProgression, gateProgression, gathererProgression, arcaneProgression;
@@ -137,7 +140,6 @@ public class TowerPlacementManager : MonoBehaviour
             }
 
             // Ray from camera to mouse
-            Debug.Log(Input.mousePosition);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -230,7 +232,9 @@ public class TowerPlacementManager : MonoBehaviour
                     {
                         // Instantiate the actual tower
                         GameObject newTower = Instantiate(towerPrefab, cellCenter + new Vector3(0f, 1f, 0f), Quaternion.identity);
-                        if (towerId == 0)
+						towerList.Add(newTower);
+                        
+						if (towerId == 0)
                         {
                             masterMoneyManager.addMoney(-15);
 
@@ -590,5 +594,33 @@ public class TowerPlacementManager : MonoBehaviour
             arcaneIcon.GetComponent<Button>().interactable = true;
             arcaneText.color = Color.white;
         }
+    }
+	
+	public void resetTowerPlacementManager()
+    {
+		
+		arcaneIcon.GetComponent<Button>().interactable = true;
+		arcaneBuilt = false;
+		gathererIcon.GetComponent<Button>().interactable = true;
+		gatherBuilt = false;
+		gateIcon.GetComponent<Button>().interactable = true;
+		gateBuilt = false;
+		
+		isPlacingTower = false;
+        UI.Castbar.Hide();
+		
+		if (currentPreview != null)
+        {
+			handlePreviewDeletion();
+        }
+		
+		foreach (GameObject tower in towerList){
+			if (tower != null){
+				Destroy(tower);
+			}	
+		}	
+		towerList.Clear();
+		
+		occupiedCells.Clear();
     }
 }
