@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 85b31196-4d2a-4b04-828c-c95818ab81a0 (2)
+  m_Name: Fall-Sprite
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: f9b59763e0a63d646813afb9a499a35a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.63620967, b: 0.039215684, a: 1}
   m_Transform:
     e00: 1
     e01: 0
