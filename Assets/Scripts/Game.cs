@@ -12,6 +12,8 @@ public class Game : MonoBehaviour
     public TowerPlacementManager TowerPlacementManager;
     public SpellManager SpellManager;
     public EnemySpawner EnemySpawner;
+	public DialogueManager DialogueManager;
+	public LevelManager LevelManager;
 
     public bool paused = false;
     public bool playing = false;
@@ -25,5 +27,6 @@ public class Game : MonoBehaviour
 		SpellManager.resetSpellManager();
 		TowerPlacementManager.resetTowerPlacementManager();
 		EnemySpawner.resetEnemySpawner();
+		DialogueManager.resetDialogue();
 	}	
 }
