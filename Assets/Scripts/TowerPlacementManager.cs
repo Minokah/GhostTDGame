@@ -137,6 +137,7 @@ public class TowerPlacementManager : MonoBehaviour
             }
 
             // Ray from camera to mouse
+            Debug.Log(Input.mousePosition);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 

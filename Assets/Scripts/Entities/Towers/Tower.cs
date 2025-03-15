@@ -42,7 +42,7 @@ public class Tower : Entity
             //}
             if (null != targets[x] && Physics.Linecast(transform.position, targets[x].GetComponent<Transform>().position, ~(1 << 6)) == false)
             {
-                Debug.Log("target aquired: " + x);
+                //Debug.Log("target aquired: " + x);
                 finalTargetNumber = x;
                 canAttack = true;
                 break;
