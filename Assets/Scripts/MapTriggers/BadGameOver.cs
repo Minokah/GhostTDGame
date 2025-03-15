@@ -5,8 +5,22 @@ using UnityEngine;
 
 public class BadGameOver : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collisionObject)
+	UI UI;
+	Game Game;
+	void Start()
     {
-        // game over effects here
+		Game = Game.Get();
+        UI = UI.Get();
+    }
+	
+    void OnTriggerEnter(Collider collisionObject)
+    {
+        if (collisionObject.gameObject.tag == "Enemy")
+        {
+			Debug.Log("Enemy Triggered This");
+			Game.playing = false;
+			UI.EndScreen.Show();
+            UI.EndScreen.SetState(false, "This is a test text from Henry");
+        }
     }
 }

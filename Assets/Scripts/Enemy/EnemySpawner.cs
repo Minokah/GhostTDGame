@@ -14,7 +14,9 @@ public class EnemySpawner : MonoBehaviour
     public GameObject balloonPrefab;       // The balloon enemy prefab
     public GameObject mixtapePrefab;       // The mixtape enemy prefab
     public GameObject cameraPrefab;       // The camera enemy prefab
+
     public Transform[] waypoints;        // Waypoints from start to end
+
     public float spawnInterval = 0.4f;     // Time between spawns
     public int maxSpawnCount = 50; // number of standard enemies spawned until level is over
     private int spawnCount = 0;
@@ -28,8 +30,9 @@ public class EnemySpawner : MonoBehaviour
     // will increase based on the selected level. In later levels more enemies spawn until a break occurs
     private float breakCounter;
     private int spawnsTillPause;
-    private Boolean paused;
     private Boolean initialBreak = false;
+    // Start paused for menus
+    private Boolean paused = true;
 
     private float spawnTimer = 0f;
 
@@ -39,15 +42,13 @@ public class EnemySpawner : MonoBehaviour
     private Boolean lessSpecialEnemies = false;
 
 
-    void Start()
+    public void SetGameSpawner(int selectedLevel, int gameMode)
     {
-        isChallangeMode = 1;
+        isChallangeMode = gameMode;
+        level = selectedLevel;
         maxSpawnCount = 30 + 20 * level * isChallangeMode;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
         breakCounter = spawnsTillPause;
-
-        // Start paused for menus
-        paused = true;
     }
 
     public void SetGameState(bool active)

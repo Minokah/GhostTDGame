@@ -45,6 +45,7 @@ public class MenuUI : MonoBehaviour
         UI.windowActive = false;
         UI.Spellbar.Refresh();
         Game.EnemySpawner.SetGameState(true);
+        Game.EnemySpawner.SetGameSpawner(1, 1); // level 1 and challange mode is off(2 for on); We will replace this latter with dynamic values based on which button the user clicks 
         Game.GameplayCameraController.EnableCams();
         camera.SetActive(false);
     }
