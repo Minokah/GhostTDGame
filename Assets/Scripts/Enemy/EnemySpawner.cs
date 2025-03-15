@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     public float spawnInterval = 0.4f;     // Time between spawns
     public int maxSpawnCount = 50; // number of standard enemies spawned until level is over
-    private int spawnCount = 0;
+    public int spawnCount = 0;
     public List<GameObject> enemyList = new List<GameObject>();
 
     // TODO: We will use this to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly

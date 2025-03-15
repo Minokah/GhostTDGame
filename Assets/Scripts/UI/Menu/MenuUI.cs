@@ -44,8 +44,11 @@ public class MenuUI : MonoBehaviour
         Hide();
         UI.windowActive = false;
         UI.Spellbar.Refresh();
+		
         Game.EnemySpawner.SetGameState(true);
         Game.EnemySpawner.SetGameSpawner(1, 1); // level 1 and challange mode is off(2 for on); We will replace this latter with dynamic values based on which button the user clicks 
+		Game.DialogueManager.triggerLevelDialogue(1); // trigger dialogue for level 1
+		
 		UI.BuildMenu.Show();
 		UI.Spellbar.Show();
         Game.GameplayCameraController.EnableCams();
