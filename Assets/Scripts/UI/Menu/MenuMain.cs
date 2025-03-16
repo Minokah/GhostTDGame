@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class MenuMain : MonoBehaviour
 {
-    public Button quit, progression, play, achievements, credits;
-    public CanvasVisible creditsPanel;
+    public Button quit, progression, play, achievements;
     CanvasVisible canvas;
     UI UI;
     Game Game;
@@ -22,7 +21,6 @@ public class MenuMain : MonoBehaviour
         progression.onClick.AddListener(ShowProgression);
         achievements.onClick.AddListener(ShowAchievements);
         play.onClick.AddListener(PlayGame);
-        credits.onClick.AddListener(ToggleCredits);
     }
 
     public void Show()
@@ -50,13 +48,6 @@ public class MenuMain : MonoBehaviour
     {
         canvas.Hide();
         UI.AchievementMenu.Show();
-    }
-
-    public void ToggleCredits()
-    {
-        showingCredits = !showingCredits;
-        if (!showingCredits) creditsPanel.Hide();
-        else creditsPanel.Show();
     }
 
     public void QuitGame()

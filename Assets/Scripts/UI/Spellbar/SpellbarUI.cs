@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -8,6 +9,9 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class SpellbarUI : MonoBehaviour
 {
     public Button spell1Button, spell2Button, spell3Button;
+    public RectTransform spell1Cooldown, spell2Cooldown, spell3Cooldown;
+    public GameObject eurekaPanel;
+    public TMP_Text eurekaAmt;
     UI UI;
     Game Game;
 
@@ -86,5 +90,36 @@ public class SpellbarUI : MonoBehaviour
         spell2Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell2;
         spell3Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell3.GetComponent<ProgressionEntry>().id);
         spell3Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell3;
+    }
+
+    // Eureka stacks
+    public void SetEureka(int amt)
+    {
+        // Negative = hide
+        if (amt < 0) eurekaPanel.SetActive(false);
+        else
+        {
+            eurekaPanel.SetActive(true);
+            eurekaAmt.text = "Eurekas: " + amt;
+        }
+    }
+
+    public void SetSpellCooldown(int slot, float amount)
+    {
+        // map image to panel
+        RectTransform cd = null;
+        if (slot == 1) cd = spell1Cooldown;
+        if (slot == 2) cd = spell2Cooldown;
+        if (slot == 3) cd = spell3Cooldown;
+
+        // Nothing? Don't do anything
+        if (cd == null) return;
+
+        if (amount >= 1) cd.gameObject.SetActive(false);
+        else
+        {
+            cd.gameObject.SetActive(true);
+            cd.sizeDelta = new Vector2(amount * 90, 90);
+        }
     }
 }

@@ -9,11 +9,9 @@ public class EndScreenUI : MonoBehaviour
     Game Game;
     UI UI;
     CanvasVisible canvas;
-    public Image banner;
     public RawImage bannerImage;
     public TMP_Text bannerText, statisticText;
     public Button replayButton, menuButton;
-    public ProfileSectionUI profile;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +26,11 @@ public class EndScreenUI : MonoBehaviour
     public void SetState(bool victory, string statText = "Stats text") {
         if (victory) {
             bannerText.text = "Stage Cleared!";
-            bannerImage.texture = Resources.Load<Texture>("Icons/Generic/crown");
-            banner.color = new Color((float)76/255, (float)209/255, (float)55/255, 1);
+            bannerImage.texture = Resources.Load<Texture>("Panels/White Panel Green");
         }
         else {
             bannerText.text = "Defeat...";
-            bannerImage.texture = Resources.Load<Texture>("Icons/Generic/skull");
-            banner.color = new Color((float)140/255, 0, 0, 1);
+            bannerImage.texture = Resources.Load<Texture>("Panels/White Panel Red");
         }
         statisticText.text = statText;
     }
@@ -55,7 +51,6 @@ public class EndScreenUI : MonoBehaviour
     }
 
     public void Show() {
-        profile.Set("set rank");
         canvas.Show();
     }
 

@@ -38,7 +38,7 @@ public class MenuUI : MonoBehaviour
         mapSelect.Show();
     }
 
-    public void Play()
+    public void Play(int map, int stage)
     {
         Game.playing = true;
         Hide();
