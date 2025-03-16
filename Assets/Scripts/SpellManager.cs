@@ -358,14 +358,14 @@ public class SpellManager : MonoBehaviour
 
     private IEnumerator startCoolDown(int slotId, int spellId)
     {
-        float waitTime = 15f - coolDownUpgrade;
+        float waitTime = 12f - coolDownUpgrade;
         if (chargeUpgrade1 == true & spellId == 2)
         {
-            waitTime = waitTime - 3f;
+            waitTime = waitTime - 2f;
         }
         else if (chargeUpgrade2 == true & spellId == 2)
         {
-            waitTime = waitTime - 6f;
+            waitTime = waitTime - 4f;
         }
 
         if (slotId == 0)
