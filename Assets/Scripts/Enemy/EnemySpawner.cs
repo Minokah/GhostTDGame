@@ -51,8 +51,9 @@ public class EnemySpawner : MonoBehaviour
         isChallangeMode = gameMode;
         level = selectedLevel;
 		map = selectedMap;
-        maxSpawnCount = 50 + selectedMap * 30 + 20 * level + 50 * isChallangeMode;
-        spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
+        maxSpawnCount = 50 + selectedMap * 30 + 20 * level;
+        maxSpawnCount = maxSpawnCount + maxSpawnCount * isChallangeMode / 4;
+        spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.05f);
         breakCounter = spawnsTillPause;
     }
 
@@ -108,13 +109,14 @@ public class EnemySpawner : MonoBehaviour
             }
 
             // we give the player some "breaks" between "waves" by pausing spawning for some time
+            // while at the same time ramping up the number of spawns over time between breaks
             if (spawnCount == breakCounter)
             {
                 if (breakCounter <= maxSpawnCount)
                 {
-                    breakCounter = breakCounter + spawnsTillPause;
+                    breakCounter = breakCounter + spawnsTillPause + 5;
                 }
-                StartCoroutine(PauseSpawning((5 + level + map) * breakTime));
+                StartCoroutine(PauseSpawning((10 + level + map) * breakTime));
             }
             // no need to run this loop anymore after all enemies that can spawn have been spawned
             if (spawnCount == maxSpawnCount)
