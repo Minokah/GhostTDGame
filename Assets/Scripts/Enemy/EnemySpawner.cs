@@ -134,8 +134,17 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+		
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(enemyPrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -147,20 +156,23 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
     void SpawnToughEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+			
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(toughPrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(toughPrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -172,20 +184,23 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
     void SpawnFastEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+		
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(fastPrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(fastPrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -197,20 +212,23 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
     void SpawnMachoEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+		
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(machoPrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(machoPrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -222,20 +240,23 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
     void SpawnBalloonEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+		
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(balloonPrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(balloonPrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -247,20 +268,23 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
     void SpawnMixtapeEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+		
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(mixtapePrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(mixtapePrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -272,20 +296,23 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
     void SpawnCameraEnemy()
     {
+		Transform[] selectedWaypoints;
+		float randomValue = UnityEngine.Random.Range(0f, 1f);
+		if (randomValue >= 0.5f){
+			selectedWaypoints = waypoints;
+		}	
+		else{
+			selectedWaypoints = waypointsAlternate;
+		}
+		
         // Instantiate enemy at the first waypoint
-        GameObject newEnemy = Instantiate(cameraPrefab, waypoints[0].position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(cameraPrefab, selectedWaypoints[0].position, Quaternion.identity);
 
         //keep track of enemies
         enemyList.Add(newEnemy);
@@ -297,13 +324,7 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-			float randomValue = UnityEngine.Random.Range(0f, 1f);
-			if (randomValue >= 0.5f){
-				enemy_class.waypoints = waypoints;
-			}	
-			else{
-				enemy_class.waypoints = waypointsAlternate;
-			}
+			enemy_class.waypoints = selectedWaypoints;
         }
     }
 
