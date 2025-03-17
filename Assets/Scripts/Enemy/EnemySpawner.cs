@@ -16,14 +16,16 @@ public class EnemySpawner : MonoBehaviour
     public GameObject cameraPrefab;       // The camera enemy prefab
 
     public Transform[] waypoints;        // Waypoints from start to end
+	public Transform[] waypointsAlternate;        // Alternate set of waypoints
 
     public float spawnInterval = 0.4f;     // Time between spawns
     public int maxSpawnCount = 50; // number of standard enemies spawned until level is over
     public int spawnCount = 0;
     public List<GameObject> enemyList = new List<GameObject>();
 
-    // TODO: We will use this to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
+    // TODO: We will use these to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
     public int level;
+	public int map;
     // when replaying levels players can play harder challange mode to earn more upgrades and exp
     private int isChallangeMode;
 
@@ -44,11 +46,12 @@ public class EnemySpawner : MonoBehaviour
     private Boolean lessSpecialEnemies = false;
 
 
-    public void SetGameSpawner(int selectedLevel, int gameMode)
+    public void SetGameSpawner(int selectedMap, int selectedLevel, int gameMode)
     {
         isChallangeMode = gameMode;
         level = selectedLevel;
-        maxSpawnCount = 30 + 20 * level * isChallangeMode;
+		map = selectedMap;
+        maxSpawnCount = 50 + selectedMap * 30 + 20 * level + 50 * isChallangeMode;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.1f);
         breakCounter = spawnsTillPause;
     }
@@ -75,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 paused = true;
                 initialBreak = true;
-                WaitUtility.Wait(10 + level, () => {
+                WaitUtility.Wait(10 + 5 * level, () => {
                     paused = false;
                 }
                 );
@@ -88,18 +91,20 @@ public class EnemySpawner : MonoBehaviour
                 spawnTimer = 0f;
                 SpawnEnemy();
                 spawnCount++;
-                if (lessSpecialEnemies == false)
-                {
-                    spawnRngEnemy(level);
-                }
-                else
-                {
-                    float randomValue = UnityEngine.Random.Range(0f, 1f);
-                    if (randomValue >= 0.25f)
-                    {
-                        spawnRngEnemy(level);
-                    }
-                }
+				if (spawnCount > (int)(maxSpawnCount/3)){ //start spawning special enemies once enough basic enemies have appeared
+					if (lessSpecialEnemies == false)
+					{
+						spawnRngEnemy(map, level);
+					}
+					else
+					{
+						float randomValue = UnityEngine.Random.Range(0f, 1f);
+						if (randomValue >= 0.25f)
+						{
+							spawnRngEnemy(map, level);
+						}
+					}
+				}
             }
 
             // we give the player some "breaks" between "waves" by pausing spawning for some time
@@ -109,8 +114,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     breakCounter = breakCounter + spawnsTillPause;
                 }
-                //Debug.Log("Wait Time: " + (5 + level) * breakTime);
-                StartCoroutine(PauseSpawning((5 + level) * breakTime));
+                StartCoroutine(PauseSpawning((5 + level + map) * breakTime));
             }
             // no need to run this loop anymore after all enemies that can spawn have been spawned
             if (spawnCount == maxSpawnCount)
@@ -143,7 +147,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -162,7 +172,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -181,7 +197,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -200,7 +222,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -219,7 +247,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -238,7 +272,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -257,7 +297,13 @@ public class EnemySpawner : MonoBehaviour
         // Assign waypoints to the mover
         if (enemy_class != null)
         {
-            enemy_class.waypoints = waypoints;
+			float randomValue = UnityEngine.Random.Range(0f, 1f);
+			if (randomValue >= 0.5f){
+				enemy_class.waypoints = waypoints;
+			}	
+			else{
+				enemy_class.waypoints = waypointsAlternate;
+			}
         }
     }
 
@@ -305,11 +351,11 @@ public class EnemySpawner : MonoBehaviour
 		enemyList.Clear();
 	}	
 
-    void spawnRngEnemy(int level)
+    void spawnRngEnemy(int map, int level)
     {
         // TODO add challange mode modifers that make the probability of tougher enemies more likely
         float randomValue = UnityEngine.Random.Range(0f, 1f);
-        if (level == 2)
+        if (map == 0 && level == 1)
         {
             if (randomValue < 0.85f)
             {
@@ -321,7 +367,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
-        else if (level == 3)
+        else if (map == 1 && level == 0)
         {
             if (randomValue < 0.75f)
             {
@@ -333,7 +379,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
-        else if (level == 4)
+        else if (map == 1 && level == 1)
         {
             if (randomValue < 0.65f)
             {
@@ -348,7 +394,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnFastEnemy();
             }
         }
-        else if (level == 5)
+        else if (map == 1 && level == 2)
         {
             if (randomValue < 0.65f)
             {
@@ -367,7 +413,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnMachoEnemy();
             }
         }
-        else if (level == 6)
+        else if (map == 2 && level == 0)
         {
             if (randomValue < 0.55f)
             {
@@ -390,7 +436,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnMachoEnemy();
             }
         }
-        else if (level == 7)
+        else if (map == 2 && level == 1)
         {
             if (randomValue < 0.55f)
             {
@@ -413,7 +459,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnMachoEnemy();
             }
         }
-        else if (level == 8)
+        else if (map == 2 && level == 2)
         {
             if (randomValue < 0.55f)
             {
@@ -441,7 +487,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
-        else if (level == 9)
+        else if (map == 3 && level == 0)
         {
             if (randomValue < 0.45f)
             {
@@ -473,7 +519,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
-        else if (level == 10)
+        else if (map == 3 && level == 1)
         {
             if (randomValue < 0.35f)
             {

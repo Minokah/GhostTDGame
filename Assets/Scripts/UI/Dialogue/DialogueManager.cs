@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
 	public List<GameObject> mapTriggerList = new List<GameObject>();
 	private int dialogueNumber = 0;
 	private int level = 0;
+	private int map = 0;
 	private Boolean runDialogue = false;
 	private Boolean midPoint = false;
 	private Boolean finalPoint = false;
@@ -42,7 +43,8 @@ public class DialogueManager : MonoBehaviour
 		}	
 	}
 	
-	public void triggerLevelDialogue(int levelId){
+	public void triggerLevelDialogue(int mapId, int levelId){
+		map = mapId;
 		level = levelId;
 		StartCoroutine(initalDialogue());
 	}
@@ -57,6 +59,7 @@ public class DialogueManager : MonoBehaviour
 		
 		dialogueNumber = 0;
 		level = 0;
+		map = 0;
 		runDialogue = false;
 		midPoint = false;
 		finalPoint = false;
@@ -78,7 +81,7 @@ public class DialogueManager : MonoBehaviour
 	// this should be triggered by some other object that passes in what level the player is playing, to trigger the right message at the start.
     IEnumerator initalDialogue()
     {
-        if (level == 1)
+        if (map == 0 && level == 0)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "Damm! I shouldn't have knocked over the concealment spell pedestal! Now a horde of humans are coming to ruin my house.\n" +
@@ -88,7 +91,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 2)
+		if (map == 0 && level == 1)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "Okay, that's one energy crystal charged. Now I just need to charge 9 more. Hmm, for the energy I need, I might soon need to charge elsewhere for the other 8...";
@@ -97,7 +100,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 3)
+		if (map == 1 && level == 0)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "Sadly, I won't be able to charge the rest of the crystals I need in that lush forest.\n" + 
@@ -107,7 +110,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 4)
+		if (map == 1 && level == 1)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "This place has a lot of good energy for my spell. I can keep charging crystals here. The only issue is that the humans seem to get more and more numerous...";
@@ -116,7 +119,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 5)
+		if (map == 1 && level == 2)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "Well look at that: I'm almost halfway done my spell. Once I finish here I can start looking for the last half of the energy crystals I need.";
@@ -125,7 +128,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 6)
+		if (map == 2 && level == 0)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "Brr.... This place certainly isn't warm, but it might have the frigid energy I need for some of my crystals.";
@@ -134,7 +137,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 7)
+		if (map == 2 && level == 1)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "These humans really are stubborn huh? They keep coming even though they are liable to freeze to death! Well, if they keep coming, I'll keep beating them.";
@@ -143,7 +146,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 8)
+		if (map == 2 && level == 2)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "I'm starting to get tired of the cold here. Once I get this crystal charged, I can hopefully find someplace warmer to charge the last two!";
@@ -152,7 +155,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 9)
+		if (map == 3 && level == 0)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "This is odd, I've never seen this part of the spirit world before. Which means it just might have the energy I need for the last two crystals I need!";
@@ -161,7 +164,7 @@ public class DialogueManager : MonoBehaviour
 			runDialogue = true;
         }
 		
-		if (level == 10)
+		if (map == 3 && level == 1)
         {
             dialoguePanel.SetActive(true);
             ghostDialogue.text = "This is it! I just need one more crystal and I can finally stop these pesky humans from trashing the place!";
@@ -191,7 +194,7 @@ public class DialogueManager : MonoBehaviour
 
     public void tutorialInfo()
     {
-        if (level == 1)
+        if (map == 0 && level == 0)
         {
             if (dialogueNumber == 0)
             {
@@ -219,7 +222,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 2)
+		if (map == 0 && level == 1)
         {
             if (dialogueNumber == 0)
             {
@@ -233,7 +236,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 3)
+		if (map == 1 && level == 0)
         {
             if (dialogueNumber == 0)
             {
@@ -242,7 +245,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 4)
+		if (map == 1 && level == 1)
         {
             if (dialogueNumber == 0)
             {
@@ -256,7 +259,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 5)
+		if (map == 1 && level == 2)
         {
             if (dialogueNumber == 0)
             {
@@ -270,7 +273,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 6)
+		if (map == 2 && level == 0)
         {
             if (dialogueNumber == 0)
             {
@@ -284,7 +287,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 7)
+		if (map == 2 && level == 1)
         {
             if (dialogueNumber == 0)
             {
@@ -293,7 +296,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 8)
+		if (map == 2 && level == 2)
         {
             if (dialogueNumber == 0)
             {
@@ -307,7 +310,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 9)
+		if (map == 3 && level == 0)
         {
             if (dialogueNumber == 0)
             {
@@ -321,7 +324,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 		
-		if (level == 10)
+		if (map == 3 && level == 1)
         {
             if (dialogueNumber == 0)
             {

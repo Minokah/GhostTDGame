@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
 
     public bool paused = false;
     public bool playing = false;
+	public int currentMap = 0;
+	public int currentLevel = 0;
 
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();

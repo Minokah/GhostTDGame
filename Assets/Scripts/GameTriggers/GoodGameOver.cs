@@ -18,7 +18,7 @@ public class GoodGameOver : MonoBehaviour
         Game.playing = false;
 		Game.EnemySpawner.SetGameState(false);
 		UI.EndScreen.Show();
-        UI.EndScreen.SetState(true, "This is a test victory text from Henry");
+        UI.EndScreen.SetState(true, "This is a test victory text");
 		// add more stuff to player level and upgrade tokens
 		Game.resetGameState();
     }

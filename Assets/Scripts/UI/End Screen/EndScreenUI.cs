@@ -37,9 +37,12 @@ public class EndScreenUI : MonoBehaviour
 
     private void Replay() {
         Hide();
-		UI.BuildMenu.Hide();
-		UI.Spellbar.Hide();
-		// once level selection UI is finalized, add methods to select the same level again
+
+		Game.resetGameState();
+		Game.playing = true;
+		Game.EnemySpawner.SetGameState(true);
+		Game.EnemySpawner.SetGameSpawner(Game.currentMap, Game.currentLevel, 1); // challange mode is off(2 for on); We will replace this latter with dynamic values based on which button the user clicks 
+		Game.DialogueManager.triggerLevelDialogue(Game.currentMap, Game.currentLevel);
     }
 
     private void Menu() {
