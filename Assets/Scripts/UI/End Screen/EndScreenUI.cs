@@ -9,7 +9,7 @@ public class EndScreenUI : MonoBehaviour
     Game Game;
     UI UI;
     CanvasVisible canvas;
-    public RawImage bannerImage;
+    public Image bannerImage;
     public TMP_Text bannerText, statisticText;
     public Button replayButton, menuButton;
 
@@ -26,11 +26,11 @@ public class EndScreenUI : MonoBehaviour
     public void SetState(bool victory, string statText = "Stats text") {
         if (victory) {
             bannerText.text = "Stage Cleared!";
-            bannerImage.texture = Resources.Load<Texture>("Panels/White Panel Green");
+            bannerImage.color = new Color(43/255, 171/255, 28/255, 1);
         }
         else {
             bannerText.text = "Defeat...";
-            bannerImage.texture = Resources.Load<Texture>("Panels/White Panel Red");
+            bannerImage.color = new Color(171 / 255, 28 / 255, 28 / 255, 1);
         }
         statisticText.text = statText;
     }

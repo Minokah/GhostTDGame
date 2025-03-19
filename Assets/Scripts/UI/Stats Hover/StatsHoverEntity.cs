@@ -17,6 +17,8 @@ public class StatsHoverEntity : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        // Don't do anything if there is no valid entity
+        if (entity == null) return;
         UI.StatsHover.Set(entity, alignment);
         UI.StatsHover.Show();
     }

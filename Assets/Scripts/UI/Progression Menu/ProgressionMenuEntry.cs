@@ -43,8 +43,10 @@ public class ProgressionMenuEntry : MonoBehaviour
         description.text = entry.description;
         icon.texture = Resources.Load<Texture>($"Icons/{entry.type}/{entry.id}");
 
+        int level = Game.ProgressionManager.GetPlayerLevel();
+
         // Level met? Show "View Entry" instead
-        if (Game.ProgressionManager.GetPlayerLevel() >= entry.requireLevel)
+        if (level >= entry.requireLevel)
         {
             progressText.text = "View Entry";
             button.interactable = true;
@@ -52,14 +54,24 @@ public class ProgressionMenuEntry : MonoBehaviour
         // Disable button too
         else
         {
-            progressText.text = $"Level " + entry.requireLevel;
+            string levelText = "";
+
+            if (level < 3) levelText = "Map1";
+            else if (level < 5) levelText = "Map2";
+            else if (level < 7) levelText = "Map3";
+            else if (level < 10) levelText = "Map4";
+
+            progressText.text = $"Clear All Stages of {levelText}";
             button.interactable = false;
         }
 
         // Set progress bar
-        int level = Game.ProgressionManager.GetPlayerLevel();
-        if (level >= entry.requireLevel) level = entry.requireLevel;
-        progressBar.sizeDelta = new Vector2(418f * ((float)level / (float)entry.requireLevel), progressBar.sizeDelta.y);
+        if (level == 0f) level = 1;
+        else if (level >= entry.requireLevel) level = entry.requireLevel;
+        float cap = entry.requireLevel;
+        if (cap == 0f) cap = 1;
+
+        progressBar.sizeDelta = new Vector2(418f * (level / cap), progressBar.sizeDelta.y);
     }
 
     // Change the text for spells.

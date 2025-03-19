@@ -52,6 +52,7 @@ public class SpellbarUI : MonoBehaviour
     // Or clicking on them will also pull up the castbar
     private void Spell1Click()
     {
+        if (Game.SpellManager.spell1 == null) return;
         UI.Castbar.Set(Game.SpellManager.spell1, CastbarUI.Type.Cast);
         UI.Castbar.Show();
         Game.SpellManager.Place(0);
@@ -59,6 +60,7 @@ public class SpellbarUI : MonoBehaviour
 
     private void Spell2Click()
     {
+        if (Game.SpellManager.spell2 == null) return;
         UI.Castbar.Set(Game.SpellManager.spell2, CastbarUI.Type.Cast);
         UI.Castbar.Show();
         Game.SpellManager.Place(1);
@@ -66,6 +68,7 @@ public class SpellbarUI : MonoBehaviour
 
     private void Spell3Click()
     {
+        if (Game.SpellManager.spell3 == null) return;
         UI.Castbar.Set(Game.SpellManager.spell3, CastbarUI.Type.Cast);
         UI.Castbar.Show();
         Game.SpellManager.Place(2);
@@ -84,12 +87,38 @@ public class SpellbarUI : MonoBehaviour
     // Refresh the icons on the HUD
     public void Refresh()
     {
-        spell1Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell1.GetComponent<ProgressionEntry>().id);
-        spell1Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell1;
-        spell2Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell2.GetComponent<ProgressionEntry>().id);
-        spell2Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell2;
-        spell3Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell3.GetComponent<ProgressionEntry>().id);
-        spell3Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell3;
+        if (Game.SpellManager.spell1 != null)
+        {
+            spell1Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell1.GetComponent<ProgressionEntry>().id);
+            spell1Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell1;
+        }
+        else
+        {
+            spell1Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell1.GetComponent<ProgressionEntry>().id);
+            spell1Button.GetComponent<StatsHoverEntity>().entity = null;
+        }
+
+        if (Game.SpellManager.spell2 != null)
+        {
+            spell2Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell2.GetComponent<ProgressionEntry>().id);
+            spell2Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell2;
+        }
+        else
+        {
+            spell2Button.GetComponent<SpellButton>().Set("None");
+            spell2Button.GetComponent<StatsHoverEntity>().entity = null;
+        }
+
+        if (Game.SpellManager.spell3 != null)
+        {
+            spell3Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell3.GetComponent<ProgressionEntry>().id);
+            spell3Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell3;
+        }
+        else
+        {
+            spell3Button.GetComponent<SpellButton>().Set("None");
+            spell3Button.GetComponent<StatsHoverEntity>().entity = null;
+        }
     }
 
     // Eureka stacks
@@ -121,5 +150,12 @@ public class SpellbarUI : MonoBehaviour
             cd.gameObject.SetActive(true);
             cd.sizeDelta = new Vector2(amount * 90, 90);
         }
+    }
+
+    public void SetSpellState(int slot, bool enabled)
+    {
+        if (slot == 1) spell1Button.interactable = enabled;
+        if (slot == 2) spell2Button.interactable = enabled;
+        if (slot == 3) spell3Button.interactable = enabled;
     }
 }

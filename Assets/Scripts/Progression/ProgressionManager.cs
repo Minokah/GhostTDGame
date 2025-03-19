@@ -61,7 +61,7 @@ public class ProgressionManager : MonoBehaviour
     public int GetPlayerLevel()
     {
         if (!Game.ProfileManager.IsProfileActive()) return 0;
-        return Game.StatisticsManager.statistics["level"];
+        return Game.StatisticsManager.statistics["levelCount"];
     }
 
     // Resets progression state for loading

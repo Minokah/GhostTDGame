@@ -68,6 +68,7 @@ public class ProgressionMenuListing : MonoBehaviour
         towerCanvas.Hide();
         spellCanvas.Show();
         RefreshContainer(spellContainer);
+        spellContainer.GetComponent<ProgressionMenuSpellSelect>().Refresh();
     }
 
     public void StopSpellChange()

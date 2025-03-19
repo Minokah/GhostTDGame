@@ -20,10 +20,8 @@ public class StatisticsManager : MonoBehaviour
     {
         statistics = new Dictionary<string, int>()
         {
-            { "level", 999 },
-            { "exp", 0 },
-            { "unlockTokens", 0 },
-            { "money", 999999 }
+            { "tokens", 0 },
+            { "levelCount", 0 },
         };
 
         session = new Dictionary<string, int>()

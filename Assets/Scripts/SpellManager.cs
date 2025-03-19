@@ -9,7 +9,6 @@ public class SpellManager : MonoBehaviour
 {
     public bool isUsingSpell = false;
 
-    public GameObject spellIcon1, spellIcon2, spellIcon3;
     public GameObject vfxContainer;
     public GameObject spell1, spell2, spell3;
 
@@ -368,23 +367,25 @@ public class SpellManager : MonoBehaviour
             waitTime = waitTime - 4f;
         }
 
+        // TODO: Please switch from yields to Update() in order to send cooldowns to the UI
+        // or find another way
         if (slotId == 0)
         {
-            spellIcon1.GetComponent<Button>().interactable = false;
+            UI.Spellbar.SetSpellState(1, false);
             yield return new WaitForSeconds(waitTime);
-            spellIcon1.GetComponent<Button>().interactable = true;
+            UI.Spellbar.SetSpellState(1, true);
         }
         else if (slotId == 1)
         {
-            spellIcon2.GetComponent<Button>().interactable = false;
+            UI.Spellbar.SetSpellState(2, false);
             yield return new WaitForSeconds(waitTime);
-            spellIcon2.GetComponent<Button>().interactable = true;
+            UI.Spellbar.SetSpellState(2, true);
         }
         else
         {
-            spellIcon3.GetComponent<Button>().interactable = false;
+            UI.Spellbar.SetSpellState(3, false);
             yield return new WaitForSeconds(waitTime);
-            spellIcon3.GetComponent<Button>().interactable = true;
+            UI.Spellbar.SetSpellState(3, true);
         }
     }
 
@@ -406,12 +407,12 @@ public class SpellManager : MonoBehaviour
 	public void resetSpellManager()
     {
         StopAllCoroutines();
-		
-		spellIcon1.GetComponent<Button>().interactable = true;
-		spellIcon2.GetComponent<Button>().interactable = true;
-		spellIcon3.GetComponent<Button>().interactable = true;
-		
-		coolDownUpgrade = 0f;
+
+        UI.Spellbar.SetSpellState(1, true);
+        UI.Spellbar.SetSpellState(2, true);
+        UI.Spellbar.SetSpellState(3, true);
+
+        coolDownUpgrade = 0f;
 		freeSpellStacks = 0;
 		eurekaUpgrade = false;
 		

@@ -116,6 +116,8 @@ public class ProfileManager : MonoBehaviour
 
             GameObject entry = list[(string)item["id"]];
 
+            entry.GetComponent<ProgressionEntry>().unlocked = (string)item["unlocked"] == "1";
+
             // Parse Upgrades and Cosmetics
             var upgrades = JsonConvert.DeserializeObject<Dictionary<string, string>>(item["upgrades"].ToString());
             var upgrComps = entry.GetComponents<ProgressionUpgrade>();
@@ -154,6 +156,7 @@ public class ProfileManager : MonoBehaviour
             ProgressionEntry prog = entry.GetComponent<ProgressionEntry>();
             Dictionary<string, object> saveItem = new Dictionary<string, object>();
             saveItem.Add("id", prog.id);
+            saveItem.Add("unlocked", prog.unlocked ? "1" : "0");
 
             // Upgrades and Cosmetics are in format: "1": "0" for entry 1, not unlocked
             var upgrades = entry.GetComponents<ProgressionUpgrade>();
@@ -175,6 +178,7 @@ public class ProfileManager : MonoBehaviour
             ProgressionEntry prog = entry.GetComponent<ProgressionEntry>();
             Dictionary<string, object> saveItem = new Dictionary<string, object>();
             saveItem.Add("id", prog.id);
+            saveItem.Add("unlocked", prog.unlocked ? "1" : "0");
 
             // Upgrades and Cosmetics are in format: "1": "0" for entry 1, not unlocked
             var upgrades = entry.GetComponents<ProgressionUpgrade>();

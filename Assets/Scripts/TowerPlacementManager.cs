@@ -10,12 +10,6 @@ public class TowerPlacementManager : MonoBehaviour
     [Header("Placement Settings")]
     public bool isPlacingTower = false;
 
-    [Tooltip("Refer to the buttons used to select towers to build")]
-    public GameObject boltIcon, bombIcon, sniperIcon, bubbleIcon, gateIcon, gathererIcon, arcaneIcon;
-
-    [Tooltip("Refer to the text in the building towers menu")]
-    public TMP_Text boltText, bombText, sniperText, bubbleText, gateText, gathererText, arcaneText;
-
     [Tooltip("All possible real tower prefabs")]
     public GameObject potentialPrefab0, potentialPrefab1, potentialPrefab2, potentialPrefab3, potentialPrefab4, potentialPrefab5, potentialPrefab6;
 
@@ -344,7 +338,7 @@ public class TowerPlacementManager : MonoBehaviour
                         else if (towerId == 4)
                         {
                             masterMoneyManager.addMoney(-50);
-                            gateIcon.GetComponent<Button>().interactable = false;
+                            UI.BuildMenu.gate.SetBuyable(BuildMenuEntry.STATUS.DISABLED);
                             gateBuilt = true;
                             newTower.GetComponent<GateTower>().reduceSpawn(1);
                             newTower.GetComponent<GateTower>().increaseBreaks(0.25f);
@@ -376,7 +370,7 @@ public class TowerPlacementManager : MonoBehaviour
                         {
                             masterMoneyManager.addMoney(-50);
                             newTower.GetComponent<GatherTower>().moneyManager = masterMoneyManager;
-                            gathererIcon.GetComponent<Button>().interactable = false;
+                            UI.BuildMenu.gatherer.SetBuyable(BuildMenuEntry.STATUS.DISABLED);
                             gatherBuilt = true;
 
                             gathererUpgrades = gathererProgression.GetComponents<ProgressionUpgrade>();
@@ -405,7 +399,7 @@ public class TowerPlacementManager : MonoBehaviour
                         else if (towerId == 6)
                         {
                             masterMoneyManager.addMoney(-50);
-                            arcaneIcon.GetComponent<Button>().interactable = false;
+                            UI.BuildMenu.arcane.SetBuyable(BuildMenuEntry.STATUS.DISABLED);
                             arcaneBuilt = true;
                             newTower.GetComponent<ArcaneTower>().cooldownEffect(1.5f);
                             newTower.GetComponent<ArcaneTower>().freeEffect(0);
@@ -500,111 +494,55 @@ public class TowerPlacementManager : MonoBehaviour
 
     public void updateBoltStatus()
     {
-        if (masterMoneyManager.GetMoney() < 15)
-        {
-            boltIcon.GetComponent<Button>().interactable = false;
-            boltText.color = Color.red;
-        }
-        else
-        {
-            boltIcon.GetComponent<Button>().interactable = true;
-            boltText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 15) UI.BuildMenu.bolt.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.bolt.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 
     public void updateBombStatus()
     {
-        if (masterMoneyManager.GetMoney() < 20)
-        {
-            bombIcon.GetComponent<Button>().interactable = false;
-            bombText.color = Color.red;
-        }
-        else
-        {
-            bombIcon.GetComponent<Button>().interactable = true;
-            bombText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 20) UI.BuildMenu.bomb.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.bomb.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 
     public void updateSniperStatus()
     {
-        if (masterMoneyManager.GetMoney() < 20)
-        {
-            sniperIcon.GetComponent<Button>().interactable = false;
-            sniperText.color = Color.red;
-        }
-        else
-        {
-            sniperIcon.GetComponent<Button>().interactable = true;
-            sniperText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 20) UI.BuildMenu.sniper.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.sniper.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 
     public void updateBubbleStatus()
     {
-        if (masterMoneyManager.GetMoney() < 25)
-        {
-            bubbleIcon.GetComponent<Button>().interactable = false;
-            bubbleText.color = Color.red;
-        }
-        else
-        {
-            bubbleIcon.GetComponent<Button>().interactable = true;
-            bubbleText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 25) UI.BuildMenu.bubble.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.bubble.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 
     public void updateGateStatus()
     {
-        if (masterMoneyManager.GetMoney() < 50)
-        {
-            gateIcon.GetComponent<Button>().interactable = false;
-            gateText.color = Color.red;
-        }
-        else
-        {
-            gateIcon.GetComponent<Button>().interactable = true;
-            gateText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 50) UI.BuildMenu.gate.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.gate.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 
     public void updateGatherStatus()
     {
-        if (masterMoneyManager.GetMoney() < 50)
-        {
-            gathererIcon.GetComponent<Button>().interactable = false;
-            gathererText.color = Color.red;
-        }
-        else
-        {
-            gathererIcon.GetComponent<Button>().interactable = true;
-            gathererText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 50) UI.BuildMenu.gatherer.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.gatherer.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 
     public void updateArcaneStatus()
     {
-        if (masterMoneyManager.GetMoney() < 50)
-        {
-            arcaneIcon.GetComponent<Button>().interactable = false;
-            arcaneText.color = Color.red;
-        }
-        else
-        {
-            arcaneIcon.GetComponent<Button>().interactable = true;
-            arcaneText.color = Color.white;
-        }
+        if (masterMoneyManager.GetMoney() < 50) UI.BuildMenu.arcane.SetBuyable(BuildMenuEntry.STATUS.NOT_BUYABLE);
+        else UI.BuildMenu.arcane.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
     }
 	
 	public void resetTowerPlacementManager()
     {
-		
-		arcaneIcon.GetComponent<Button>().interactable = true;
-		arcaneBuilt = false;
-		gathererIcon.GetComponent<Button>().interactable = true;
-		gatherBuilt = false;
-		gateIcon.GetComponent<Button>().interactable = true;
-		gateBuilt = false;
+
+        UI.BuildMenu.arcane.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
+        arcaneBuilt = false;
+        UI.BuildMenu.gatherer.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
+        gatherBuilt = false;
+        UI.BuildMenu.gate.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
+        gateBuilt = false;
 		
 		isPlacingTower = false;
         UI.Castbar.Hide();

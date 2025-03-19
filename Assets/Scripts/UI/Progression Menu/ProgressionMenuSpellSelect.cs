@@ -35,8 +35,9 @@ public class ProgressionMenuSpellSelect : MonoBehaviour
             if (Input.GetMouseButtonUp(1)) changeState = false;
             else
             {
+                string name = changeEntity != null ? changeEntity.name : "None";
                 string text = "Select a spell on the right to switch to.";
-                hint.text = $"{text}\n{changeEntity.name} >>>> ?";
+                hint.text = $"{text}\n{name} >>>> ?\n\n[ RClick ] Cancel";
             }
         }
         else hint.text = "Click on a slot above and then a spell on the listing to add or replace it.";
@@ -45,7 +46,8 @@ public class ProgressionMenuSpellSelect : MonoBehaviour
     // Or clicking on them will also pull up the castbar
     private void Spell1Click()
     {
-        changeEntity = Game.SpellManager.spell1.GetComponent<ProgressionEntry>();
+        if (Game.SpellManager.spell1 != null) changeEntity = Game.SpellManager.spell1.GetComponent<ProgressionEntry>();
+        else changeEntity = null;
         changeSlot = 1;
         changeState = true;
         UI.ProgressionMenu.listing.UpdateSpellChangeText();
@@ -53,7 +55,8 @@ public class ProgressionMenuSpellSelect : MonoBehaviour
 
     private void Spell2Click()
     {
-        changeEntity = Game.SpellManager.spell2.GetComponent<ProgressionEntry>();
+        if (Game.SpellManager.spell2 != null) changeEntity = Game.SpellManager.spell2.GetComponent<ProgressionEntry>();
+        else changeEntity = null;
         changeSlot = 2;
         changeState = true;
         UI.ProgressionMenu.listing.UpdateSpellChangeText();
@@ -61,8 +64,9 @@ public class ProgressionMenuSpellSelect : MonoBehaviour
 
     private void Spell3Click()
     {
-        changeEntity = Game.SpellManager.spell3.GetComponent<ProgressionEntry>();
-        changeSlot = 3;
+        if (Game.SpellManager.spell3 != null) changeEntity = Game.SpellManager.spell3.GetComponent<ProgressionEntry>();
+        else changeEntity = null;
+            changeSlot = 3;
         changeState = true;
         UI.ProgressionMenu.listing.UpdateSpellChangeText();
     }
@@ -97,5 +101,42 @@ public class ProgressionMenuSpellSelect : MonoBehaviour
         changeState = false;
         changeSlot = 0;
         changeEntity = null;
+    }
+
+    // Refresh the icons on the HUD
+    public void Refresh()
+    {
+        if (Game.SpellManager.spell1 != null)
+        {
+            spell1Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell1.GetComponent<ProgressionEntry>().id);
+            spell1Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell1;
+        }
+        else
+        {
+            spell1Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell1.GetComponent<ProgressionEntry>().id);
+            spell1Button.GetComponent<StatsHoverEntity>().entity = null;
+        }
+
+        if (Game.SpellManager.spell2 != null)
+        {
+            spell2Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell2.GetComponent<ProgressionEntry>().id);
+            spell2Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell2;
+        }
+        else
+        {
+            spell2Button.GetComponent<SpellButton>().Set("None");
+            spell2Button.GetComponent<StatsHoverEntity>().entity = null;
+        }
+
+        if (Game.SpellManager.spell3 != null)
+        {
+            spell3Button.GetComponent<SpellButton>().Set(Game.SpellManager.spell3.GetComponent<ProgressionEntry>().id);
+            spell3Button.GetComponent<StatsHoverEntity>().entity = Game.SpellManager.spell3;
+        }
+        else
+        {
+            spell3Button.GetComponent<SpellButton>().Set("None");
+            spell3Button.GetComponent<StatsHoverEntity>().entity = null;
+        }
     }
 }
