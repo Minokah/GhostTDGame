@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
     public bool playing = false;
 	public int currentMap = 0;
 	public int currentLevel = 0;
+	public int challangeMode = 0;
 
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();

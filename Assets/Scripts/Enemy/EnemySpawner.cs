@@ -77,12 +77,8 @@ public class EnemySpawner : MonoBehaviour
             // give the player some time to build defenses
             if (initialBreak == false)
             {
-                paused = true;
                 initialBreak = true;
-                WaitUtility.Wait(10 + 5 * level, () => {
-                    paused = false;
-                }
-                );
+				StartCoroutine(PauseSpawning((10 + 5 * level)));
             }
             spawnTimer += Time.deltaTime;
 

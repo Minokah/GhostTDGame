@@ -50,4 +50,14 @@ public class StatisticsManager : MonoBehaviour
     {
         return session["money"];
     }
+	
+    public void addLevel(int levelAmount)
+    {
+        statistics["levelCount"] = statistics["levelCount"] + levelAmount;
+    }
+	
+	public void addTokens(int tokenAmount)
+    {
+        statistics["tokens"] = statistics["tokens"] + tokenAmount;
+    }
 }
