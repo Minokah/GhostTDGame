@@ -53,8 +53,8 @@ public class GateTower : Entity
     public void generalPatrol()
     {
         spawner = GameObject.FindWithTag("Enemy Spawner");
-        spawner.GetComponent<EnemySpawner>().reduceSpawnEffect(5);
-        spawner.GetComponent<EnemySpawner>().longerBreakEffect(0.35f);
+        spawner.GetComponent<EnemySpawner>().reduceSpawnEffect(20);
+        spawner.GetComponent<EnemySpawner>().longerBreakEffect(0.5f);
     }
 
     public void specialPatrol()

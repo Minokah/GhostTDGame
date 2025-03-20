@@ -131,5 +131,5 @@ MonoBehaviour:
   higherDamage: 0
   specialUpgrade1: 0
   specialUpgrade2: 0
-  pauseTime: 15
+  pauseTime: 10
   money: 5

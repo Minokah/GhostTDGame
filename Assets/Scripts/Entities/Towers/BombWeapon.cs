@@ -35,11 +35,11 @@ public class BombWeapon : Weapon
 
         if (special2 == false)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 20.0f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 10.0f);
         }
         else
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 60.0f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 50.0f);
         }
             
         if (Vector3.Distance(transform.position, projectileTarget) < 0.1f)

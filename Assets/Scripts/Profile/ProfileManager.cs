@@ -26,6 +26,7 @@ public class ProfileManager : MonoBehaviour
         // If the profile.json doesn't exist, make a new one and save it
         if (!File.Exists(path + "\\profile.json"))
         {
+			Debug.Log("Save does not exist; should be creating one");
             Save();
             return;
         }

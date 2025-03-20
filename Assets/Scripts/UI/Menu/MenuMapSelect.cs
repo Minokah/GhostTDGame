@@ -51,6 +51,7 @@ public class MenuMapSelect : MonoBehaviour
         play.interactable = false;
 
         int level = Game.StatisticsManager.statistics["levelCount"];
+		//int level = 10;
 
         switch (selectedMap)
         {
@@ -63,17 +64,17 @@ public class MenuMapSelect : MonoBehaviour
                     play.interactable = true;
                 }
                 if (level >= 1) two.interactable = true;
-                if (level >= 2) three.interactable = true;
                 break;
             case 1:
                 mapName.text = "Map 2";
-                if (level >= 3)
+                if (level >= 2)
                 {
                     one.interactable = true;
                     locked.SetActive(false);
                     play.interactable = true;
                 }
-                if (level >= 4) two.interactable = true;
+                if (level >= 3) two.interactable = true;
+				if (level >= 4) three.interactable = true;
                 break;
             case 2:
                 mapName.text = "Map 3";
@@ -84,16 +85,17 @@ public class MenuMapSelect : MonoBehaviour
                     play.interactable = true;
                 }
                 if (level >= 6) two.interactable = true;
+				if (level >= 7) three.interactable = true;
                 break;
             case 3:
                 mapName.text = "Map 4";
-                if (level >= 7)
+                if (level >= 8)
                 {
                     one.interactable = true;
                     locked.SetActive(false);
+					play.interactable = true;
                 }
-                if (level >= 8) two.interactable = true;
-                if (level >= 9) three.interactable = true;
+                if (level >= 9) two.interactable = true;
                 break;
         }
     }
@@ -116,6 +118,8 @@ public class MenuMapSelect : MonoBehaviour
 
     private void Play()
     {
+		Debug.Log("Selected Map " + selectedMap);
+		Debug.Log("Selected Stage " + selectedStage);
         UI.Menu.Play(selectedMap, selectedStage);
     }
 
@@ -126,13 +130,13 @@ public class MenuMapSelect : MonoBehaviour
 
     private void SetStageOne()
     {
-        selectedStage = 1;
+        selectedStage = 0;
         stage.text = "Stage 1";
     }
 
     private void SetStageTwo()
     {
-        selectedStage = 2;
+        selectedStage = 1;
         stage.text = "Stage 2";
     }
 
