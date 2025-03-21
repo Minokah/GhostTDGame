@@ -33,6 +33,9 @@ public class SpellManager : MonoBehaviour
     private float coolDownUpgrade = 0f;
     private int freeSpellStacks = 0;
     private Boolean eurekaUpgrade = false;
+	
+	// To keep track of cooldown timers
+	List<float> timerList = new List<float>{ 0f, 0f, 0f };
 
     // get all the upgrades for spells that we might have to apply
     public GameObject fireProgression, iceProgression, lightningProgression, windProgression, timeProgression;
@@ -60,6 +63,8 @@ public class SpellManager : MonoBehaviour
 
     void Update()
     {
+		
+		updateTimers();
         // Only do placement logic if we are currently in "placing" mode
         if (isUsingSpell)
         {
@@ -298,12 +303,12 @@ public class SpellManager : MonoBehaviour
                         }
                         else
                         {
-                            StartCoroutine(startCoolDown(spellSlotId, newSpell.GetComponent<BaseSpell>().spellId));
+                            startCoolDown(spellSlotId, newSpell.GetComponent<BaseSpell>().spellId);
                         }
                     }
                     else
                     {
-                        StartCoroutine(startCoolDown(spellSlotId, newSpell.GetComponent<BaseSpell>().spellId));
+                        startCoolDown(spellSlotId, newSpell.GetComponent<BaseSpell>().spellId);
                     }
 
                     // If you only want to place one tower per "mode," exit placing mode
@@ -355,7 +360,7 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    private IEnumerator startCoolDown(int slotId, int spellId)
+    private void startCoolDown(int slotId, int spellId)
     {
         float waitTime = 12f - coolDownUpgrade;
         if (chargeUpgrade1 == true & spellId == 2)
@@ -366,28 +371,47 @@ public class SpellManager : MonoBehaviour
         {
             waitTime = waitTime - 4f;
         }
-
-        // TODO: Please switch from yields to Update() in order to send cooldowns to the UI
-        // or find another way
+		
         if (slotId == 0)
         {
             UI.Spellbar.SetSpellState(1, false);
-            yield return new WaitForSeconds(waitTime);
-            UI.Spellbar.SetSpellState(1, true);
+			timerList[0] = waitTime;
         }
         else if (slotId == 1)
         {
             UI.Spellbar.SetSpellState(2, false);
-            yield return new WaitForSeconds(waitTime);
-            UI.Spellbar.SetSpellState(2, true);
+			timerList[1] = waitTime;
         }
         else
         {
             UI.Spellbar.SetSpellState(3, false);
-            yield return new WaitForSeconds(waitTime);
-            UI.Spellbar.SetSpellState(3, true);
+			timerList[2] = waitTime;
         }
     }
+	
+	private void updateTimers()
+	{
+		if (timerList[0] > 0f){
+			timerList[0] = timerList[0] - Time.deltaTime;
+		}
+		else{
+			UI.Spellbar.SetSpellState(1, true);
+		}
+		
+		if (timerList[1] > 0f){
+			timerList[1] = timerList[1] - Time.deltaTime;
+		}
+		else{
+			UI.Spellbar.SetSpellState(2, true);
+		}
+		
+		if (timerList[2] > 0f){
+			timerList[2] = timerList[2] - Time.deltaTime;
+		}
+		else{
+			UI.Spellbar.SetSpellState(3, true);
+		}
+	}
 
     public void arcaneTowerCooldownEffect(float cooldown)
     {
@@ -411,6 +435,10 @@ public class SpellManager : MonoBehaviour
         UI.Spellbar.SetSpellState(1, true);
         UI.Spellbar.SetSpellState(2, true);
         UI.Spellbar.SetSpellState(3, true);
+		
+		timerList[0] = 0f;
+		timerList[1] = 0f;
+		timerList[2] = 0f;
 
         coolDownUpgrade = 0f;
 		freeSpellStacks = 0;

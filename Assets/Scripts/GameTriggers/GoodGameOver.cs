@@ -33,22 +33,22 @@ public class GoodGameOver : MonoBehaviour
 			unlockMessage = unlockMessage + "You have earned 3 upgrade tokens.\n";
 		}	
 		if (Game.currentMap == 0){
-			if (Game.currentLevel == 2){
+			if (Game.currentLevel == 1){
 				Game.AchievementManager.GrantAchievement("Map1");
 			}
 		}
 		else if (Game.currentMap == 1){
-			if (Game.currentLevel == 1){
+			if (Game.currentLevel == 2){
 				Game.AchievementManager.GrantAchievement("Map2");
 			}
 		}
 		else if (Game.currentMap == 2){
-			if (Game.currentLevel == 1){
+			if (Game.currentLevel == 2){
 				Game.AchievementManager.GrantAchievement("Map3");
 			}
 		}
 		else if (Game.currentMap == 3){
-			if (Game.currentLevel == 2){
+			if (Game.currentLevel == 1){
 				Game.AchievementManager.GrantAchievement("Map4");
 			}
 		}		
