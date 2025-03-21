@@ -158,4 +158,15 @@ public class SpellbarUI : MonoBehaviour
         if (slot == 2) spell2Button.interactable = enabled;
         if (slot == 3) spell3Button.interactable = enabled;
     }
+	
+	public void ResetSpellCooldown()
+	{
+		RectTransform cd = null;
+		cd = spell1Cooldown;
+		cd.gameObject.SetActive(false);
+		cd = spell2Cooldown;
+		cd.gameObject.SetActive(false);
+		cd = spell3Cooldown;
+		cd.gameObject.SetActive(false);
+	}
 }

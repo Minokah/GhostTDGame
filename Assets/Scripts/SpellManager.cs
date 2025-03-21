@@ -36,7 +36,8 @@ public class SpellManager : MonoBehaviour
 	
 	// To keep track of cooldown timers
 	List<float> timerList = new List<float>{ 0f, 0f, 0f };
-
+	List<float> originalTimeList = new List<float>{ 0f, 0f, 0f };
+	
     // get all the upgrades for spells that we might have to apply
     public GameObject fireProgression, iceProgression, lightningProgression, windProgression, timeProgression;
     private ProgressionUpgrade[] fireUpgrades;
@@ -376,16 +377,19 @@ public class SpellManager : MonoBehaviour
         {
             UI.Spellbar.SetSpellState(1, false);
 			timerList[0] = waitTime;
+			originalTimeList[0] = waitTime;
         }
         else if (slotId == 1)
         {
             UI.Spellbar.SetSpellState(2, false);
 			timerList[1] = waitTime;
+			originalTimeList[1] = waitTime;
         }
         else
         {
             UI.Spellbar.SetSpellState(3, false);
 			timerList[2] = waitTime;
+			originalTimeList[2] = waitTime;
         }
     }
 	
@@ -393,6 +397,7 @@ public class SpellManager : MonoBehaviour
 	{
 		if (timerList[0] > 0f){
 			timerList[0] = timerList[0] - Time.deltaTime;
+			UI.Spellbar.SetSpellCooldown(1, timerList[0]/originalTimeList[0]);
 		}
 		else{
 			UI.Spellbar.SetSpellState(1, true);
@@ -400,6 +405,7 @@ public class SpellManager : MonoBehaviour
 		
 		if (timerList[1] > 0f){
 			timerList[1] = timerList[1] - Time.deltaTime;
+			UI.Spellbar.SetSpellCooldown(2, timerList[1]/originalTimeList[1]);
 		}
 		else{
 			UI.Spellbar.SetSpellState(2, true);
@@ -407,6 +413,7 @@ public class SpellManager : MonoBehaviour
 		
 		if (timerList[2] > 0f){
 			timerList[2] = timerList[2] - Time.deltaTime;
+			UI.Spellbar.SetSpellCooldown(3, timerList[2]/originalTimeList[2]);
 		}
 		else{
 			UI.Spellbar.SetSpellState(3, true);
@@ -439,12 +446,17 @@ public class SpellManager : MonoBehaviour
 		timerList[0] = 0f;
 		timerList[1] = 0f;
 		timerList[2] = 0f;
+		originalTimeList[0] = 0f;
+		originalTimeList[1] = 0f;
+		originalTimeList[2] = 0f;
 
         coolDownUpgrade = 0f;
 		freeSpellStacks = 0;
 		eurekaUpgrade = false;
 		
 		isUsingSpell = false;
+		
+		UI.Spellbar.ResetSpellCooldown();
         UI.Castbar.Hide();
 		
 		if (currentPreview != null)
