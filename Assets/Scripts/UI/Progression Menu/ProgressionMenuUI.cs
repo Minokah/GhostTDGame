@@ -11,7 +11,7 @@ public class ProgressionMenuUI : MonoBehaviour
     UI UI;
     CanvasVisible canvas;
     public Button closeButton;
-    public ProfileSectionUI profile;
+    public CurrencySectionUI currency;
     public ProgressionMenuListing listing;
     public ProgressionMenuInfo info;
     public GameObject camera;
@@ -34,6 +34,7 @@ public class ProgressionMenuUI : MonoBehaviour
     // Shows the main menu listing
     public void Show()
     {
+        currency.Refresh();
         camera.SetActive(true);
         UI.windowActive = true;
         canvas.Show();

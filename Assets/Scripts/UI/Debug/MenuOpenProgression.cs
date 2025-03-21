@@ -20,7 +20,6 @@ public class MenuOpenProgression : MonoBehaviour
 
     void Open()
     {
-        UI.ProgressionMenu.profile.Set("rank name");
         UI.ProgressionMenu.Show();
     }
 }

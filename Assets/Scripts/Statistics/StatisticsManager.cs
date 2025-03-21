@@ -60,4 +60,9 @@ public class StatisticsManager : MonoBehaviour
     {
         statistics["tokens"] = statistics["tokens"] + tokenAmount;
     }
+
+    public void removeTokens(int tokenAmount)
+    {
+        if (statistics["tokens"] >= tokenAmount) statistics["tokens"] -= tokenAmount;
+    }
 }

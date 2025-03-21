@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuMain : MonoBehaviour
 {
-    public Button quit, progression, play, achievements;
+    public Button quit, progression, play, achievements, credits;
     CanvasVisible canvas;
     UI UI;
     Game Game;
@@ -20,6 +20,7 @@ public class MenuMain : MonoBehaviour
         quit.onClick.AddListener(QuitGame);
         progression.onClick.AddListener(ShowProgression);
         achievements.onClick.AddListener(ShowAchievements);
+        credits.onClick.AddListener(ShowCredits);
         play.onClick.AddListener(PlayGame);
     }
 
@@ -48,6 +49,11 @@ public class MenuMain : MonoBehaviour
     {
         canvas.Hide();
         UI.AchievementMenu.Show();
+    }
+
+    public void ShowCredits()
+    {
+        UI.Menu.ShowCredits();
     }
 
     public void QuitGame()

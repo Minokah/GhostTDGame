@@ -20,7 +20,6 @@ public class MenuOpenAchievements : MonoBehaviour
 
     void Open()
     {
-        UI.AchievementMenu.profile.Set("Rank name");
         UI.AchievementMenu.Show();
     }
 }

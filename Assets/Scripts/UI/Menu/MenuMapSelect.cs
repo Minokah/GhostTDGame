@@ -44,9 +44,9 @@ public class MenuMapSelect : MonoBehaviour
     private void UpdatePreview()
     {
         SetStageOne();
-        one.interactable = false;
-        two.interactable = false;
-        three.interactable = false;
+        one.gameObject.SetActive(false);
+        two.gameObject.SetActive(false);
+        three.gameObject.SetActive(false);
         locked.SetActive(true);
         play.interactable = false;
 
@@ -59,43 +59,43 @@ public class MenuMapSelect : MonoBehaviour
                 mapName.text = "Map 1";
                 if (level >= 0)
                 {
-                    one.interactable = true;
+                    one.gameObject.SetActive(true);
                     locked.SetActive(false);
                     play.interactable = true;
                 }
-                if (level >= 1) two.interactable = true;
+                if (level >= 1) two.gameObject.SetActive(true);
                 break;
             case 1:
                 mapName.text = "Map 2";
                 if (level >= 2)
                 {
-                    one.interactable = true;
+                    one.gameObject.SetActive(true);
                     locked.SetActive(false);
                     play.interactable = true;
                 }
-                if (level >= 3) two.interactable = true;
-				if (level >= 4) three.interactable = true;
+                if (level >= 3) two.gameObject.SetActive(true);
+                if (level >= 4) three.gameObject.SetActive(true);
                 break;
             case 2:
                 mapName.text = "Map 3";
                 if (level >= 5)
                 {
-                    one.interactable = true;
+                    one.gameObject.SetActive(true);
                     locked.SetActive(false);
                     play.interactable = true;
                 }
-                if (level >= 6) two.interactable = true;
-				if (level >= 7) three.interactable = true;
+                if (level >= 6) two.gameObject.SetActive(true);
+                if (level >= 7) three.gameObject.SetActive(true);
                 break;
             case 3:
                 mapName.text = "Map 4";
                 if (level >= 8)
                 {
-                    one.interactable = true;
+                    one.gameObject.SetActive(true);
                     locked.SetActive(false);
 					play.interactable = true;
                 }
-                if (level >= 9) two.interactable = true;
+                if (level >= 9) two.gameObject.SetActive(true);
                 break;
         }
     }

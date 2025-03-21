@@ -8,6 +8,7 @@ public class MenuUI : MonoBehaviour
     public GameObject camera;
     public MenuMain main;
     public MenuMapSelect mapSelect;
+    public MenuCredits credits;
     CanvasVisible canvas;
     UI UI;
     Game Game;
@@ -22,6 +23,7 @@ public class MenuUI : MonoBehaviour
     public void Show()
     {
         main.Show();
+        credits.Hide();
         mapSelect.Hide();
         camera.SetActive(true);
         canvas.Show();
@@ -36,6 +38,12 @@ public class MenuUI : MonoBehaviour
     {
         main.Hide();
         mapSelect.Show();
+    }
+
+    public void ShowCredits()
+    {
+        main.Hide();
+        credits.Show();
     }
 
     public void Play(int map, int stage)

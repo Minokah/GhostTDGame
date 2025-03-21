@@ -81,12 +81,12 @@ public class ProgressionMenuListing : MonoBehaviour
         spellContainer.GetComponent<ProgressionMenuSpellSelect>().ChangeSpell(entry);
     }
     
-    public void UpdateSpellChangeText()
+    public void UpdateSpellChangeText(bool changing)
     {
         foreach (Transform item in spellContainer.transform)
         {
             ProgressionMenuEntry entry = item.GetComponent<ProgressionMenuEntry>();
-            if (entry != null) entry.SetChanging();
+            if (entry != null) entry.SetChanging(changing);
         }
     }
 

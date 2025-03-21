@@ -26,11 +26,11 @@ public class EndScreenUI : MonoBehaviour
     public void SetState(bool victory, string statText = "Stats text") {
         if (victory) {
             bannerText.text = "Stage Cleared!";
-            //bannerImage.color = new Color(43/255, 171/255, 28/255, 1);
+            bannerImage.color = new Color(43f/255f, 171f/255f, 28f/255f, 1);
         }
         else {
             bannerText.text = "Defeat...";
-            //bannerImage.color = new Color(171 / 255, 28 / 255, 28 / 255, 1);
+            bannerImage.color = new Color(171f / 255, 28f / 255f, 28f / 255f, 1);
         }
         statisticText.text = statText;
     }

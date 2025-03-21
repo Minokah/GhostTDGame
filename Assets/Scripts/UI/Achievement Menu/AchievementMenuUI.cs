@@ -11,7 +11,7 @@ public class AchievementMenuUI : MonoBehaviour
     CanvasVisible canvas;
     public GameObject contentContainer;
     public Button closeButton;
-    public ProfileSectionUI profile;
+    public CurrencySectionUI currency;
 
     void Start()
     {
@@ -31,6 +31,7 @@ public class AchievementMenuUI : MonoBehaviour
             item.GetComponent<AchievementMenuEntry>().Refresh();
         }
 
+        currency.Refresh();
         canvas.Show();
     }
 

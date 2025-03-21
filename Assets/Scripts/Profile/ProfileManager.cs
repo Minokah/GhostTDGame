@@ -48,6 +48,8 @@ public class ProfileManager : MonoBehaviour
             // Remake the save if it fails to load. Sorry!
             Debug.Log("[ProfileManager] Failed to read from profile.json! Creating new save..." + e);
             File.Delete(path + "\\profile.json");
+            Load();
+            return;
         }
         reader.Close();
 
@@ -60,7 +62,11 @@ public class ProfileManager : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("[ProfileManager] Failed to parse from profile.json! " + e);
+            // Remake the save if it fails to load. Sorry!
+            Debug.Log("[ProfileManager] Failed to read from profile.json! Creating new save..." + e);
+            File.Delete(path + "\\profile.json");
+            Load();
+            return;
         }
     }
 
