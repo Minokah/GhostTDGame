@@ -10,12 +10,14 @@ public class CameraModeUI : MonoBehaviour
     Game Game;
     public Button overheadBtn, pivotBtn;
     public TMP_Text infoText;
+    CanvasVisible canvas;
 
     void Start()
     {
         Game = Game.Get();
         overheadBtn.onClick.AddListener(SetOverhead);
         pivotBtn.onClick.AddListener(SetPivot);
+        canvas = GetComponent<CanvasVisible>();
     }
 
     void Update()
@@ -38,7 +40,7 @@ public class CameraModeUI : MonoBehaviour
     private void SetPivot() {
         Game.GameplayCameraController.SetOverhead(false);
         SetColours(pivotBtn, overheadBtn);
-        infoText.text = "Pannable camera to get a closer view.";
+        infoText.text = "Pannable camera to get a closer view.\n WASD to pan camera in Direction.\n Hold Right-Click and Move the Mouse to zoom in-an-out.";
     }
 
     // Set the colours of the buttons
@@ -50,5 +52,15 @@ public class CameraModeUI : MonoBehaviour
         ColorBlock offClrs = pivotBtn.colors;
         offClrs.normalColor = new Color(100f/255f, 100f/255f, 100f/255f);
         off.colors = offClrs;
+    }
+
+    public void Show()
+    {
+        canvas.Show();
+    }
+
+    public void Hide()
+    {
+        canvas.Hide();
     }
 }

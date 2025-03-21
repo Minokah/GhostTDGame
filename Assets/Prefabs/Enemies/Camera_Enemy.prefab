@@ -175,6 +175,6 @@ MonoBehaviour:
   specialUpgrade1: 0
   specialUpgrade2: 0
   waypoints: []
-  speed: 7
+  speed: 8
   currentWaypointIndex: 0
   chilledFlag: 0

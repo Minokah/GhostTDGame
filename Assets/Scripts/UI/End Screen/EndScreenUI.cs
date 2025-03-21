@@ -51,6 +51,7 @@ public class EndScreenUI : MonoBehaviour
         Hide();
 		UI.BuildMenu.Hide();
 		UI.Spellbar.Hide();
+		UI.CameraPanel.Hide();
     }
 
     public void Show() {

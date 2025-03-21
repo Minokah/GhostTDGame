@@ -57,5 +57,6 @@ public class GoodGameOver : MonoBehaviour
 		UI.EndScreen.SetState(true, unlockMessage);
 		
 		Game.resetGameState();
+		UI.resetLevelSelection();
     }
 }

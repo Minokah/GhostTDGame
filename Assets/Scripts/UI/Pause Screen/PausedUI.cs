@@ -83,5 +83,7 @@ public class PausedUI : MonoBehaviour
         Hide();
 		UI.BuildMenu.Hide();
 		UI.Spellbar.Hide();
+		UI.CameraPanel.Hide();
+		UI.resetLevelSelection();
     }
 }

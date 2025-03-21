@@ -183,4 +183,9 @@ public class Tower : Entity
         // this will be used in instantiated weapon
         higherDamage = higherDamage + modifierValue;
     }
+
+    private void OnDestroy()
+    {
+        Destroy(local_range);
+    }
 }

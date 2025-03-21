@@ -41,7 +41,7 @@ public class MenuMapSelect : MonoBehaviour
         canvas.Hide();
     }
 
-    private void UpdatePreview()
+    public void UpdatePreview()
     {
         SetStageOne();
         one.gameObject.SetActive(false);

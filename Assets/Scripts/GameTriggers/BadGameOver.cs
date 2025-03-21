@@ -19,9 +19,12 @@ public class BadGameOver : MonoBehaviour
         {
 			Game.playing = false;
 			Game.EnemySpawner.SetGameState(false);
+			
 			UI.EndScreen.Show();
             UI.EndScreen.SetState(false, "This is a test text");
+			
 			Game.resetGameState();
+			UI.resetLevelSelection();
         }
     }
 }

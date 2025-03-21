@@ -31,10 +31,10 @@ public class SpellbarUI : MonoBehaviour
     void Update()
     {
         int selected = 0;
-        // Pressing 1 2 or 3 will select the corresponding spell on the castbar
-        if (Input.GetKey(KeyCode.Alpha1)) selected = 1;
-        if (Input.GetKey(KeyCode.Alpha2)) selected = 2;
-        if (Input.GetKey(KeyCode.Alpha3)) selected = 3;
+        // Pressing 1 2 or 3 will select the corresponding spell on the castbar, if spell is not being cooleddown
+        if (Input.GetKey(KeyCode.Alpha1) && spell1Button.interactable) selected = 1;
+        if (Input.GetKey(KeyCode.Alpha2) && spell2Button.interactable) selected = 2;
+        if (Input.GetKey(KeyCode.Alpha3) && spell3Button.interactable) selected = 3;
 
         switch (selected) {
             case 1:

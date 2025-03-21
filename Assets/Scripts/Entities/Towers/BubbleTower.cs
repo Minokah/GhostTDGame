@@ -135,4 +135,9 @@ public class BubbleTower : Entity
         );
         yield return new WaitForSeconds(0);
     }
+
+    private void OnDestroy()
+    {
+        Destroy(local_range);
+    }
 }

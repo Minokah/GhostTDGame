@@ -64,6 +64,7 @@ public class MenuUI : MonoBehaviour
         Game.LevelManager.loadMap(map);
 
 
+		UI.CameraPanel.Show();
         UI.BuildMenu.Show();
 		UI.Spellbar.Show();
         Game.GameplayCameraController.EnableCams();
