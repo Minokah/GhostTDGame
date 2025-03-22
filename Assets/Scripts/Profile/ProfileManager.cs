@@ -125,18 +125,22 @@ public class ProfileManager : MonoBehaviour
 
             GameObject entry = list[(string)item["id"]];
 
-            entry.GetComponent<ProgressionEntry>().unlocked = (string)item["unlocked"] == "1";
-
             // Parse Upgrades and Cosmetics
             var upgrades = JsonConvert.DeserializeObject<Dictionary<string, string>>(item["upgrades"].ToString());
             var upgrComps = entry.GetComponents<ProgressionUpgrade>();
-            for (int i = 1; i != 3; i++) upgrComps[i - 1].level = int.Parse(upgrades[i.ToString()]);
+            upgrComps[0].level = int.Parse(upgrades["1"]);
+            upgrComps[1].level = int.Parse(upgrades["2"]);
 
+            var upgrSpec = int.Parse((string)item["specialty"]);
+            var specs = entry.GetComponents<ProgressionSpecialUpgrade>();
+            if (upgrSpec > 0) specs[upgrSpec].level = 1;
+            
             // Spells don't have cosmetics
             if (type == "spells") continue;
             var cosmetics = JsonConvert.DeserializeObject<Dictionary<string, string>>(item["cosmetics"].ToString());
             var cosmComps = entry.GetComponents<ProgressionCosmetic>();
-            for (int i = 1; i != 3; i++) cosmComps[i - 1].unlocked = cosmetics[i.ToString()] == "1";
+            cosmComps[0].unlocked = cosmetics["1"] == "1";
+            cosmComps[1].unlocked = cosmetics["2"] == "1";
         }
     }
 
@@ -165,13 +169,20 @@ public class ProfileManager : MonoBehaviour
             ProgressionEntry prog = entry.GetComponent<ProgressionEntry>();
             Dictionary<string, object> saveItem = new Dictionary<string, object>();
             saveItem.Add("id", prog.id);
-            saveItem.Add("unlocked", prog.unlocked ? "1" : "0");
 
             // Upgrades and Cosmetics are in format: "1": "0" for entry 1, not unlocked
             var upgrades = entry.GetComponents<ProgressionUpgrade>();
             Dictionary<string, object> saveUpgr = new Dictionary<string, object>();
             for (int i = 1; i != 3; i++) saveUpgr.Add(i.ToString(), upgrades[i - 1].level.ToString());
             saveItem.Add("upgrades", saveUpgr);
+
+            var specs = entry.GetComponents<ProgressionSpecialUpgrade>();
+            int specEquipped = 0;
+            for (int i = 1; i != 3; i++)
+            {
+                if (specs[i - 1].level == 1) specEquipped = i;
+            }
+            saveItem.Add("specialty", specEquipped.ToString());
 
             var cosmetics = entry.GetComponents<ProgressionCosmetic>();
             Dictionary<string, object> cosmUpgr = new Dictionary<string, object>();
@@ -187,13 +198,20 @@ public class ProfileManager : MonoBehaviour
             ProgressionEntry prog = entry.GetComponent<ProgressionEntry>();
             Dictionary<string, object> saveItem = new Dictionary<string, object>();
             saveItem.Add("id", prog.id);
-            saveItem.Add("unlocked", prog.unlocked ? "1" : "0");
 
             // Upgrades and Cosmetics are in format: "1": "0" for entry 1, not unlocked
             var upgrades = entry.GetComponents<ProgressionUpgrade>();
             Dictionary<string, object> saveUpgr = new Dictionary<string, object>();
             for (int i = 1; i != 3; i++) saveUpgr.Add(i.ToString(), upgrades[i - 1].level.ToString());
             saveItem.Add("upgrades", saveUpgr);
+
+            var specs = entry.GetComponents<ProgressionSpecialUpgrade>();
+            int specEquipped = 0;
+            for (int i = 1; i != 3; i++)
+            {
+                if (specs[i - 1].level == 1) specEquipped = i;
+            }
+            saveItem.Add("specialty", specEquipped.ToString());
 
             spells.Add(saveItem);
         }
@@ -214,6 +232,16 @@ public class ProfileManager : MonoBehaviour
         writer.Close();
 
         loaded = true;
+    }
+
+    public void ResetSave()
+    {
+        if (File.Exists(Application.persistentDataPath + "\\profile.json"))
+        {
+            Debug.Log("[ProfileManager] Save reset requested, deleting...");
+            File.Delete(Application.persistentDataPath + "\\profile.json");
+            Load();
+        }
     }
 
     public bool IsProfileActive(string s = "")

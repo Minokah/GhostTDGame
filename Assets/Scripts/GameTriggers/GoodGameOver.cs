@@ -55,8 +55,10 @@ public class GoodGameOver : MonoBehaviour
 		
 		unlockMessage = unlockMessage + "You can now play the next level or map.\n";
 		UI.EndScreen.SetState(true, unlockMessage);
-		
-		Game.resetGameState();
+
+        Game.ProfileManager.Save();
+
+        Game.resetGameState();
 		UI.resetLevelSelection();
     }
 }

@@ -71,7 +71,6 @@ public class ProgressionMenuInfo : MonoBehaviour
         currentEntry = entry;
 
         ProgressionEntry prog = entry.GetComponent<ProgressionEntry>();
-        if (prog.type == "spells")
 
         // If this is a spell, hide the cosmetic menu. Spells don't have decorations
         if (prog.type == "towers") cosmeticsButton.gameObject.SetActive(true);

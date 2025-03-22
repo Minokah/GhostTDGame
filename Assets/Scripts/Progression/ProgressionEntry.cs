@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProgressionEntry : MonoBehaviour
 {
-    public bool unlocked = false;
     public string id;
     public string type;
     public string name;
@@ -13,8 +12,6 @@ public class ProgressionEntry : MonoBehaviour
 
     public void ResetState()
     {
-        unlocked = false;
-
         foreach (ProgressionCosmetic item in GetComponents<ProgressionCosmetic>())
         {
             item.unlocked = false;

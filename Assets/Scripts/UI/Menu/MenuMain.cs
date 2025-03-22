@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuMain : MonoBehaviour
 {
-    public Button quit, progression, play, achievements, credits;
+    public Button quit, progression, play, achievements, credits, reset;
+    public TMP_Text resetText;
     CanvasVisible canvas;
     UI UI;
     Game Game;
 
-    bool showingCredits = false;
+    bool resetting = false;
 
     void Start()
     {
@@ -22,6 +24,7 @@ public class MenuMain : MonoBehaviour
         achievements.onClick.AddListener(ShowAchievements);
         credits.onClick.AddListener(ShowCredits);
         play.onClick.AddListener(PlayGame);
+        reset.onClick.AddListener(BeginReset);
     }
 
     public void Show()
@@ -54,6 +57,21 @@ public class MenuMain : MonoBehaviour
     public void ShowCredits()
     {
         UI.Menu.ShowCredits();
+    }
+
+    public void BeginReset()
+    {
+        if (!resetting)
+        {
+            resetting = true;
+            resetText.text = "Click again to confirm save reset";
+        }
+        else
+        {
+            Game.ProfileManager.ResetSave();
+            resetting = false;
+            resetText.text = "Reset Save Data";
+        }
     }
 
     public void QuitGame()

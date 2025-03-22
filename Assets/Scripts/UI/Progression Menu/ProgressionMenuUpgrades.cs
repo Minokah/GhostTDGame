@@ -135,6 +135,7 @@ public class ProgressionMenuUpgrades : MonoBehaviour
 
         upgrade1Obj.level++;
         Game.StatisticsManager.removeTokens(1);
+        Game.ProfileManager.Save();
         Refresh();
     }
 
@@ -145,6 +146,7 @@ public class ProgressionMenuUpgrades : MonoBehaviour
 
         upgrade2Obj.level++;
         Game.StatisticsManager.removeTokens(1);
+        Game.ProfileManager.Save();
         Refresh();
     }
 
@@ -152,6 +154,7 @@ public class ProgressionMenuUpgrades : MonoBehaviour
     {
         special1Obj.level = 1;
         special2Obj.level = 0;
+        Game.ProfileManager.Save();
         Refresh();
     }
 
@@ -159,6 +162,7 @@ public class ProgressionMenuUpgrades : MonoBehaviour
     {
         special1Obj.level = 0;
         special2Obj.level = 1;
+        Game.ProfileManager.Save();
         Refresh();
     }
 }
