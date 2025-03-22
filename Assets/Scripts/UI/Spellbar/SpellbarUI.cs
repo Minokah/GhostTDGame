@@ -148,7 +148,7 @@ public class SpellbarUI : MonoBehaviour
         else
         {
             cd.gameObject.SetActive(true);
-            cd.sizeDelta = new Vector2(amount * 90, 90);
+            cd.sizeDelta = new Vector2((1 - amount) * 90, 90);
         }
     }
 
