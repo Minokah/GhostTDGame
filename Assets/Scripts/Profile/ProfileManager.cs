@@ -9,12 +9,14 @@ using UnityEngine.Profiling;
 public class ProfileManager : MonoBehaviour
 {
     Game Game;
+	UI UI;
     public string playerName = "Player";
     public bool loaded = false;
     // Start is called before the first frame update
     void Start()
     {
         Game = Game.Get();
+		UI = UI.Get();
         Load();
     }
 
@@ -245,6 +247,7 @@ public class ProfileManager : MonoBehaviour
             Game.AchievementManager.ResetState();
             Game.ProgressionManager.ResetState();
             Game.StatisticsManager.ResetState();
+			UI.resetLevelSelection();
             
             Load();
         }
