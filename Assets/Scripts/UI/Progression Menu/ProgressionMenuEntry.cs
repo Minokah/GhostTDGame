@@ -56,14 +56,26 @@ public class ProgressionMenuEntry : MonoBehaviour
         // Disable button too
         else
         {
+            string mapText = "";
             string levelText = "";
 
-            if (entry.requireLevel <= 3) levelText = "Map1"; // 0-2
-            else if (entry.requireLevel <= 5) levelText = "Map2"; // 3-4
-            else if (entry.requireLevel <= 7) levelText = "Map3"; // 5-6
-            else if (entry.requireLevel <= 10) levelText = "Map4"; // 7-9
+            if (entry.requireLevel <= 2) mapText = "Map1"; // 0-1
+            else if (entry.requireLevel <= 5) mapText = "Map2"; // 3-5
+            else if (entry.requireLevel <= 8) mapText = "Map3"; // 5-7
+            else if (entry.requireLevel <= 10) mapText = "Map4"; // 8-9
 
-            progressText.text = $"Clear All Stages of {levelText}";
+            if (entry.requireLevel == 1) levelText = "Level1";
+            else if(entry.requireLevel == 2) levelText = "Level2";
+            else if (entry.requireLevel == 3) levelText = "Level3";
+            else if (entry.requireLevel == 4) levelText = "Level4";
+            else if (entry.requireLevel == 5) levelText = "Level5";
+            else if (entry.requireLevel == 6) levelText = "Level6";
+            else if (entry.requireLevel == 7) levelText = "Level7";
+            else if (entry.requireLevel == 8) levelText = "Level8";
+            else if (entry.requireLevel == 9) levelText = "Level9";
+            else if (entry.requireLevel == 10) levelText = "Level10";
+
+            progressText.text = $"Clear All Stages of {mapText} {levelText}";
             button.interactable = false;
 
             // Set progress bar

@@ -71,28 +71,32 @@ public class Entity : MonoBehaviour
         //&& Random.value < 0.1f
         if (speechBubblePrefab != null )
         {
-            // Calculate the spawn position with the offset
-            Vector3 spawnPosition = transform.position + speechBubbleOffset;
-            // Instantiate the speech bubble at that position
-            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
-
-            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
-            // get that component and set the desired text.
-            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
-            if (bubbleScript != null)
+            float deathmessagechance = UnityEngine.Random.Range(0f, 1f);
+            if (deathmessagechance >= 0.7f)
             {
-                float randomValue = UnityEngine.Random.Range(0f, 1f);
-                if (randomValue >= 0.66f)
+                // Calculate the spawn position with the offset
+                Vector3 spawnPosition = transform.position + speechBubbleOffset;
+                // Instantiate the speech bubble at that position
+                GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
+
+                // Optionally, if your SpeechBubble prefab has a script that allows setting text,
+                // get that component and set the desired text.
+                SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+                if (bubbleScript != null)
                 {
-                    bubbleScript.SetText("Argh!");
-                }
-                else if (randomValue >= 0.33f)
-                {
-                    bubbleScript.SetText("Ouch!");
-                }
-                else
-                {
-                    bubbleScript.SetText("Aie!");
+                    float randomValue = UnityEngine.Random.Range(0f, 1f);
+                    if (randomValue >= 0.66f)
+                    {
+                        bubbleScript.SetText("Argh!");
+                    }
+                    else if (randomValue >= 0.33f)
+                    {
+                        bubbleScript.SetText("Ouch!");
+                    }
+                    else
+                    {
+                        bubbleScript.SetText("Aie!");
+                    }
                 }
             }
         }

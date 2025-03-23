@@ -214,7 +214,7 @@ public class TowerPlacementManager : MonoBehaviour
                         if (currentPreview.GetComponent<TowerPreview>().local_range != null)
                         {
                             Renderer previewRangeRenderer = currentPreview.GetComponent<TowerPreview>().local_range.GetComponent<Renderer>();
-                            previewRangeRenderer.material.color = validPlacement ? new Color(0f, 158f, 8f, .3f) : new Color(255f, 0f, 0f, .3f);
+                            previewRangeRenderer.material.color = validPlacement ? new Color(0f, 125f, 0f, 0.1f) : new Color(255f, 0f, 0f, 0.3f);
                         }
                     }
                 }

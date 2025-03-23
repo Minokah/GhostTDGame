@@ -23,7 +23,7 @@ public class GoodGameOver : MonoBehaviour
 		
 		// Unlock new content
 		Game.StatisticsManager.addLevel(1);
-		unlockMessage = unlockMessage + "You have earned an additional progress level.\n";
+		//unlockMessage = unlockMessage + "You have earned an additional progress level.\n";
 		if (Game.challangeMode != 0){
 			Game.StatisticsManager.addTokens(6);
 			unlockMessage = unlockMessage + "You have earned 6 upgrade tokens.\n";

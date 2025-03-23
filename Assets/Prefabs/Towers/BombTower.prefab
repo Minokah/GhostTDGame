@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: -7608233566053237510, guid: 5c56a6d7a966ed2438b64b6d09509f5c, type: 3}
   range_collider: {fileID: 7601932223960240945}
-  attack_cooldown: 1.5
+  attack_cooldown: 2
   health: 0
   moneyManager: {fileID: 0}
   entityId: 0
