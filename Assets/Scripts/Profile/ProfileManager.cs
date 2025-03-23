@@ -18,7 +18,7 @@ public class ProfileManager : MonoBehaviour
         Load();
     }
 
-    // Load a profile from My Documents/My Games/GhostTDGame
+    // Load a profile from Unity's persistent data path -> CS4483 -> GhostTDGame -> profile.json
     public void Load()
     {
         string path = Application.persistentDataPath;
@@ -26,7 +26,7 @@ public class ProfileManager : MonoBehaviour
         // If the profile.json doesn't exist, make a new one and save it
         if (!File.Exists(path + "\\profile.json"))
         {
-			Debug.Log("Save does not exist; should be creating one");
+            Debug.Log("Save does not exist; should be creating one");
             Save();
             return;
         }
@@ -133,7 +133,7 @@ public class ProfileManager : MonoBehaviour
 
             var upgrSpec = int.Parse((string)item["specialty"]);
             var specs = entry.GetComponents<ProgressionSpecialUpgrade>();
-            if (upgrSpec > 0) specs[upgrSpec].level = 1;
+            if (upgrSpec > 0) specs[upgrSpec - 1].level = 1;
             
             // Spells don't have cosmetics
             if (type == "spells") continue;
@@ -240,6 +240,12 @@ public class ProfileManager : MonoBehaviour
         {
             Debug.Log("[ProfileManager] Save reset requested, deleting...");
             File.Delete(Application.persistentDataPath + "\\profile.json");
+            
+            // Reset current game state
+            Game.AchievementManager.ResetState();
+            Game.ProgressionManager.ResetState();
+            Game.StatisticsManager.ResetState();
+            
             Load();
         }
     }
