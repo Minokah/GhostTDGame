@@ -65,11 +65,7 @@ public class GatherTower : Entity
                 SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
                 if (bubbleScript != null)
                 {
-                    float randomValue = UnityEngine.Random.Range(0f, 1f);
-                    if (randomValue >= 0.7f)
-                    {
-                        bubbleScript.SetText("Got some stock returns for you");
-                    }
+                    bubbleScript.SetText("Got some stock returns for you");
                 }
             }
         }
@@ -90,11 +86,7 @@ public class GatherTower : Entity
                     SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
                     if (bubbleScript != null)
                     {
-                        float randomDialogueChance = UnityEngine.Random.Range(0f, 1f);
-                        if (randomDialogueChance >= 0.7f)
-                        {
-                            bubbleScript.SetText("Got some Great stock returns for you!");
-                        }
+                        bubbleScript.SetText("Got some Great stock returns for you!");
                     }
                 }
             }
@@ -111,11 +103,7 @@ public class GatherTower : Entity
                     SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
                     if (bubbleScript != null)
                     {
-                        float randomDialogueChance = UnityEngine.Random.Range(0f, 1f);
-                        if (randomDialogueChance >= 0.7f)
-                        {
-                            bubbleScript.SetText("Sorry, investments didn't pan out.");
-                        }
+                        bubbleScript.SetText("Sorry, investments didn't pan out.");
                     }
                 }
             }
