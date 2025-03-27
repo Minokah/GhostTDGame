@@ -6,13 +6,13 @@ public class SniperWeapon : Weapon
 {
     protected override void Update()
     {
-        transform.position = target.gameObject.transform.position;
         if (target == null)
         {
             Destroy(this.gameObject);
         }
         else
         {
+            transform.position = target.gameObject.transform.position;
             if (special2 == false)
             {
                 if (special1 == true)
