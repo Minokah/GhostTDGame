@@ -28,9 +28,11 @@ public class BuildMenuEntry : MonoBehaviour
 
     public void SetUnlocked(bool unlocked)
     {
-        this.unlocked = unlocked;
-        button.interactable = unlocked;
-        locked.SetActive(!unlocked);
+		if (costText.text != "Purchased"){
+			this.unlocked = unlocked;
+			button.interactable = unlocked;
+			locked.SetActive(!unlocked);
+		}
     }
 
     public void SetBuyable(STATUS status)
@@ -48,6 +50,7 @@ public class BuildMenuEntry : MonoBehaviour
                 costPanel.color = new Color(209f / 255f, 58f / 255f, 55f / 255f, 1f);
                 break;
             case STATUS.DISABLED:
+				Debug.Log(button.name);
                 button.interactable = false;
                 costPanel.color = new Color(30f / 255f, 30f / 255f, 30f / 255f, 1f);
                 costText.text = "Purchased";

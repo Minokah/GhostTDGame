@@ -294,6 +294,7 @@ public class SpellManager : MonoBehaviour
                     if (freeSpellStacks > 0)
                     {
                         freeSpellStacks = freeSpellStacks - 1;
+						UI.Spellbar.SetEureka(freeSpellStacks);
                     }
                     else if (eurekaUpgrade == true)
                     {
@@ -452,6 +453,7 @@ public class SpellManager : MonoBehaviour
 
         coolDownUpgrade = 0f;
 		freeSpellStacks = 0;
+		UI.Spellbar.SetEureka(0);
 		eurekaUpgrade = false;
 		
 		isUsingSpell = false;

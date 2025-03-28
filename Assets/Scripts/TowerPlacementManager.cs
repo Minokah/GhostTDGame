@@ -404,6 +404,8 @@ public class TowerPlacementManager : MonoBehaviour
                             newTower.GetComponent<ArcaneTower>().cooldownEffect(1.5f);
                             newTower.GetComponent<ArcaneTower>().freeEffect(0);
                             newTower.GetComponent<ArcaneTower>().eurekaEffect(false);
+							
+							int freeSpells = 0;
 
                             arcaneUpgrades = arcaneProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in arcaneUpgrades)
@@ -414,6 +416,7 @@ public class TowerPlacementManager : MonoBehaviour
                                 }
                                 if (upgrade.id == "StartingSpells")
                                 {
+									freeSpells = freeSpells + (int)upgrade.returnUpgradeStat();
                                     newTower.GetComponent<ArcaneTower>().freeEffect((int)upgrade.returnUpgradeStat());
                                 }
 
@@ -423,9 +426,11 @@ public class TowerPlacementManager : MonoBehaviour
                                 }
                                 if (upgrade.id == "Skilled" & upgrade.level == 1)
                                 {
+									freeSpells = freeSpells + 3;
                                     newTower.GetComponent<ArcaneTower>().freeEffect(3);
                                 }
                             }
+							UI.Spellbar.SetEureka(freeSpells);
                         }
 
                         // Mark the cell as occupied
@@ -538,10 +543,13 @@ public class TowerPlacementManager : MonoBehaviour
     {
 
         UI.BuildMenu.arcane.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
+		UI.BuildMenu.arcane.costText.text = "50";
         arcaneBuilt = false;
         UI.BuildMenu.gatherer.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
+		UI.BuildMenu.gatherer.costText.text = "50";
         gatherBuilt = false;
         UI.BuildMenu.gate.SetBuyable(BuildMenuEntry.STATUS.BUYABLE);
+		UI.BuildMenu.gate.costText.text = "50";
         gateBuilt = false;
 		
 		isPlacingTower = false;
