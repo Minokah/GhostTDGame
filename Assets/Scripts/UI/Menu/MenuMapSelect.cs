@@ -10,6 +10,12 @@ public class MenuMapSelect : MonoBehaviour
     public Button menu, back, next, one, two, three, play;
     public TMP_Text mapName, stage;
     public GameObject locked;
+	
+	public Texture mapSprite1;
+	public Texture mapSprite2;
+	public Texture mapSprite3;
+	public Texture mapSprite4;
+	
     UI UI;
     Game Game;
 
@@ -51,26 +57,27 @@ public class MenuMapSelect : MonoBehaviour
         play.interactable = false;
 
         int level = Game.StatisticsManager.statistics["levelCount"];
-		//int level = 10;
 
         switch (selectedMap)
         {
             case 0:
                 mapName.text = "Map 1";
+				locked.GetComponent<RawImage>().texture = mapSprite1;
                 if (level >= 0)
                 {
                     one.gameObject.SetActive(true);
-                    locked.SetActive(false);
+                    //locked.SetActive(false);
                     play.interactable = true;
                 }
                 if (level >= 1) two.gameObject.SetActive(true);
                 break;
             case 1:
                 mapName.text = "Map 2";
+				locked.GetComponent<RawImage>().texture = mapSprite2;
                 if (level >= 2)
                 {
                     one.gameObject.SetActive(true);
-                    locked.SetActive(false);
+                    //locked.SetActive(false);
                     play.interactable = true;
                 }
                 if (level >= 3) two.gameObject.SetActive(true);
@@ -78,10 +85,11 @@ public class MenuMapSelect : MonoBehaviour
                 break;
             case 2:
                 mapName.text = "Map 3";
+				locked.GetComponent<RawImage>().texture = mapSprite3;
                 if (level >= 5)
                 {
                     one.gameObject.SetActive(true);
-                    locked.SetActive(false);
+                    //locked.SetActive(false);
                     play.interactable = true;
                 }
                 if (level >= 6) two.gameObject.SetActive(true);
@@ -89,10 +97,11 @@ public class MenuMapSelect : MonoBehaviour
                 break;
             case 3:
                 mapName.text = "Map 4";
+				locked.GetComponent<RawImage>().texture = mapSprite4;
                 if (level >= 8)
                 {
                     one.gameObject.SetActive(true);
-                    locked.SetActive(false);
+                    //locked.SetActive(false);
 					play.interactable = true;
                 }
                 if (level >= 9) two.gameObject.SetActive(true);

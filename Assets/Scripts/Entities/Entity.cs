@@ -138,23 +138,23 @@ public class Entity : MonoBehaviour
         }
         else if (entityId == 3)
         {
-            moneyManager.addMoney(4);
+            moneyManager.addMoney(2);
         }
         else if (entityId == 4)
         {
-            moneyManager.addMoney(8);
+            moneyManager.addMoney(2);
         }
         else if (entityId == 5)
         {
-            moneyManager.addMoney(16);
+            moneyManager.addMoney(2);
         }
         else if (entityId == 6)
         {
-            moneyManager.addMoney(32);
+            moneyManager.addMoney(2);
         }
         else if (entityId == 7)
         {
-            moneyManager.addMoney(64);
+            moneyManager.addMoney(2);
         }
     }
 

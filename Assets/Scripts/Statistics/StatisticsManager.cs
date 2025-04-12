@@ -56,6 +56,11 @@ public class StatisticsManager : MonoBehaviour
         statistics["levelCount"] = statistics["levelCount"] + levelAmount;
     }
 	
+	public int getLevel()
+    {
+        return (int)statistics["levelCount"];
+    }
+	
 	public void addTokens(int tokenAmount)
     {
         statistics["tokens"] = statistics["tokens"] + tokenAmount;

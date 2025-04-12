@@ -38,6 +38,10 @@ public class PausedUI : MonoBehaviour
 
     public void Show()
     {
+		//Catch cases where the user pauses while building towers or casting spells
+		Game.SpellManager.Stop();
+		Game.TowerPlacementManager.Stop();
+		
         ShowMenu();
         canvas.Show(1);
         Time.timeScale = 0;
