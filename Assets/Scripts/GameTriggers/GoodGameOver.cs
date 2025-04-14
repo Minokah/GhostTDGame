@@ -23,6 +23,7 @@ public class GoodGameOver : MonoBehaviour
 		
 		Game.StatisticsManager.addTokens(3);
 		unlockMessage = unlockMessage + "You have earned 3 upgrade tokens.\n";	
+		unlockMessage = unlockMessage + "\n";
 		
 		// Check if achievement should be unlocked and if so unlock it
 		if (Game.currentMap == 0 && Game.currentLevel == 1){
@@ -56,6 +57,7 @@ public class GoodGameOver : MonoBehaviour
 		if (newUnlocks == true){
 			Game.StatisticsManager.addLevel(1);
 			unlockMessage = unlockMessage + "You can now play the next level or map.\n";
+			unlockMessage = unlockMessage + "\n";
 			unlockMessage = unlockMessage + "You have earned a new spell or tower! Check out the \"Towers and Spells.\" tab to view it.\n";
 		}
 		
