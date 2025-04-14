@@ -13,6 +13,8 @@ public class Enemy : Entity
 
     // to stop enemies from being completly frozen by repedeted freezing effects
     public Boolean chilledFlag = false;
+	
+	public GameObject healthBar;
 
     protected virtual void Update()
     {
@@ -43,43 +45,20 @@ public class Enemy : Entity
             //Debug.Log("direction.normalized" + direction.normalized);
             transform.Translate(direction.normalized * distanceThisFrame, Space.World);
         }
+		
+		if (Input.GetKey(KeyCode.X))
+        {
+            healthBar.SetActive(true);
+        }
+        else
+        {
+            healthBar.SetActive(false);
+        }
     }
 
     public virtual void EnemySpawnDialogue()
     {
         // as tons of basic enemies can spawn we noramlly do not want to spawn too many text bubbles
-        //float randomValue= UnityEngine.Random.Range(0f, 1f);
-        //if (speechBubblePrefab != null & randomValue >= 0.7f)
-        //{
-        //    //WaitUtility.Wait(3, () => {
-        //            // Calculate the spawn position with the offset
-        //            Vector3 spawnPosition = transform.position + speechBubbleOffset;
-        //            // Instantiate the speech bubble at that position
-        //            GameObject bubble = Instantiate(speechBubblePrefab, spawnPosition, Quaternion.identity);
-        //
-        //            // Optionally, if your SpeechBubble prefab has a script that allows setting text,
-        //            // get that component and set the desired text.
-        //            SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
-        //            if (bubbleScript != null)
-        //            {
-        //
-        //                float randomDialogue = UnityEngine.Random.Range(0f, 1f);
-        //                if (randomDialogue >= 0.66f)
-        //                {
-        //                    bubbleScript.SetText("Hey! A Free House!");
-        //                }
-        //                else if (randomDialogue >= 0.33f)
-        //                {
-        //                    bubbleScript.SetText("Wow, so many places to litter!");
-        //                }
-        //                else
-        //                {
-        //                    bubbleScript.SetText("Oohhh! Lets cut down a tree!");
-        //                }
-        //            }
-        //    //}
-        //    //);
-        //}
     }
 
     public void EnemySpawnDialogueFast()
