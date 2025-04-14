@@ -26,8 +26,6 @@ public class EnemySpawner : MonoBehaviour
     // TODO: We will use these to check which level the player is on, and adjust spawn interval, max spawn count, and special enemy spawns accordingly
     public int level;
 	public int map;
-    // when replaying levels players can play harder challange mode to earn more upgrades and exp
-    private int isChallangeMode;
 
     // will increase based on the selected level. In later levels more enemies spawn until a break occurs
     private float breakCounter;
@@ -46,13 +44,12 @@ public class EnemySpawner : MonoBehaviour
     private Boolean lessSpecialEnemies = false;
 
 
-    public void SetGameSpawner(int selectedMap, int selectedLevel, int gameMode)
+    public void SetGameSpawner(int selectedMap, int selectedLevel)
     {
-        isChallangeMode = gameMode;
         level = selectedLevel;
 		map = selectedMap;
         maxSpawnCount = 50 + selectedMap * 30 + 20 * level;
-        maxSpawnCount = maxSpawnCount + maxSpawnCount * isChallangeMode / 4;
+        maxSpawnCount = maxSpawnCount + maxSpawnCount / 4;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.05f);
         breakCounter = spawnsTillPause;
     }
@@ -372,7 +369,6 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnRngEnemy(int map, int level)
     {
-        // TODO add challange mode modifers that make the probability of tougher enemies more likely
         float randomValue = UnityEngine.Random.Range(0f, 1f);
         if (map == 0 && level == 1)
         {

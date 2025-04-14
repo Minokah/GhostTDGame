@@ -55,16 +55,16 @@ public class MenuUI : MonoBehaviour
 		
 		Game.currentMap = map;
 		Game.currentLevel = stage;
-		Game.challangeMode = 0;
 		
         Game.EnemySpawner.SetGameState(true);
-        Game.EnemySpawner.SetGameSpawner(map, stage, 0); // challange mode is off(1 for on); We will replace this latter with dynamic values based on which button the user clicks 
+        Game.EnemySpawner.SetGameSpawner(map, stage);
 		Game.DialogueManager.triggerLevelDialogue(map, stage);
 
         Game.LevelManager.loadMap(map);
 
 
 		UI.CameraPanel.Show();
+		UI.LivesPanel.Show();
         UI.BuildMenu.Show();
 		UI.Spellbar.Show();
         Game.GameplayCameraController.EnableCams();

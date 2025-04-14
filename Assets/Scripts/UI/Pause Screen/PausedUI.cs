@@ -75,8 +75,6 @@ public class PausedUI : MonoBehaviour
     private void Quit()
     {
         Time.timeScale = 1;
-		// Will use new reset scripts
-        //SceneManager.LoadScene("Main Scence");
 		Game.playing = false;
 		Game.EnemySpawner.SetGameState(false);
 		Game.resetGameState();
@@ -87,6 +85,7 @@ public class PausedUI : MonoBehaviour
 		UI.BuildMenu.Hide();
 		UI.Spellbar.Hide();
 		UI.CameraPanel.Hide();
+		UI.LivesPanel.Hide();
 		UI.resetLevelSelection();
     }
 }

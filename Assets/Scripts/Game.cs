@@ -19,13 +19,22 @@ public class Game : MonoBehaviour
     public bool playing = false;
 	public int currentMap = 0;
 	public int currentLevel = 0;
-	public int challangeMode = 0;
+	public int lives = 5;
+	
+	UI UI;
+	
+	void Start()
+    {
+        UI = UI.Get();
+    }
 
     public static Game Get() {
         return GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
     }
 	
 	public void resetGameState(){
+		lives = 5;
+		UI.LivesPanel.UpdateCount(lives);
 		StatisticsManager.ResetLevelMoney();
 		SpellManager.resetSpellManager();
 		TowerPlacementManager.resetTowerPlacementManager();

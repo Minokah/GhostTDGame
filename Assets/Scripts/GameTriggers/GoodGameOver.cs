@@ -21,15 +21,8 @@ public class GoodGameOver : MonoBehaviour
 		string unlockMessage = "";
 		bool newUnlocks = false;
 		
-		// Player always unlocks some amount of upgrade tokens
-		if (Game.challangeMode != 0){
-			Game.StatisticsManager.addTokens(6);
-			unlockMessage = unlockMessage + "You have earned 6 upgrade tokens.\n";
-		}
-		else{
-			Game.StatisticsManager.addTokens(3);
-			unlockMessage = unlockMessage + "You have earned 3 upgrade tokens.\n";
-		}	
+		Game.StatisticsManager.addTokens(3);
+		unlockMessage = unlockMessage + "You have earned 3 upgrade tokens.\n";	
 		
 		// Check if achievement should be unlocked and if so unlock it
 		if (Game.currentMap == 0 && Game.currentLevel == 1){

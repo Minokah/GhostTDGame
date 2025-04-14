@@ -41,7 +41,7 @@ public class EndScreenUI : MonoBehaviour
 		Game.resetGameState();
 		Game.playing = true;
 		Game.EnemySpawner.SetGameState(true);
-		Game.EnemySpawner.SetGameSpawner(Game.currentMap, Game.currentLevel, 1); // challange mode is off(2 for on); We will replace this latter with dynamic values based on which button the user clicks 
+		Game.EnemySpawner.SetGameSpawner(Game.currentMap, Game.currentLevel);
 		Game.DialogueManager.triggerLevelDialogue(Game.currentMap, Game.currentLevel);
     }
 
@@ -52,6 +52,7 @@ public class EndScreenUI : MonoBehaviour
 		UI.BuildMenu.Hide();
 		UI.Spellbar.Hide();
 		UI.CameraPanel.Hide();
+		UI.LivesPanel.Hide();
     }
 
     public void Show() {

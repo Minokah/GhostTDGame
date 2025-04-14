@@ -15,6 +15,7 @@ public class UI : MonoBehaviour
     public CastbarUI Castbar;
     public StatsHoverUI StatsHover;
 	public MenuMapSelect MapSelection;
+    public LivesUI LivesPanel;
 
     public bool windowActive = true;
 
