@@ -10,6 +10,9 @@ public class TowerPlacementManager : MonoBehaviour
     [Header("Placement Settings")]
     public bool isPlacingTower = false;
 
+    [Header("Tower Placement SFX")]
+    public AudioClip placeTowerClip;
+
     [Tooltip("All possible real tower prefabs")]
     public GameObject potentialPrefab0, potentialPrefab1, potentialPrefab2, potentialPrefab3, potentialPrefab4, potentialPrefab5, potentialPrefab6;
 
@@ -227,6 +230,8 @@ public class TowerPlacementManager : MonoBehaviour
                         // Instantiate the actual tower
                         GameObject newTower = Instantiate(towerPrefab, cellCenter + new Vector3(0f, 1f, 0f), Quaternion.identity);
 						towerList.Add(newTower);
+
+                        AudioManager.Instance.PlaySFX(placeTowerClip);
                         
 						if (towerId == 0)
                         {

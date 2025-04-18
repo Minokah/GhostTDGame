@@ -10,9 +10,15 @@ public class LevelManager : MonoBehaviour
     Game Game;
     public Transform[] waypoints1, waypoints2A, waypoints2B, waypoints3, waypoints4A, waypoints4B;
 
+    [Header("Music Clips (one per map)")]
+    [Tooltip("0 ⇒ Map1, 1 ⇒ Map2, etc.")]
+    public AudioClip[] mapMusicClips;
+
     void Start()
     {
         Game = Game.Get();
+
+        AudioManager.Instance.PlayMusic(mapMusicClips[0]);
     }
     public void loadMap(int mapId){
         if (mapId == 0)
@@ -70,6 +76,17 @@ public class LevelManager : MonoBehaviour
 			
 			Game.EnemySpawner.waypoints = waypoints4A;
 			Game.EnemySpawner.waypointsAlternate = waypoints4B;
+        }
+
+        if (mapMusicClips != null &&
+            mapMusicClips.Length > mapId &&
+            mapMusicClips[mapId] != null)
+        {
+            AudioManager.Instance.PlayMusic(mapMusicClips[mapId]);
+        }
+        else
+        {
+            Debug.LogWarning($"[LevelManager] No music clip set for map {mapId}");
         }
     }	
 }

@@ -19,6 +19,10 @@ public class Tower : Entity
     public GameObject range_visual;
     private GameObject local_range;
 
+    [Header("Audio")]
+    [Tooltip("Assign a one‑shot firing sound for this tower prefab")]
+    public AudioClip fireSFX;
+
     IEnumerator WaitAndAttack(float time)
     {
 
@@ -56,7 +60,8 @@ public class Tower : Entity
         {
             attack_cooling = true;
             //Debug.LogFormat("tower attacked!");
-
+            if (fireSFX != null)
+                AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
             // check if target has died
             // and remove from list if necessary
             if (null != targets[finalTargetNumber])

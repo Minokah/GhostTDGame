@@ -7,6 +7,7 @@ public class BadGameOver : MonoBehaviour
 {
 	UI UI;
 	Game Game;
+	public AudioClip GameOverSFX;
 
 	void Start()
     {
@@ -14,6 +15,14 @@ public class BadGameOver : MonoBehaviour
         UI = UI.Get();
 		Game.lives = 5;
     }
+
+	void Update(){
+			// test the Game Over SFX (and full logic) by pressing I
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            DoGameOver();
+        }
+	}
 	
     void OnTriggerEnter(Collider collisionObject)
     {
@@ -24,6 +33,7 @@ public class BadGameOver : MonoBehaviour
 			if	(Game.lives <= 0){
 				Game.playing = false;
 				Game.EnemySpawner.SetGameState(false);
+				AudioManager.Instance.PlaySFX(GameOverSFX, 0.01f);
 				
 				UI.EndScreen.Show();
 				UI.EndScreen.SetState(false, "Game Over!");
@@ -32,5 +42,23 @@ public class BadGameOver : MonoBehaviour
 				UI.resetLevelSelection();
 			}
         }
+    }
+
+	private void DoGameOver()
+    {
+        // 1) stop gameplay
+        Game.playing = false;
+        Game.EnemySpawner.SetGameState(false);
+
+        // 2) play the SFX (at low volume)
+        AudioManager.Instance.PlaySFX(GameOverSFX, 0.01f);
+
+        // 3) show end screen
+        UI.EndScreen.Show();
+        UI.EndScreen.SetState(false, "Game Over!");
+
+        // 4) reset for next run
+        Game.resetGameState();
+        UI.resetLevelSelection();
     }
 }

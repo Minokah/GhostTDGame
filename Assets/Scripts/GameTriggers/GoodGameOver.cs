@@ -7,6 +7,7 @@ public class GoodGameOver : MonoBehaviour
 {
 	UI UI;
 	Game Game;
+	public AudioClip GameOverSFX;
 	void Start()
     {
 		Game = Game.Get();
@@ -15,6 +16,8 @@ public class GoodGameOver : MonoBehaviour
 	
     public void WonLevel()
     {
+
+		AudioManager.Instance.PlaySFX(GameOverSFX, 0.01f);
         Game.playing = false;
 		Game.EnemySpawner.SetGameState(false);
 		UI.EndScreen.Show();
