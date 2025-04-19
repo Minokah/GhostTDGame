@@ -19,3 +19,9 @@ Note: A Save system will arrive in the final deliverable to save player progress
 - <b>Level & Tilemap Programming</b>: Hunter Terpstra
 - <b>Model Artist</b>: Ryan Chan
 - <b>Interface Icons</b>: Leen Al-Jallad
+
+Sound Effects from: 
+https://pixabay.com/sound-effects
+
+Music from:
+https://www.youtube.com/watch?v=edwooGpMg8g
