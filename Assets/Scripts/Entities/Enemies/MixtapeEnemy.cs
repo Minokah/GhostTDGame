@@ -10,6 +10,7 @@ public class MixtapeEnemy : Enemy
     private FastEffects currentFastEffect;
     public float fastRate = 1.5f;
     private bool cooldown;
+    public ParticleSystem particleSystem;
 
     void Start()
     {
@@ -36,9 +37,9 @@ public class MixtapeEnemy : Enemy
 
     private IEnumerator SpeedLoop()
     {
+        particleSystem.Play();
         cooldown = true;
         Fast();
-        Debug.Log("Mixtape running");
         yield return new WaitForSeconds(10);
         cooldown = false;
     }

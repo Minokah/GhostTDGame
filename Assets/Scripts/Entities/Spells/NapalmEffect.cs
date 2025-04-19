@@ -5,7 +5,8 @@ using UnityEngine;
 public class NapalmEffect : MonoBehaviour
 {
     public List<Enemy> enemyList = new List<Enemy>();
-    public float damage = 0.025f;
+    public float damage = 0.5f;
+    private bool pausedDamage = false;
 
     public void Start()
     {
@@ -14,14 +15,19 @@ public class NapalmEffect : MonoBehaviour
 
     public void Update()
     {
-        foreach (Enemy enemy in enemyList)
+        if(pausedDamage == false)
         {
-            if (enemy != null)
+            foreach (Enemy enemy in enemyList)
             {
-                enemy.EnemyFireDialogue();
-                enemy.Damage(damage);
+                if (enemy != null)
+                {
+                    enemy.EnemyFireDialogue();
+                    enemy.Damage(damage);
+                }
             }
         }
+        pausedDamage = true;
+        StartCoroutine(pauseBetweenDamage());
     }
 
     void OnTriggerEnter(Collider enemy)
@@ -47,5 +53,11 @@ public class NapalmEffect : MonoBehaviour
         }
         );
         yield return new WaitForSeconds(0);
+    }
+
+    IEnumerator pauseBetweenDamage()
+    {
+        yield return new WaitForSeconds(0.5f);
+        pausedDamage = false;
     }
 }

@@ -5,16 +5,30 @@ using UnityEngine;
 public class CameraEnemy : Enemy
 {
     private GameObject spawner;
+    private bool cooldown;
+    public ParticleSystem particleSystem;
+
     void Start()
     {
-        StartCoroutine(CameraLoop());
+        cooldown = false;
     }
     
+    protected override void Update()
+    {
+        base.Update();
+        if (false == cooldown)
+        {
+            StartCoroutine(CameraLoop());
+        }
+    }
+
     private IEnumerator CameraLoop()
     {
+        particleSystem.Play();
+        cooldown = true;
         Camera();
-        Debug.Log("Camera running");
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(15);
+        cooldown = false;
     }
 
     private void Camera()

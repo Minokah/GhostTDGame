@@ -313,7 +313,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   range_collider: {fileID: 0}
   attack_cooldown: 0
-  health: 10
+  health: 20
   moneyManager: {fileID: 0}
   entityId: 3
   speechBubblePrefab: {fileID: 3775669384542656839, guid: b9c54f14f05d49846a6e02d5ae0c6043, type: 3}
@@ -321,6 +321,7 @@ MonoBehaviour:
   higherDamage: 1
   specialUpgrade1: 0
   specialUpgrade2: 0
+  deathSFX: {fileID: 8300000, guid: be0aaae5f9a8be04fa04d982234094d0, type: 3}
   waypoints: []
   speed: 16
   currentWaypointIndex: 0

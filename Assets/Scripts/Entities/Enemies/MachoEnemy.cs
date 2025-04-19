@@ -9,6 +9,7 @@ public class MachoEnemy : Enemy
     public HealEffects healEffect;
     private HealEffects currentHealEffect;
     private bool cooldown;
+    public ParticleSystem particleSystem;
 
     void Start()
     {
@@ -35,9 +36,9 @@ public class MachoEnemy : Enemy
 
     private IEnumerator HealingLoop()
     {
+        particleSystem.Play();
         cooldown = true;
         Heal();
-        //Debug.Log("Healing running");
         yield return new WaitForSeconds(10);
         cooldown = false;
     }

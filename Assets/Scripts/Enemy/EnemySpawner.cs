@@ -48,8 +48,7 @@ public class EnemySpawner : MonoBehaviour
     {
         level = selectedLevel;
 		map = selectedMap;
-        maxSpawnCount = 50 + selectedMap * 30 + 20 * level;
-        maxSpawnCount = maxSpawnCount + maxSpawnCount / 4;
+        maxSpawnCount = 50 + selectedMap * 60 + 30 * level;
         spawnsTillPause = (int) Mathf.Floor(maxSpawnCount * 0.05f);
         breakCounter = spawnsTillPause;
     }
