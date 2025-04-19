@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class StatsHoverUI : MonoBehaviour
 {
-    public TMP_Text name, cost, description;
+    public TMP_Text name, description;
     public RawImage icon;
 
     public Canvas parentCanvas;
@@ -32,13 +32,13 @@ public class StatsHoverUI : MonoBehaviour
                 offset = new Vector2(0, 0);
                 break;
             case Alignment.LeftBottom:
-                offset = new Vector2(0, 325);
+                offset = new Vector2(0, 180);
                 break;
             case Alignment.RightTop:
                 offset = new Vector2(-505, 0);
                 break;
             case Alignment.RightBottom:
-                offset = new Vector2(-505, 325);
+                offset = new Vector2(-505, 180);
                 break;
         }
 

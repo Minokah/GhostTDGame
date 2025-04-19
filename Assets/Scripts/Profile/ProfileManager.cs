@@ -141,8 +141,12 @@ public class ProfileManager : MonoBehaviour
             if (type == "spells") continue;
             var cosmetics = JsonConvert.DeserializeObject<Dictionary<string, string>>(item["cosmetics"].ToString());
             var cosmComps = entry.GetComponents<ProgressionCosmetic>();
-            cosmComps[0].unlocked = cosmetics["1"] == "1";
-            cosmComps[1].unlocked = cosmetics["2"] == "1";
+            int c1State = int.Parse(cosmetics["1"]);
+            int c2State = int.Parse(cosmetics["2"]);
+            cosmComps[0].unlocked = c1State >= 1;
+            cosmComps[1].unlocked = c2State >= 1;
+            cosmComps[0].equipped = c1State == 2;
+            cosmComps[1].equipped = c2State == 2;
         }
     }
 
@@ -188,7 +192,13 @@ public class ProfileManager : MonoBehaviour
 
             var cosmetics = entry.GetComponents<ProgressionCosmetic>();
             Dictionary<string, object> cosmUpgr = new Dictionary<string, object>();
-            for (int i = 1; i != 3; i++) cosmUpgr.Add(i.ToString(), cosmetics[i - 1].unlocked == true ? "1" : "0");
+            for (int i = 1; i != 3; i++)
+            {
+                int state = 0;
+                if (cosmetics[i - 1].unlocked) state = 1;
+                if (cosmetics[i - 1].equipped) state = 2;
+                cosmUpgr.Add(i.ToString(), state.ToString());
+            }
             saveItem.Add("cosmetics", cosmUpgr);
 
             towers.Add(saveItem);

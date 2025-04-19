@@ -33,14 +33,14 @@ public class CameraModeUI : MonoBehaviour
     private void SetOverhead() {
         Game.GameplayCameraController.SetOverhead(true);
         SetColours(overheadBtn, pivotBtn);
-        infoText.text = "Top down camera to see the whole area.";
+        infoText.text = "Top down camera to see the whole area";
     }
 
     // Change to pivot camera mode
     private void SetPivot() {
         Game.GameplayCameraController.SetOverhead(false);
         SetColours(pivotBtn, overheadBtn);
-        infoText.text = "Pannable camera to get a closer view.\n WASD to pan camera in Direction.\n Hold Right-Click and Move the Mouse to zoom in-an-out.";
+        infoText.text = "[WASD] Pan camera\n[Hold RClick] Move mouse up/down to zoom";
     }
 
     // Set the colours of the buttons

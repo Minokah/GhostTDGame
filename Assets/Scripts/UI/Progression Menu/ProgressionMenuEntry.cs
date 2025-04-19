@@ -59,11 +59,12 @@ public class ProgressionMenuEntry : MonoBehaviour
             string mapText = "";
             string levelText = "";
 
-            if (entry.requireLevel <= 2) mapText = "Map1"; // 0-1
-            else if (entry.requireLevel <= 5) mapText = "Map2"; // 3-5
-            else if (entry.requireLevel <= 8) mapText = "Map3"; // 5-7
-            else if (entry.requireLevel <= 10) mapText = "Map4"; // 8-9
+            if (entry.requireLevel <= 2) mapText = "Forest"; // 0-1
+            else if (entry.requireLevel <= 5) mapText = "Falls"; // 3-5
+            else if (entry.requireLevel <= 8) mapText = "Snowlands"; // 5-7
+            else if (entry.requireLevel <= 10) mapText = "Spirit Realm"; // 8-9
 
+            /*
             if (entry.requireLevel == 1) levelText = "Level1";
             else if(entry.requireLevel == 2) levelText = "Level2";
             else if (entry.requireLevel == 3) levelText = "Level3";
@@ -74,8 +75,9 @@ public class ProgressionMenuEntry : MonoBehaviour
             else if (entry.requireLevel == 8) levelText = "Level8";
             else if (entry.requireLevel == 9) levelText = "Level9";
             else if (entry.requireLevel == 10) levelText = "Level10";
+            */
 
-            progressText.text = $"Clear All Stages of {mapText} {levelText}";
+            progressText.text = $"Clear All Stages of the {mapText}";
             button.interactable = false;
 
             // Set progress bar

@@ -40,6 +40,12 @@ public class GoodGameOver : MonoBehaviour
 		}
 		else if (Game.currentMap == 3 && Game.currentLevel == 1){
 			Game.AchievementManager.GrantAchievement("Map4");
+			
+			// Grant cosmetics for all towers
+			foreach (GameObject entry in Game.ProgressionManager.towerList.Values)
+			{
+				entry.GetComponents<ProgressionCosmetic>()[0].unlocked = true;
+			}
 		}
 		
 		// Check if new content should be unlocked

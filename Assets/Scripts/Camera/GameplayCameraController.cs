@@ -38,6 +38,12 @@ public class GameplayCameraController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) newPosition.z -= pivotMoveRate * Time.deltaTime;
         else if (Input.GetKey(KeyCode.D)) newPosition.z += pivotMoveRate * Time.deltaTime;
 
+        // Bind camera to playable area
+        if (newPosition.z < 10) newPosition.z = 10;
+        if (newPosition.z > 80) newPosition.z = 80;
+        if (newPosition.x < -30) newPosition.x = -30;
+        if (newPosition.x > 30) newPosition.x = 30;
+        
         pivotObject.transform.position = newPosition;
 
         // hold right click to pan the camera vertically

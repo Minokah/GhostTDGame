@@ -9,9 +9,9 @@ public class AchievementMenuUI : MonoBehaviour
     Game Game;
     UI UI;
     CanvasVisible canvas;
-    public GameObject contentContainer;
-    public Button closeButton;
+    public Button closeButton, stagesButton, cosmeticsButton;
     public CurrencySectionUI currency;
+    public GameObject stagesContainer, cosmeticsContainer;
 
     void Start()
     {
@@ -19,18 +19,15 @@ public class AchievementMenuUI : MonoBehaviour
         UI = UI.Get();
         canvas = GetComponent<CanvasVisible>();
         closeButton.onClick.AddListener(Hide);
+        stagesButton.onClick.AddListener(ShowStages);
+        cosmeticsButton.onClick.AddListener(ShowCosmetics);
     }
 
     public void Show()
     {
         UI.windowActive = true;
-
-        // Update everything
-        foreach (Transform item in contentContainer.transform)
-        {
-            item.GetComponent<AchievementMenuEntry>().Refresh();
-        }
-
+        
+        ShowStages();
         currency.Refresh();
         canvas.Show();
     }
@@ -39,5 +36,25 @@ public class AchievementMenuUI : MonoBehaviour
     {
         UI.Menu.Show();
         canvas.Hide();
+    }
+
+    private void ShowStages()
+    {
+        cosmeticsContainer.SetActive(false);
+        stagesContainer.SetActive(true);
+        foreach (Transform item in stagesContainer.transform)
+        {
+            item.GetComponent<AchievementMenuEntry>().Refresh();
+        }
+    }
+
+    private void ShowCosmetics()
+    {
+        stagesContainer.SetActive(false);
+        cosmeticsContainer.SetActive(true);
+        foreach (Transform item in cosmeticsContainer.transform)
+        {
+            item.GetComponent<AchievementMenuEntry>().Refresh();
+        }
     }
 }

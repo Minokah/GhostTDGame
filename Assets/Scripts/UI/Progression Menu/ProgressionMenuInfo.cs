@@ -63,7 +63,7 @@ public class ProgressionMenuInfo : MonoBehaviour
     {
         inSubMenu = true;
         menuCanvas.Hide();
-        cosmetics.Show();
+        cosmetics.Show(currentEntry);
     }
 
     public void Show(GameObject entry)

@@ -10,6 +10,7 @@ public class MenuMapSelect : MonoBehaviour
     public Button menu, back, next, one, two, three, play;
     public TMP_Text mapName, stage;
     public GameObject locked;
+    public RawImage preview;
 	
 	public Texture mapSprite1;
 	public Texture mapSprite2;
@@ -61,47 +62,47 @@ public class MenuMapSelect : MonoBehaviour
         switch (selectedMap)
         {
             case 0:
-                mapName.text = "Map 1";
-				locked.GetComponent<RawImage>().texture = mapSprite1;
+                mapName.text = "Forest";
+				preview.texture = mapSprite1;
                 if (level >= 0)
                 {
                     one.gameObject.SetActive(true);
-                    //locked.SetActive(false);
+                    locked.SetActive(false);
                     play.interactable = true;
                 }
                 if (level >= 1) two.gameObject.SetActive(true);
                 break;
             case 1:
-                mapName.text = "Map 2";
-				locked.GetComponent<RawImage>().texture = mapSprite2;
+                mapName.text = "Falls";
+                preview.texture = mapSprite2;
                 if (level >= 2)
                 {
                     one.gameObject.SetActive(true);
-                    //locked.SetActive(false);
+                    locked.SetActive(false);
                     play.interactable = true;
                 }
                 if (level >= 3) two.gameObject.SetActive(true);
                 if (level >= 4) three.gameObject.SetActive(true);
                 break;
             case 2:
-                mapName.text = "Map 3";
-				locked.GetComponent<RawImage>().texture = mapSprite3;
+                mapName.text = "Snowlands";
+                preview.texture = mapSprite3;
                 if (level >= 5)
                 {
                     one.gameObject.SetActive(true);
-                    //locked.SetActive(false);
+                    locked.SetActive(false);
                     play.interactable = true;
                 }
                 if (level >= 6) two.gameObject.SetActive(true);
                 if (level >= 7) three.gameObject.SetActive(true);
                 break;
             case 3:
-                mapName.text = "Map 4";
-				locked.GetComponent<RawImage>().texture = mapSprite4;
+                mapName.text = "Spirit Realm";
+                preview.texture = mapSprite4;
                 if (level >= 8)
                 {
                     one.gameObject.SetActive(true);
-                    //locked.SetActive(false);
+                    locked.SetActive(false);
 					play.interactable = true;
                 }
                 if (level >= 9) two.gameObject.SetActive(true);

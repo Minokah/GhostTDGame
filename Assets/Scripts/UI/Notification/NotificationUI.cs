@@ -42,7 +42,7 @@ public class NotificationUI : MonoBehaviour
                 entry.iconType = "Generic";
                 entry.iconID = "Help";
             }
-            icon.texture = Resources.Load<Texture>($"Icons/{entry.iconType}/{entry.iconID}");
+            //icon.texture = Resources.Load<Texture>($"Icons/{entry.iconType}/{entry.iconID}");
             active = true;
             time = 0;
             canvas.Show();

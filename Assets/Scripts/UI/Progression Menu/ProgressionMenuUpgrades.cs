@@ -103,6 +103,10 @@ public class ProgressionMenuUpgrades : MonoBehaviour
             upgrade2.SetMaxState(secondMax);
         }
 
+        // Update specialty text
+        if (specialty1 != null) specialty1.name.text = special1Obj.name;
+        if (specialty2 != null) specialty2.name.text = special2Obj.name;
+        
         // Only show specialties if fully maxed both upgrade trees
         if (upgrade1Obj != null && !firstMax) return;
         if (upgrade2Obj != null && !secondMax) return;
@@ -112,18 +116,14 @@ public class ProgressionMenuUpgrades : MonoBehaviour
         // Specialty Upgrade 1
         if (special1Obj != null)
         {
-            specialty1.name.text = special1Obj.name;
             specialty1.SetEquipped(special1Obj.level == 1);
-
             if (special1Obj.level == 1) specialtyDescription.text = special1Obj.description;
         }
 
         // Specialty Upgrade 2
         if (special2Obj != null)
         {
-            specialty2.name.text = special2Obj.name;
             specialty2.SetEquipped(special2Obj.level == 1);
-
             if (special2Obj.level == 1) specialtyDescription.text = special2Obj.description;
         }
     }

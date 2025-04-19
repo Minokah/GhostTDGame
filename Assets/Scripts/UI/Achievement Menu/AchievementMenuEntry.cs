@@ -33,7 +33,7 @@ public class AchievementMenuEntry : MonoBehaviour
         }
         else rewardText.text = entry.rewardName;
 
-        icon.texture = Resources.Load<Texture>($"Icons/achievements/{entry.id}");
+        //icon.texture = Resources.Load<Texture>($"Icons/achievements/{entry.id}");
 
         // No entry for reward type? Assume no reward and make it blank
         if (entry.rewardType != null && entry.rewardType != "")

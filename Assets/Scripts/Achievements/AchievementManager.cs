@@ -9,6 +9,7 @@ public class AchievementManager : MonoBehaviour
     Game Game;
     UI UI;
     public Dictionary<string, AchievementEntry> list = new Dictionary<string, AchievementEntry>();
+    public GameObject listeners;
 
     void Awake()
     {
@@ -33,17 +34,20 @@ public class AchievementManager : MonoBehaviour
     {
         // Achievement doesn't exist? Ignore
         if (!list.ContainsKey(id)) return false;
+        return GrantAchievement(list[id]);
+    }
 
-        AchievementEntry achievement = list[id];
-
+    public bool GrantAchievement(AchievementEntry entry)
+    {
         // User already has achievement? ignore
-        if (list[id].unlocked) return false;
+        if (entry.unlocked) return false;
 
         // Display ui
-        UI.NotificationUI.Display(new NotificationEntry(achievement.name, achievement.description, achievement.requireType, achievement.requireID));
+        UI.NotificationUI.Display(new NotificationEntry(entry.name, entry.description, entry.requireType, entry.requireID));
 
         // Add to achievements list
-        list[id].unlocked = true;
+        entry.unlocked = true;
+        Game.ProfileManager.Save();
 
         return true;
     }
@@ -74,9 +78,14 @@ public class AchievementManager : MonoBehaviour
     // Resets progression state for loading
     public void ResetState()
     {
-        foreach (AchievementEntry tower in list.Values)
+        foreach (AchievementEntry item in list.Values)
         {
-            tower.unlocked = false;
+            item.unlocked = false;
+        }
+
+        foreach (Transform item in listeners.transform)
+        {
+            item.gameObject.SetActive(true);
         }
     }
 }
