@@ -12,6 +12,8 @@ public class LightningSpell : BaseSpell
 
     Boolean stormEnabled = false;
 
+    public AudioClip fireSFX;
+
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -23,6 +25,8 @@ public class LightningSpell : BaseSpell
     public override void CastEffect()
     {
         float randomValue = UnityEngine.Random.Range(0f, 1f);
+        if (fireSFX != null)
+            AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
         if (stormEnabled == false || randomValue >= 0.20f)
         {
             foreach (Enemy enemy in enemyList)

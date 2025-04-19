@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellId: 1
+  fireSFX: {fileID: 8300000, guid: 7569525da028d9747a25e6d7abf05c17, type: 3}
   enemyList: []
   iceEffect: {fileID: -3417380186538689065, guid: 1ab6ef88acf2dd74ea4f218cef4bea39, type: 3}
   slowRate: 0.75

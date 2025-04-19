@@ -231,7 +231,7 @@ public class TowerPlacementManager : MonoBehaviour
                         GameObject newTower = Instantiate(towerPrefab, cellCenter + new Vector3(0f, 1f, 0f), Quaternion.identity);
 						towerList.Add(newTower);
 
-                        AudioManager.Instance.PlaySFX(placeTowerClip);
+                        AudioManager.Instance.PlaySFX(placeTowerClip, 0.01f);
                         
 						if (towerId == 0)
                         {

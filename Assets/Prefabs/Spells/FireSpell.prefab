@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellId: 0
+  fireSFX: {fileID: 8300000, guid: 656aaa3630c92904c9f6cf928aa2bdfc, type: 3}
   enemyList: []
   fireEffect: {fileID: 8942296629586742381, guid: 3216270a8cc6d9047acc915a8b8144be, type: 3}
   napalm: {fileID: -4875228722257515965, guid: 1627161d356ee11449e41b488e232241, type: 3}

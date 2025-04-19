@@ -15,6 +15,8 @@ public class IceSpell : BaseSpell
     public ChillEffect chill;
     Boolean freezeEnabled = false;
 
+    public AudioClip fireSFX;
+
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -29,6 +31,8 @@ public class IceSpell : BaseSpell
         {
             Instantiate(chill, transform.position, Quaternion.identity);
         }
+        if (fireSFX != null)
+            AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
 
         foreach (Enemy enemy in enemyList)
         {

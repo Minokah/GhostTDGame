@@ -175,6 +175,7 @@ MonoBehaviour:
   higherDamage: 1
   specialUpgrade1: 0
   specialUpgrade2: 0
+  deathSFX: {fileID: 8300000, guid: 84707f200a12a134caaa03aae59d754f, type: 3}
   waypoints: []
   speed: 8
   currentWaypointIndex: 0

@@ -6,10 +6,11 @@ public class BaseSpell : MonoBehaviour
 {
     public int spellId;
     private float higherRadius = 1f;
+     
 
     public virtual void CastEffect()
     {
-
+    
     }
 
     public void setHigherRadius(float modifier)

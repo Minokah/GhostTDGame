@@ -122,6 +122,7 @@ MonoBehaviour:
   spellId: 2
   enemyList: []
   lightningEffect: {fileID: 6033258411950783932, guid: 137f7991cbb198942b950a304ff22191, type: 3}
+  fireSFX: {fileID: 8300000, guid: bea899259eb4a7348abfbae859b41dca, type: 3}
 --- !u!1001 &7925279414483258230
 PrefabInstance:
   m_ObjectHideFlags: 0

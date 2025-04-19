@@ -122,6 +122,7 @@ MonoBehaviour:
   spellId: 3
   enemyList: []
   windEffect: {fileID: 1237920445818036546, guid: 18ac8fdcbf8485648898673fe4e554fa, type: 3}
+  fireSFX: {fileID: 8300000, guid: 59a9f04153171ef41b95b9756cef047c, type: 3}
 --- !u!1001 &4923702769370074896
 PrefabInstance:
   m_ObjectHideFlags: 0

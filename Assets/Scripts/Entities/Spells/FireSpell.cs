@@ -13,7 +13,9 @@ public class FireSpell : BaseSpell
     // for napalm upgrade
     Boolean napalmEnabled = false;
     public NapalmEffect napalm;
+    public AudioClip fireSFX;
 
+   
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -28,6 +30,8 @@ public class FireSpell : BaseSpell
         {
             Instantiate(napalm, transform.position, Quaternion.identity);
         }
+        if (fireSFX != null)
+            AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
         foreach (Enemy enemy in enemyList)
         {
             if (enemy != null)

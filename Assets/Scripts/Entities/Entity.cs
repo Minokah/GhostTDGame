@@ -26,6 +26,8 @@ public class Entity : MonoBehaviour
     public Boolean specialUpgrade1 = false;
     public Boolean specialUpgrade2 = false;
 
+    public AudioClip deathSFX;
+
 
     public void Damage(float damage, Entity attacker, Weapon damager)
     {
@@ -69,6 +71,12 @@ public class Entity : MonoBehaviour
         // Before destroying the entity, show the speech bubble.
         //Debug.Log(speechBubblePrefab);
         //&& Random.value < 0.1f
+
+        if (deathSFX != null && UnityEngine.Random.value < 0.5f)
+        {
+            AudioManager.Instance.PlaySFX(deathSFX, 0.01f);
+        }
+
         if (speechBubblePrefab != null )
         {
             float deathmessagechance = UnityEngine.Random.Range(0f, 1f);

@@ -11,6 +11,10 @@ public class BombWeapon : Weapon
     // for napalm upgrade
     public NapalmEffect napalm;
 
+     public AudioClip fireSFX;
+
+    
+
     public override void Init(Entity source_init, Entity target_init)
     {
         source = source_init;
@@ -56,7 +60,13 @@ public class BombWeapon : Weapon
                     enemy.Damage(damage * (1 + extraDamage), source, this);
                 }
             }
+
+            if (fireSFX != null)
+                AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
             Destroy(this.gameObject);
+            
+
+
         }
     }
 

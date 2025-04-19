@@ -12,6 +12,8 @@ public class WindSpell : BaseSpell
 
     Boolean kickbackEnabled = false;
 
+    public AudioClip fireSFX;
+
     public void Start()
     {
         WaitUtility.Wait(0.1f, () => {
@@ -22,6 +24,8 @@ public class WindSpell : BaseSpell
 
     public override void CastEffect()
     {
+        if (fireSFX != null)
+            AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
         foreach (Enemy enemy in enemyList)
         {
             if (enemy != null)
