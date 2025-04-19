@@ -62,6 +62,7 @@ public class Tower : Entity
             //Debug.LogFormat("tower attacked!");
             if (fireSFX != null)
                 AudioManager.Instance.PlaySFX(fireSFX, 0.01f);
+                
             // check if target has died
             // and remove from list if necessary
             if (null != targets[finalTargetNumber])

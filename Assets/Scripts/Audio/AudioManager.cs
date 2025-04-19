@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip, float volumeScale = 1f)
 {
     if (clip == null || sfxSource == null) return;
-    sfxSource.PlayOneShot(clip, volumeScale);
+        sfxSource.PlayOneShot(clip, volumeScale*10f);
 }
 
     // Called by UI slider (0…1)
