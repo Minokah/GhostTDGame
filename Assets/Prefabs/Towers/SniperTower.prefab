@@ -136,7 +136,7 @@ MonoBehaviour:
   tower_range: 10
   targ_affinity: 0
   range_visual: {fileID: 2414239603554733554, guid: 521d9f89034d5d04893d04062c99cd10, type: 3}
-  fireSFX: {fileID: 0}
+  fireSFX: {fileID: 8300000, guid: 12f2554593a51ea408dd3ff60e2d513a, type: 3}
 --- !u!82 &-7101296393754881110
 AudioSource:
   m_ObjectHideFlags: 0
