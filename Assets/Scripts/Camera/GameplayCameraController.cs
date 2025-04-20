@@ -39,8 +39,8 @@ public class GameplayCameraController : MonoBehaviour
         else if (Input.GetKey(KeyCode.D)) newPosition.z += pivotMoveRate * Time.deltaTime;
 
         // Bind camera to playable area
-        if (newPosition.z < 10) newPosition.z = 10;
-        if (newPosition.z > 80) newPosition.z = 80;
+        if (newPosition.z < 20) newPosition.z = 20;
+        if (newPosition.z > 70) newPosition.z = 70;
         if (newPosition.x < -30) newPosition.x = -30;
         if (newPosition.x > 30) newPosition.x = 30;
         
