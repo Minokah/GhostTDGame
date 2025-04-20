@@ -33,7 +33,7 @@ public class BadGameOver : MonoBehaviour
 			if	(Game.lives <= 0){
 				Game.playing = false;
 				Game.EnemySpawner.SetGameState(false);
-				AudioManager.Instance.PlaySFX(GameOverSFX, 0.01f);
+				AudioManager.Instance.PlaySFX(GameOverSFX, 0.04f);
 				
 				UI.EndScreen.Show();
 				UI.EndScreen.SetState(false, "Game Over!");
@@ -51,7 +51,7 @@ public class BadGameOver : MonoBehaviour
         Game.EnemySpawner.SetGameState(false);
 
         // 2) play the SFX (at low volume)
-        AudioManager.Instance.PlaySFX(GameOverSFX, 0.01f);
+        AudioManager.Instance.PlaySFX(GameOverSFX, 0.04f);
 
         // 3) show end screen
         UI.EndScreen.Show();
