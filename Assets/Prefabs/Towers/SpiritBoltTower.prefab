@@ -133,6 +133,7 @@ MonoBehaviour:
   higherDamage: 0
   specialUpgrade1: 0
   specialUpgrade2: 0
+  deathSFX: {fileID: 0}
   tower_range: 10
   targ_affinity: 0
   range_visual: {fileID: 2414239603554733554, guid: 521d9f89034d5d04893d04062c99cd10, type: 3}
@@ -241,6 +242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1367976876614614976}
     m_Modifications:
+    - target: {fileID: 3047186261234231699, guid: eaa0066ec3e3b9648b8eb7c86a63182f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e906285b654000c4787a096cf088d279, type: 2}
     - target: {fileID: 3551435420069693510, guid: eaa0066ec3e3b9648b8eb7c86a63182f, type: 3}
       propertyPath: m_Name
       value: TowerEmpty
