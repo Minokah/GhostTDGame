@@ -6,28 +6,20 @@ public class NapalmEffect : MonoBehaviour
 {
     public List<Enemy> enemyList = new List<Enemy>();
     public float damage = 0.5f;
-    private bool pausedDamage = false;
+    private bool cooldown;
 
     public void Start()
     {
         StartCoroutine(stopNapalm());
+        cooldown = false;
     }
 
     public void Update()
     {
-        if(pausedDamage == false)
+        if (false == cooldown)
         {
-            foreach (Enemy enemy in enemyList)
-            {
-                if (enemy != null)
-                {
-                    enemy.EnemyFireDialogue();
-                    enemy.Damage(damage);
-                }
-            }
+            StartCoroutine(NapalmLoop());
         }
-        pausedDamage = true;
-        StartCoroutine(pauseBetweenDamage());
     }
 
     void OnTriggerEnter(Collider enemy)
@@ -48,16 +40,24 @@ public class NapalmEffect : MonoBehaviour
 
     IEnumerator stopNapalm()
     {
-        WaitUtility.Wait(2, () => {
-            Destroy(this.gameObject);
-        }
-        );
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
     }
 
-    IEnumerator pauseBetweenDamage()
+    IEnumerator NapalmLoop()
     {
-        yield return new WaitForSeconds(0.5f);
-        pausedDamage = false;
+        cooldown = true;
+
+        foreach (Enemy enemy in enemyList)
+        {
+            if (enemy != null)
+            {
+                enemy.EnemyFireDialogue();
+                enemy.Damage(damage);
+            }
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        cooldown = false;
     }
 }

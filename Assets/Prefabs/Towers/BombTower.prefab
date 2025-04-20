@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: -7608233566053237510, guid: 5c56a6d7a966ed2438b64b6d09509f5c, type: 3}
   range_collider: {fileID: 7601932223960240945}
-  attack_cooldown: 2
+  attack_cooldown: 2.5
   health: 0
   moneyManager: {fileID: 0}
   entityId: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   higherDamage: 1
   specialUpgrade1: 0
   specialUpgrade2: 0
+  deathSFX: {fileID: 0}
   tower_range: 10
   targ_affinity: 0
   range_visual: {fileID: 2414239603554733554, guid: 521d9f89034d5d04893d04062c99cd10, type: 3}
