@@ -35,7 +35,7 @@ public class Game : MonoBehaviour
 	public void resetGameState(){
 		lives = 5;
 		UI.LivesPanel.UpdateCount(lives);
-		StatisticsManager.ResetLevelMoney();
+		StatisticsManager.ResetGameState();
 		SpellManager.resetSpellManager();
 		TowerPlacementManager.resetTowerPlacementManager();
 		EnemySpawner.resetEnemySpawner();

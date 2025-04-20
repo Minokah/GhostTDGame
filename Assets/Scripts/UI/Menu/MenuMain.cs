@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuMain : MonoBehaviour
 {
-    public Button quit, progression, play, achievements, credits, reset, settings;
+    public Button quit, progression, play, achievements, statistics, credits, reset, settings;
     public TMP_Text resetText;
     CanvasVisible canvas;
     UI UI;
@@ -26,6 +26,7 @@ public class MenuMain : MonoBehaviour
         play.onClick.AddListener(PlayGame);
         reset.onClick.AddListener(BeginReset);
         settings.onClick.AddListener(ShowSettings);
+        statistics.onClick.AddListener(ShowStatistics);
     }
 
     public void Show()
@@ -62,6 +63,11 @@ public class MenuMain : MonoBehaviour
     public void ShowSettings()
     {
         UI.Menu.ShowSettings();
+    }
+
+    public void ShowStatistics()
+    {
+        UI.Menu.ShowStatistics();
     }
 
     public void BeginReset()

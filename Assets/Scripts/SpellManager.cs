@@ -48,10 +48,12 @@ public class SpellManager : MonoBehaviour
 
     Boolean chargeUpgrade1 = false, chargeUpgrade2 = false;
 
+    Game Game;
     UI UI;
 
     void Start()
     {
+        Game = Game.Get();
         UI = UI.Get();
         
         // Map Progression entity to VFX Object
@@ -168,9 +170,11 @@ public class SpellManager : MonoBehaviour
                 {
                     // Instantiate the actual spell
                     GameObject newSpell = Instantiate(spellPrefab, cellCenter, Quaternion.identity);
-
+                    Game.StatisticsManager.IncrementStatistics("spellsCasted");
+                    
                     if (newSpell.GetComponent<BaseSpell>().spellId == 0)
                     {
+                        Game.StatisticsManager.IncrementStatistics("fireCasts");
                         fireUpgrades = fireProgression.GetComponents<ProgressionUpgrade>();
                         foreach (ProgressionUpgrade upgrade in fireUpgrades)
                         {
@@ -195,6 +199,7 @@ public class SpellManager : MonoBehaviour
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 1)
                     {
+                        Game.StatisticsManager.IncrementStatistics("iceCasts");
                         iceUpgrades = iceProgression.GetComponents<ProgressionUpgrade>();
                         foreach (ProgressionUpgrade upgrade in iceUpgrades)
                         {
@@ -219,6 +224,7 @@ public class SpellManager : MonoBehaviour
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 2)
                     {
+                        Game.StatisticsManager.IncrementStatistics("lightningCasts");
                         lightningUpgrades = lightningProgression.GetComponents<ProgressionUpgrade>();
                         foreach (ProgressionUpgrade upgrade in lightningUpgrades)
                         {
@@ -244,6 +250,7 @@ public class SpellManager : MonoBehaviour
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 3)
                     {
+                        Game.StatisticsManager.IncrementStatistics("windCasts");
                         windUpgrades = windProgression.GetComponents<ProgressionUpgrade>();
                         foreach (ProgressionUpgrade upgrade in windUpgrades)
                         {
@@ -268,6 +275,7 @@ public class SpellManager : MonoBehaviour
                     }
                     else if (newSpell.GetComponent<BaseSpell>().spellId == 4)
                     {
+                        Game.StatisticsManager.IncrementStatistics("timeCasts");
                         timeUpgrades = timeProgression.GetComponents<ProgressionUpgrade>();
                         foreach (ProgressionUpgrade upgrade in timeUpgrades)
                         {

@@ -84,8 +84,7 @@ public class DialogueManager : MonoBehaviour
         if (map == 0 && level == 0)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Damm! I shouldn't have knocked over the concealment spell pedestal! Now a horde of humans are coming to ruin my house.\n" +
-                "I need to start collecting different energy crystals to get the spell back up!";
+            ghostDialogue.text = "Damn! I shouldn't have knocked over the concealment spell pedestal!\nI'll need to start collecting those energy crystals before the humans arrive to ruin my house!";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -94,7 +93,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 0 && level == 1)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Okay, that's one energy crystal charged. Now I just need to charge 9 more. Hmm, for the energy I need, I might soon need to charge elsewhere for the other 8...";
+            ghostDialogue.text = "Okay, that's one energy crystal charged. Now I just need to charge 9 more.\nI'll need to look elsewhere to charge the other 8 though...";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -103,8 +102,8 @@ public class DialogueManager : MonoBehaviour
 		if (map == 1 && level == 0)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Sadly, I won't be able to charge the rest of the crystals I need in that lush forest.\n" + 
-			"Hopefully I can find some more energy here, in this Autumun enviroment.";
+            ghostDialogue.text = "As I suspected... I won't be able to charge the rest of the crystals I need in that lush forest.\n" + 
+                                 "Hopefully I can find some more energy here from this autumn environment.";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -113,7 +112,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 1 && level == 1)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "This place has a lot of good energy for my spell. I can keep charging crystals here. The only issue is that the humans seem to get more and more numerous...";
+            ghostDialogue.text = "This place has a lot of good energy for my spell.\nI can keep charging crystals here, but I'll need to watch out for the humans! They're getting more and more numerous...";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -122,7 +121,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 1 && level == 2)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Well look at that: I'm almost halfway done my spell. Once I finish here I can start looking for the last half of the energy crystals I need.";
+            ghostDialogue.text = "Well look at that: I'm almost halfway done my spell.\nOnce I finish here I can start looking for the last half of the energy crystals I need.";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -131,7 +130,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 2 && level == 0)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Brr.... This place certainly isn't warm, but it might have the frigid energy I need for some of my crystals.";
+            ghostDialogue.text = "Brrrr! Cold!\nThis place certainly isn't warm, but it might have the frigid energy I need for some of my crystals.";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -140,7 +139,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 2 && level == 1)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "These humans really are stubborn huh? They keep coming even though they are liable to freeze to death! Well, if they keep coming, I'll keep beating them.";
+            ghostDialogue.text = "Stubborn humans! Don't they care about not freezing to death!?\nWell, if they keep coming, I'll just keep beating them.";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -149,7 +148,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 2 && level == 2)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "I'm starting to get tired of the cold here. Once I get this crystal charged, I can hopefully find someplace warmer to charge the last two!";
+            ghostDialogue.text = "I'm getting tired of the cold here.\nOnce I get this crystal charged, I can hopefully find someplace warmer to charge the last two!";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -158,7 +157,7 @@ public class DialogueManager : MonoBehaviour
 		if (map == 3 && level == 0)
         {
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "This is odd, I've never seen this part of the spirit world before. Which means it just might have the energy I need for the last two crystals I need!";
+            ghostDialogue.text = "This is odd, I've never seen this part of the spirit world before.\nThis place might have the energy I need for the last two crystals I need!";
 			yield return new WaitForSeconds(10);	
 			dialoguePanel.SetActive(false);
 			runDialogue = true;
@@ -178,7 +177,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator middleDialogue()
     {
         dialoguePanel.SetActive(true);
-        ghostDialogue.text = "I'm halfway done gathering energy for a energy crystal. I just have to hold out for a bit longer...";
+        ghostDialogue.text = "I'm halfway done gathering energy for a energy crystal.\nI just have to hold out for a bit longer...";
 		yield return new WaitForSeconds(7);
 		dialoguePanel.SetActive(false);
     }
@@ -199,26 +198,25 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "Rude and nasty humans are coming to trash up your house! But don't fear, you can hire spirits who can help!\n " +
-                    "Build appropriate towers for them to inhabit by clicking and placing towers onto the open grass.";
+                tutorialDialogue.text = "Rude and nasty humans are coming to trash up your house!\nBut don't fear, you can hire spirits who can help!\n\n" + 
+                                        "Build appropriate towers for them to inhabit by clicking and placing towers onto the open grass.";
             }
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "These basic humans pose little threat, other than coming in so damm high numbers.\n" +
-                    "The spirit bolts you just hired are good overall defenders, who shoot homing bolts, so they never miss!";
+                tutorialDialogue.text = "Basic humans pose little threat, but they come in high numbers.\n" + 
+                                        "The Spirit Bolt you just hired are good overall defenders, who shoot homing bolts, so they never miss!";
             }
             if (dialogueNumber == 2)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "Spirits need soul coins to show up and do their job. You can gather more, primarily from reaping the souls of those nasty humans!\n " +
-                    "You get souls for every human you kill.";
+                tutorialDialogue.text = "Spirits need Soul Coins to show up and do their job. Reap human souls through combat to gather more!";
             }
             if (dialogueNumber == 3)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "What kind of ghost doesn't know a few magical tricks? Try out your fire spell on those pesky invaders.\n" +
-                    "Just select from the spell menu, aim, and click on the group of unlucky humans.";
+                tutorialDialogue.text =
+	                "What kind of ghost doesn't know a few magical tricks?\n\nAgi (fire) lights enemies up within a radius.\nSelect spells from the Spell Sigil, point, and click!";
             }
         }
 		
@@ -227,12 +225,14 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "Some humans are tougher than others because of something called 'steroids' or whatever. In any case, Tough enemies (in orange) have a lot more health then their basic fellows. So be careful when you see one.";
+                tutorialDialogue.text = "Some humans use human made compounds called steriods to boost their strength.\n" + 
+                                        "Tough enemies (in orange) have a lot more Health then their basic fellows. Be careful!";
             }
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Spirit Cannon shoots a shell that can hurt multiple humans at once. They don't attack too quickly and can miss, so you might need something to pick-off any stragglers.";
+                tutorialDialogue.text = "The Spirit Cannon shoots a shell that can hurt multiple humans at once.\n" + 
+                                        "They hit slow but hard, and can miss. Consider hiring a spirit to pick-off any stragglers.";
             }
         }
 		
@@ -241,7 +241,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Ice Spell slows down all humans in the targeted radius. This can come in handy, such as keeping enemies in the range of towers for longer.";
+                tutorialDialogue.text = "Bufu (ice) is a spell that slows down all humans in its radius. This can come in handy, such as keeping enemies in the range of towers for longer!";
             }
         }
 		
@@ -250,12 +250,12 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "Some humans are faster than others because of something called 'energy drinks' or whatever. In any case, Fast enemies (In Green) are really fast. Slow them down, or handle them quickly.";
+                tutorialDialogue.text = "In addition to steroids, humans may use Energy Drinks!\nFast enemies (in green) are really fast. Be sure to slow them down, or handle them quickly!";
             }
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Spirit Sniper shoots a bolt that instantly strikes their target. They attack very slowly but powerfully, so use them to take out humans that have a lot of health.";
+                tutorialDialogue.text = "The Spirit Sniper shoots a bolt that instantly strikes their target.\nSlow shooting but packs a punch, so use them to take out humans that have a lot of health.";
             }
         }
 		
@@ -264,12 +264,12 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "Ok so some humans seem to be a bit nuts... These Macho enemies(in purple) seem to strengthen the heal of their nearby allies over time. They can make even the most basic enemy dangerous, so be careful.";
+                tutorialDialogue.text = "Some humans just can't get enough...\n\nMacho enemies (in purple) strengthen the healing of their nearby allies over time. They can make even the most basic enemy dangerous, so be careful.";
             }
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Lightning Spell has less area of effect compared to the fireball, but it's much more deadly. Use it to take out any priority targets.";
+                tutorialDialogue.text = "Zio (lightning) is a spell which has less area of effect compared to Agi, but it's much more deadly.\nUse it to take out any priority targets.";
             }
         }
 		
@@ -278,12 +278,12 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The humans seem to be using gadgets called 'Balloons'... They have limited flight and can land deep behind your defenses, so take measures to catch these tresspassers (in blue).";
+                tutorialDialogue.text = "Through human advancements, they are using Balloons.\nThey have limited flight and can land deep behind your defenses, so take measures to catch these Trespassers (in blue)!";
             }
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Spirit Bubble tower slows down all enemies in its range. As a support tower, you can use it to help build defensive chokepoints.";
+                tutorialDialogue.text = "The Spirit Bubble tower slows down all enemies in its range. As a support tower, you can use it to help build defensive choke points.";
             }
         }
 		
@@ -292,7 +292,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Spirit Flood Gateway confuses humans, reducing the number of overall humans that pass onto the map, and also how fast they can organize and appear on the map. You can only have one at a time.";
+                tutorialDialogue.text = "The Spirit Flood Gateway confuses humans, reducing the number of overall humans that pass onto the map\nand how fast they can organize and appear on the map.\n\nYou can only have one at a time.";
             }
         }
 		
@@ -301,12 +301,12 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Mix-Tape Enemy (in black) seems to play these really annoying sounds they call 'music'. Somehow, these awful noises motivate nearby humans to move even faster.";
+                tutorialDialogue.text = "The Mix-Tape enemy (in black) seems to play these really annoying sounds they call Music.\nThese awful noises seem to motivate nearby humans to move faster!";
             }			
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Wind Spell flings humans backwards. Very useful in delaying those invaders, for instance.";
+                tutorialDialogue.text = "Feng (wind) is a spell that flings humans backwards. Very useful in delaying those invaders, for instance.";
             }
         }
 		
@@ -315,12 +315,12 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "Oh no! Here comes these annoying Camera or 'Influencer' enemies! Over time, these people (in yellow) can summon a lot of their fans to show up, adding to the number of invaders.";
+                tutorialDialogue.text = "Oh no! Here comes these annoying Camera or 'Influencer' enemies (in yellow)!\nOver time, these people can summon a lot of their fans to show up, adding to the number of invaders.";
             }			
             if (dialogueNumber == 1)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Time Spell will slow all humans wherever they are. It can help buy you critical time to react to the current defensive situation.";
+                tutorialDialogue.text = "Jikan (time) is a spell that slows all humans wherever they are. It can help buy you critical time to react to the current defensive situation.";
             }
         }
 		
@@ -329,7 +329,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogueNumber == 0)
             {
                 infoPanel.SetActive(true);
-                tutorialDialogue.text = "The Arcane Spirit Tower contains the best spirit researchers, who will greatly help with your spell casting, letting you cast spells more often.";
+                tutorialDialogue.text = "The Arcane Spirit Tower contains the best spirit researchers.\nThrough research, they will greatly help with your spell casting, letting you cast spells more often!";
             }			
         }
     }

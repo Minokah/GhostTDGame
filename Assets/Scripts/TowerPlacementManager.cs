@@ -58,10 +58,12 @@ public class TowerPlacementManager : MonoBehaviour
     private ProgressionUpgrade[] gateUpgrades;
     private ProgressionUpgrade[] gathererUpgrades;
     private ProgressionUpgrade[] arcaneUpgrades;
+    Game Game;
     UI UI;
 
     void Start()
     {
+        Game = Game.Get();
         UI = UI.Get();
     }
 
@@ -232,10 +234,13 @@ public class TowerPlacementManager : MonoBehaviour
 						towerList.Add(newTower);
 
                         AudioManager.Instance.PlaySFX(placeTowerClip, 0.01f);
+                        Game.StatisticsManager.IncrementStatistics("towersPlaced");
                         
 						if (towerId == 0)
                         {
+                            Game.StatisticsManager.IncrementStatistics("boltPlaced");
                             masterMoneyManager.addMoney(-15);
+                            SetTowerCosmetic(newTower, boltProgression);
 
                             boltUpgrades = boltProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in boltUpgrades)
@@ -261,8 +266,10 @@ public class TowerPlacementManager : MonoBehaviour
                         }
                         else if (towerId == 1)
                         {
+                            Game.StatisticsManager.IncrementStatistics("cannonPlaced");
                             masterMoneyManager.addMoney(-20);
-
+                            SetTowerCosmetic(newTower, bombProgression);
+                            
                             bombUpgrades = bombProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in bombUpgrades)
                             {
@@ -288,7 +295,9 @@ public class TowerPlacementManager : MonoBehaviour
 
                         else if (towerId == 2)
                         {
+                            Game.StatisticsManager.IncrementStatistics("sniperPlaced");
                             masterMoneyManager.addMoney(-20);
+                            SetTowerCosmetic(newTower, sniperProgression);
 
                             sniperUpgrades = sniperProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in sniperUpgrades)
@@ -315,7 +324,9 @@ public class TowerPlacementManager : MonoBehaviour
 
                         else if (towerId == 3)
                         {
+                            Game.StatisticsManager.IncrementStatistics("bubblePlaced");
                             masterMoneyManager.addMoney(-25);
+                            SetTowerCosmetic(newTower, bubbleProgression);
 
                             bubbleUpgrades = bubbleProgression.GetComponents<ProgressionUpgrade>();
                             foreach (ProgressionUpgrade upgrade in bubbleUpgrades)
@@ -342,7 +353,9 @@ public class TowerPlacementManager : MonoBehaviour
 
                         else if (towerId == 4)
                         {
+                            Game.StatisticsManager.IncrementStatistics("gatePlaced");
                             masterMoneyManager.addMoney(-50);
+                            SetTowerCosmetic(newTower, gateProgression);
                             UI.BuildMenu.gate.SetBuyable(BuildMenuEntry.STATUS.DISABLED);
                             gateBuilt = true;
                             newTower.GetComponent<GateTower>().reduceSpawn(1);
@@ -373,7 +386,9 @@ public class TowerPlacementManager : MonoBehaviour
 
                         else if (towerId == 5)
                         {
+                            Game.StatisticsManager.IncrementStatistics("gathererPlaced");
                             masterMoneyManager.addMoney(-50);
+                            SetTowerCosmetic(newTower, gathererProgression);
                             newTower.GetComponent<GatherTower>().moneyManager = masterMoneyManager;
                             UI.BuildMenu.gatherer.SetBuyable(BuildMenuEntry.STATUS.DISABLED);
                             gatherBuilt = true;
@@ -403,7 +418,9 @@ public class TowerPlacementManager : MonoBehaviour
 
                         else if (towerId == 6)
                         {
+                            Game.StatisticsManager.IncrementStatistics("arcanePlaced");
                             masterMoneyManager.addMoney(-50);
+                            SetTowerCosmetic(newTower, arcaneProgression);
                             UI.BuildMenu.arcane.SetBuyable(BuildMenuEntry.STATUS.DISABLED);
                             arcaneBuilt = true;
                             newTower.GetComponent<ArcaneTower>().cooldownEffect(1.5f);
@@ -573,5 +590,17 @@ public class TowerPlacementManager : MonoBehaviour
 		towerList.Clear();
 		
 		occupiedCells.Clear();
+    }
+
+    public void SetTowerCosmetic(GameObject entity, GameObject data)
+    {
+        // Set model texture (cosmetic)
+        TowerToGhostMatLink link = entity.GetComponent<TowerToGhostMatLink>();
+        int i = 1;
+        foreach (ProgressionCosmetic cosm in data.GetComponents<ProgressionCosmetic>())
+        {
+            if (cosm.equipped) link.SetMaterial(i);
+            i++;
+        }
     }
 }

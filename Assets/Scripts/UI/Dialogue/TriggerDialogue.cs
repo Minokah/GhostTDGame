@@ -17,7 +17,7 @@ public class TriggerDialogue : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Oh damm, those humans are already coming in. They're moving quicker then I expected too. I have to keep them away from my home, until I finish collecting a concealment spell charge.";
+            ghostDialogue.text = "Damn! Those humans are already coming in, and they're moving quicker than I expected too. Gotta keep them away from my home, until I finish collecting a concealment spell charge.";
             WaitUtility.Wait(7, () => { 
                 dialoguePanel.SetActive(false);
                 //this.gameObject.SetActive(true);
@@ -28,7 +28,7 @@ public class TriggerDialogue : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Hey they're starting to come pretty close... I should probably stop them before they get too close.";
+            ghostDialogue.text = "They're starting to come pretty close... I gotta stop them!";
             WaitUtility.Wait(7, () => {
                 dialoguePanel.SetActive(false);
                 //this.gameObject.SetActive(true);
@@ -40,7 +40,7 @@ public class TriggerDialogue : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             dialoguePanel.SetActive(true);
-            ghostDialogue.text = "Now they are way too close for comfort... I've got to stop them before they mess up my house!";
+            ghostDialogue.text = "They're getting way too close for comfort now! I've got to stop them!";
             WaitUtility.Wait(7, () => {
                 dialoguePanel.SetActive(false);
                 //this.gameObject.SetActive(true);

@@ -12,7 +12,7 @@ public class ProgressionMenuInfo : MonoBehaviour
     CanvasVisible canvas;
 
     // Header
-    public TMP_Text title;
+    public TMP_Text title, description;
     public RawImage icon, banner;
 
     public Button back, upgradesButton, cosmeticsButton;
@@ -21,7 +21,8 @@ public class ProgressionMenuInfo : MonoBehaviour
     public CanvasVisible menuCanvas; // "home" select menu
 
     bool inSubMenu = false;
-    GameObject currentEntry = null;
+    private GameObject currentEntry = null;
+    private GameObject previewEntry = null;
 
     void Start()
     {
@@ -63,12 +64,13 @@ public class ProgressionMenuInfo : MonoBehaviour
     {
         inSubMenu = true;
         menuCanvas.Hide();
-        cosmetics.Show(currentEntry);
+        cosmetics.Show(currentEntry, previewEntry);
     }
 
-    public void Show(GameObject entry)
+    public void Show(GameObject entry, GameObject preview)
     {
         currentEntry = entry;
+        previewEntry = preview;
 
         ProgressionEntry prog = entry.GetComponent<ProgressionEntry>();
 
@@ -84,6 +86,7 @@ public class ProgressionMenuInfo : MonoBehaviour
         // set the stuff
         title.text = prog.name;
         icon.texture = Resources.Load<Texture>($"Icons/{prog.type}/{prog.id}");
+        description.text = prog.extendedDescription;
     }
 
     public void Hide()

@@ -47,6 +47,7 @@ public class ProgressionMenuListing : MonoBehaviour
 
     public void SwitchType()
     {
+        StopSpellChange();
         mode = !mode;
         if (!mode) ShowTowers();
         else ShowSpells();

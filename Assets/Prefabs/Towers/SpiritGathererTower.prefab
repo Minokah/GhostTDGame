@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7601932223960240945}
   - component: {fileID: -5564916938281453709}
   - component: {fileID: 6598208923880466406}
+  - component: {fileID: 7150519649231235459}
   m_Layer: 6
   m_Name: SpiritGathererTower
   m_TagString: Untagged
@@ -232,6 +233,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7150519649231235459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484781627512263482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08376e270e1ac134fa6ca450424102e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 5344165716340331401}
+  defaultMat: {fileID: 2100000, guid: 361367841cbe8674f85f8f5064bf0eaa, type: 2}
+  cosmetic1Mat: {fileID: 2100000, guid: 9e615aa8d00ced74c81bb698f556b7f6, type: 2}
+  cosmetic2Mat: {fileID: 2100000, guid: 54c2146e560fa924197e2896e547048a, type: 2}
 --- !u!1001 &8386174971060094634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,6 +310,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa0066ec3e3b9648b8eb7c86a63182f, type: 3}
+--- !u!23 &5344165716340331401 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4488936350401582371, guid: eaa0066ec3e3b9648b8eb7c86a63182f, type: 3}
+  m_PrefabInstance: {fileID: 8386174971060094634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5648436055406400598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4180161918860710652, guid: eaa0066ec3e3b9648b8eb7c86a63182f, type: 3}

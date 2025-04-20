@@ -15,6 +15,7 @@ public class ProgressionMenuUI : MonoBehaviour
     public ProgressionMenuListing listing;
     public ProgressionMenuInfo info;
     public GameObject camera;
+    private GameObject previousCamera;
 
     void Start()
     {
@@ -24,11 +25,14 @@ public class ProgressionMenuUI : MonoBehaviour
         closeButton.onClick.AddListener(Hide);
     }
 
-    public void ShowInformation(GameObject entry)
+    public void ShowInformation(GameObject entry, GameObject preview, GameObject nowCamera)
     {
+        if (previousCamera != null) previousCamera.SetActive(false);
+        previousCamera = nowCamera;
+        nowCamera.SetActive(true);
         camera.SetActive(false);
         listing.Hide();
-        info.Show(entry);
+        info.Show(entry, preview);
     }
 
     // Shows the main menu listing
@@ -46,7 +50,8 @@ public class ProgressionMenuUI : MonoBehaviour
     {
         // If the user is selecting a spell, go back to the default mode
         UI.ProgressionMenu.listing.StopSpellChange();
-
+        if (previousCamera != null) previousCamera.SetActive(false);
+        previousCamera = null;
         camera.SetActive(true);
         UI.Menu.Show();
         canvas.Hide();

@@ -7,7 +7,7 @@ public class ProgressionMenuEntry : MonoBehaviour
     Game Game;
     UI UI;
     Button button;
-    public GameObject entry, previewCamera;
+    public GameObject entry, previewEntry, previewCamera;
     public TMP_Text name, description, progressText;
     public RectTransform progressBar;
     public RawImage icon;
@@ -27,11 +27,7 @@ public class ProgressionMenuEntry : MonoBehaviour
         {
             UI.ProgressionMenu.listing.ChangeSpell(entry);
         }
-        else
-        {
-            if (previewCamera != null) previewCamera.SetActive(true);
-            UI.ProgressionMenu.ShowInformation(entry);
-        }
+        else UI.ProgressionMenu.ShowInformation(entry, previewEntry, previewCamera);
     }
 
     // Refresh this entry's info
@@ -44,6 +40,15 @@ public class ProgressionMenuEntry : MonoBehaviour
         icon.texture = Resources.Load<Texture>($"Icons/{entry.type}/{entry.id}");
 
         int level = Game.ProgressionManager.GetPlayerLevel();
+        
+        // Set model texture (cosmetic)
+        TowerToGhostMatLink link = previewEntry.GetComponent<TowerToGhostMatLink>();
+        int i = 1;
+        foreach (ProgressionCosmetic cosm in entry.GetComponents<ProgressionCosmetic>())
+        {
+            if (cosm.equipped) link.SetMaterial(i);
+            i++;
+        }
 
         // Level met? Show "View Entry" instead
         if (level >= entry.requireLevel)
@@ -59,25 +64,25 @@ public class ProgressionMenuEntry : MonoBehaviour
             string mapText = "";
             string levelText = "";
 
-            if (entry.requireLevel <= 2) mapText = "Forest"; // 0-1
-            else if (entry.requireLevel <= 5) mapText = "Falls"; // 3-5
-            else if (entry.requireLevel <= 8) mapText = "Snowlands"; // 5-7
-            else if (entry.requireLevel <= 10) mapText = "Spirit Realm"; // 8-9
+            if (entry.requireLevel <= 2) {
+                mapText = "Forest"; // 0-1
+                levelText = entry.requireLevel.ToString();
+            }
+            else if (entry.requireLevel <= 5) {
+                mapText = "Falls"; // 3-5
+                levelText = (entry.requireLevel - 2).ToString();
+            }
+            else if (entry.requireLevel <= 8) {
+                mapText = "Snowlands"; // 5-7
+                levelText = (entry.requireLevel - 5).ToString();
+            }
+            else if (entry.requireLevel <= 10)
+            {
+                mapText = "Spirit Realm"; // 8-9
+                levelText = (entry.requireLevel - 8).ToString();
+            }
 
-            /*
-            if (entry.requireLevel == 1) levelText = "Level1";
-            else if(entry.requireLevel == 2) levelText = "Level2";
-            else if (entry.requireLevel == 3) levelText = "Level3";
-            else if (entry.requireLevel == 4) levelText = "Level4";
-            else if (entry.requireLevel == 5) levelText = "Level5";
-            else if (entry.requireLevel == 6) levelText = "Level6";
-            else if (entry.requireLevel == 7) levelText = "Level7";
-            else if (entry.requireLevel == 8) levelText = "Level8";
-            else if (entry.requireLevel == 9) levelText = "Level9";
-            else if (entry.requireLevel == 10) levelText = "Level10";
-            */
-
-            progressText.text = $"Clear All Stages of the {mapText}";
+            progressText.text = $"Clear Stage {levelText} of the {mapText}";
             button.interactable = false;
 
             // Set progress bar

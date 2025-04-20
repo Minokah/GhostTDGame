@@ -135,33 +135,41 @@ public class Entity : MonoBehaviour
 
     protected void MoneyOnKill()
     {
-        if (entityId == 1)
+        moneyManager.IncrementStatistics("totalKills");
+        
+        if (entityId == 1) // Basic enemy
         {
-            Debug.Log("Enemy Killed");
+            moneyManager.IncrementStatistics("basicKills");
             moneyManager.addMoney(1);
         }
-        else if (entityId == 2)
+        else if (entityId == 2) // Tough
         {
+            moneyManager.IncrementStatistics("toughKills");
             moneyManager.addMoney(2);
         }
-        else if (entityId == 3)
+        else if (entityId == 3) // Fast
         {
+            moneyManager.IncrementStatistics("fastKills");
             moneyManager.addMoney(2);
         }
-        else if (entityId == 4)
+        else if (entityId == 4) // Macho
         {
+            moneyManager.IncrementStatistics("machoKills");
             moneyManager.addMoney(2);
         }
-        else if (entityId == 5)
+        else if (entityId == 5) // Balloon
         {
+            moneyManager.IncrementStatistics("balloonKills");
             moneyManager.addMoney(2);
         }
-        else if (entityId == 6)
+        else if (entityId == 6) // Mixtape
         {
+            moneyManager.IncrementStatistics("mixtapeKills");
             moneyManager.addMoney(2);
         }
-        else if (entityId == 7)
+        else if (entityId == 7) // Camera
         {
+            moneyManager.IncrementStatistics("cameraKills");
             moneyManager.addMoney(2);
         }
     }

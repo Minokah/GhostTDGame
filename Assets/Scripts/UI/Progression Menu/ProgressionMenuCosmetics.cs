@@ -10,6 +10,8 @@ public class ProgressionMenuCosmetics : MonoBehaviour
     CanvasVisible canvas;
 
     private ProgressionCosmetic cosmetic1, cosmetic2;
+    private GameObject currentEntry = null;
+    private GameObject previewEntry = null;
 
     void Start()
     {
@@ -19,8 +21,10 @@ public class ProgressionMenuCosmetics : MonoBehaviour
         cosmetic2Button.onClick.AddListener(EquipSecond);
     }
 
-    public void Show(GameObject entry)
+    public void Show(GameObject entry, GameObject preview)
     {
+        currentEntry = entry;
+        previewEntry = preview;
         cosmetic1Button.interactable = false;
         cosmetic2Button.interactable = false;
         
@@ -47,11 +51,24 @@ public class ProgressionMenuCosmetics : MonoBehaviour
             cosmetic2Button.interactable = true;
             cosmetic2Icon.texture = Resources.Load<Texture>($"Icons/cosmetics/{cosmetic2.id}");
         }
-        
-        
-        if (cosmetic1.equipped) cosmetic1Button.GetComponent<CanvasGroup>().alpha = 1f;
-        else if (cosmetic2.equipped) cosmetic2Button.GetComponent<CanvasGroup>().alpha = 1f;
-        else defaultButton.GetComponent<CanvasGroup>().alpha = 1f;
+        else cosmetic2Icon.texture = Resources.Load<Texture>($"Icons/generic/lock");
+
+        TowerToGhostMatLink link = previewEntry.GetComponent<TowerToGhostMatLink>();
+        if (cosmetic1.equipped)
+        {
+            cosmetic1Button.GetComponent<CanvasGroup>().alpha = 1f;
+            link.SetMaterial(1);
+        }
+        else if (cosmetic2.equipped)
+        {
+            cosmetic2Button.GetComponent<CanvasGroup>().alpha = 1f;
+            link.SetMaterial(2);
+        }
+        else
+        {
+            defaultButton.GetComponent<CanvasGroup>().alpha = 1f;
+            link.SetMaterial(0);
+        }
         canvas.Show();
     }
 
@@ -82,6 +99,8 @@ public class ProgressionMenuCosmetics : MonoBehaviour
         cosmetic2Button.GetComponent<CanvasGroup>().alpha = 0.6f;
         cosmetic1.equipped = false;
         cosmetic2.equipped = false;
+
+        TowerToGhostMatLink link = previewEntry.GetComponent<TowerToGhostMatLink>();
         
         if (which == 0) defaultButton.GetComponent<CanvasGroup>().alpha = 1f;
         else if (which == 1)
@@ -94,6 +113,7 @@ public class ProgressionMenuCosmetics : MonoBehaviour
             cosmetic2Button.GetComponent<CanvasGroup>().alpha = 1f;
             cosmetic2.equipped = true;
         }
+        link.SetMaterial(which);
 
         Game.Get().ProfileManager.Save();
     }

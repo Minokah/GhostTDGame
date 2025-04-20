@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TestProfileLoader : MonoBehaviour
 {
     Game Game;
-    public TMP_Text text, status;
     public Button loadButton, saveButton;
 
     // Start is called before the first frame update
@@ -22,13 +21,10 @@ public class TestProfileLoader : MonoBehaviour
     void Load()
     {
         Game.ProfileManager.Load();
-        text.text = $"Active profile:\n{Game.ProfileManager.playerName}";
-        status.text = "loaded!";
     }
 
     void Save()
     {
         Game.ProfileManager.Save();
-        status.text = "saved!";
     }
 }

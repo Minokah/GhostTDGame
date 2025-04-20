@@ -9,6 +9,7 @@ public class MenuUI : MonoBehaviour
     public MenuMain main;
     public MenuMapSelect mapSelect;
     public MenuCredits credits;
+    public MenuStatistics statistics;
 
     //make this settings
     public MenuSettings settings;
@@ -29,6 +30,7 @@ public class MenuUI : MonoBehaviour
         credits.Hide();
         settings.Hide();
         mapSelect.Hide();
+        statistics.Hide();
         camera.SetActive(true);
         canvas.Show();
     }
@@ -54,8 +56,13 @@ public class MenuUI : MonoBehaviour
         main.Hide();
         settings.Show();
     }
-    
 
+    public void ShowStatistics()
+    {
+        main.Hide();
+        statistics.Show();
+    }
+    
     public void Play(int map, int stage)
     {
         Game.playing = true;
@@ -71,7 +78,6 @@ public class MenuUI : MonoBehaviour
 		Game.DialogueManager.triggerLevelDialogue(map, stage);
 
         Game.LevelManager.loadMap(map);
-
 
 		UI.CameraPanel.Show();
 		UI.LivesPanel.Show();
